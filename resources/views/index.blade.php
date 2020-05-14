@@ -99,9 +99,6 @@
             </a>
          </div>
          <!-- Slide end -->
-         <div class="col-sm bg-secondary">
-            One of three columns
-         </div>
          <!-- Content -->
          <div class="container">
             <div class="card-deck mt-4 mb-4">
