@@ -4,7 +4,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- Styles -->
-      <link href="{{asset('css/app.css')}}" rel="stylesheet">
+      <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
+      <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
       <!-- Scripts -->
       <!-- <script src="{{asset('js/app.js')}}" defer></script> -->
       <title>Laravel</title>
@@ -208,7 +209,12 @@
                      </div>
                      <div class="col-sm">
                         <div class="row">
-                           <p>redes sociais</p>
+                            <ul>
+                                <li><a href="http://"><i class="fab fa-facebook-square"></i></a></li>
+                                <li><a href="http://"><i class="fab fa-twitter-square"></i></a></li>
+                                <li><a href="http://"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="http://"><i class="fab fa-youtube"></i></a></li>
+                            </ul>
                         </div>
                      </div>
                   </div>
