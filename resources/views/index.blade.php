@@ -46,7 +46,7 @@
          <div class="navbar p-1" style="background:#b08bbe;">
             <span class="w-100 text-center text-light">FRIENDS & FANATICS IS HAPPENING! Get 25% OFF + free ship. Spend $60 and get a free gift. Code: FRIENDS25</span>
          </div>
-         <nav class="navbar sticky-top navbar-expand-lg navbar-dark d-none d-lg-block pt-0 pb-0" style="background:#2c1b47;border-bottom: solid 1px rgba(157, 111, 174, .3);">
+         <nav class="navbar sticky-top navbar-expand-md navbar-dark d-none d-md-block pt-0 pb-0" style="background:#2c1b47;border-bottom: solid 1px rgba(157, 111, 174, .3);">
             <div class="collapse navbar-collapse" id="navbarText">
                <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
@@ -74,12 +74,12 @@
                </span>
             </div>
          </nav>
-         <div class="navbar navbar-light justify-content-between d-none d-lg-block p-lg-0" style="background:#2c1b47">
+         <div class="navbar navbar-light justify-content-between d-none d-md-block p-md-0" style="background:#2c1b47">
             <div class="row">
                <div class="col-4">
                   <!--  -->
                </div>
-               <div class="col-lg-4 col-sm-12 text-center">
+               <div class="col-md-4 col-12 text-center">
                   <a href="/iluminatta"><h1>Iluminatta</h1></a>
                </div>
                <div class="col-4">
@@ -90,9 +90,9 @@
                </div>
             </div>
          </div>
-         <div class="navbar sticky-top navbar-expand-lg navbar-dark pt-0 pb-0 m-0" id="menuItens" style="background:#2c1b47;">
-            <div class="row w-100 p-0 m-0 d-sm-none d-block">
-               <div class="col-9 d-sm-none d-block float-left">
+         <div class="navbar sticky-top navbar-expand-md navbar-dark pt-0 pb-0 m-0" id="menuItens" style="background:#2c1b47;">
+            <div class="row w-100 p-0 m-0 d-md-none d-block">
+               <div class="col-9 d-md-none d-block float-left">
                      <a href="/iluminatta"><h1 class="mt-1">Iluminatta</h1></a>
                </div>
                <div class="col-3 float-right mt-3">
@@ -115,7 +115,7 @@
          </div>
          <!-- header end -->
          <!-- Slider -->
-         <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
+         <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                <div class="carousel-item active">
                   <img class="d-block w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dw15c39db0/images/homepage/hero-slider/25PercentOFF_ANSS_ONS_M1.jpg?sw=1680&sh=750&sm=fit&q=70" alt="First slide">
@@ -124,11 +124,11 @@
                      <img class="d-block w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dwb3a6b667/images/homepage/M5/CodeFriends_25_GWP_ONS_M1_CHOICE.jpg?sw=1680&sh=750&sm=fit&q=70" alt="First slide">
                </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselExampleControls1" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
             </a>
@@ -172,7 +172,7 @@
          </div>
          <!-- Content end -->
          <!-- Slider -->
-         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+         <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                <div class="carousel-item active">
                   <img class="d-block w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dwb3a6b667/images/homepage/M5/CodeFriends_25_GWP_ONS_M1_CHOICE.jpg?sw=1680&sh=750&sm=fit&q=70" alt="Second slide">
@@ -181,11 +181,11 @@
                   <img class="d-block w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dw15c39db0/images/homepage/hero-slider/25PercentOFF_ANSS_ONS_M1.jpg?sw=1680&sh=750&sm=fit&q=70" alt="First slide">
                </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
             </a>
