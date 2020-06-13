@@ -6,12 +6,16 @@
       <!-- Styles -->
       <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
       <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
+
       <!-- Scripts -->
       <!-- <script src="{{asset('js/app.js')}}" defer></script> -->
       <title>Laravel</title>
       <!-- Fonts -->
       <link href="https://fonts.googleapis.com/css?family=Nunito:200,600&Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
       <style>
+         a {
+            text-decoration: none !important;
+         }
          ul {
             list-style: none;
          }
@@ -39,7 +43,7 @@
    <body>
       <div class="flex-center position-ref full-height bg-white">
          <!-- header -->
-         <div class="navbar" style="background:#b08bbe;">
+         <div class="navbar p-1" style="background:#b08bbe;">
             <span class="w-100 text-center text-light">FRIENDS & FANATICS IS HAPPENING! Get 25% OFF + free ship. Spend $60 and get a free gift. Code: FRIENDS25</span>
          </div>
          <nav class="navbar sticky-top navbar-expand-lg navbar-dark d-none d-lg-block pt-0 pb-0" style="background:#2c1b47;border-bottom: solid 1px rgba(157, 111, 174, .3);">
@@ -52,7 +56,7 @@
                      <a class="nav-link" href="#">Store Locator</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Sign Up for Email Newsletter</a>
+                     <a class="nav-link" href="home">Sign Up for Email Newsletter</a>
                   </li>
                </ul>
                <span class="navbar-text p-0">
@@ -61,7 +65,7 @@
                         <a class="nav-link" href="#">USA</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="#">Sign in / Register</a>
+                     <a class="nav-link" href="home">Sign in / Register</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="#">Carrinho</a>
@@ -70,25 +74,33 @@
                </span>
             </div>
          </nav>
-         <div class="navbar navbar-light justify-content-between d-none d-lg-block" style="background:#2c1b47">
+         <div class="navbar navbar-light justify-content-between d-none d-lg-block p-lg-0" style="background:#2c1b47">
             <div class="row">
-            <div class="col-4">
-            </div>
-            <div class="col-4 text-center">
-               <h1>Iluminatta</h1>
-            </div>
-            <div class="col-4">
-               <form class="form-inline mt-2">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-               </form>   
-            </div>
+               <div class="col-4">
+                  <!--  -->
+               </div>
+               <div class="col-lg-4 col-sm-12 text-center">
+                  <a href="/iluminatta"><h1>Iluminatta</h1></a>
+               </div>
+               <div class="col-4">
+                  <form class="form-inline mt-3 float-right w-75">
+                     <input class="form-control mr-sm-2 w-100" type="search" placeholder="Search" aria-label="Search">
+                     <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+                  </form>   
+               </div>
             </div>
          </div>
-         <div class="navbar sticky-top navbar-expand-lg navbar-dark" id="menuItens" style="background:#2c1b47">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
+         <div class="navbar sticky-top navbar-expand-lg navbar-dark pt-0 pb-0 m-0" id="menuItens" style="background:#2c1b47;">
+            <div class="row w-100 p-0 m-0 d-sm-none d-block">
+               <div class="col-9 d-sm-none d-block float-left">
+                     <a href="/iluminatta"><h1 class="mt-1">Iluminatta</h1></a>
+               </div>
+               <div class="col-3 float-right mt-3">
+                  <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                  </button>
+               </div>
+            </div>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                <ul class="navbar-nav">
                   <li><a class="nav-item nav-link active" href="#"><i class="fa fa-bars" aria-hidden="true"></i> SHOP <span class="sr-only">(current)</span></a></li>
@@ -103,9 +115,69 @@
          </div>
          <!-- header end -->
          <!-- Slider -->
+         <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <img class="d-block w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dw15c39db0/images/homepage/hero-slider/25PercentOFF_ANSS_ONS_M1.jpg?sw=1680&sh=750&sm=fit&q=70" alt="First slide">
+                  </div>
+                  <div class="carousel-item">
+                     <img class="d-block w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dwb3a6b667/images/homepage/M5/CodeFriends_25_GWP_ONS_M1_CHOICE.jpg?sw=1680&sh=750&sm=fit&q=70" alt="First slide">
+               </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+            </a>
+         </div>
+         <!-- Slide end -->
+         <!-- Content -->
+         <div class="container">
+            <div class="card-deck mt-4 mb-4">
+               <h2 class="w-100 m-2 text-center">DESTAQUES</h2>
+               <div class="card border-0">
+                  <a href="details">
+                  <img class="card-img-top" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-master-catalog/default/dw064a1845/ProductImages/Sets/2020%20Sets/Urban-Decay-Makeup-Sets-Stay-Naked-All-Nighter-Face-Primer.jpg?sw=250&sh=250&sm=fit&q=70" alt="Card image cap">
+                  </a>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                     <p class="card-text">$22</p>
+                  </div>
+               </div>
+               <div class="card border-0">
+                  <a href="details">
+                  <img class="card-img-top" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-master-catalog/default/dw064a1845/ProductImages/Sets/2020%20Sets/Urban-Decay-Makeup-Sets-Stay-Naked-All-Nighter-Face-Primer.jpg?sw=250&sh=250&sm=fit&q=70" alt="Card image cap">
+                  </a>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                     <p class="card-text">$39</p>
+                  </div>
+               </div>
+               <div class="card border-0">
+                  <a href="details">
+                  <img class="card-img-top" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-master-catalog/default/dw064a1845/ProductImages/Sets/2020%20Sets/Urban-Decay-Makeup-Sets-Stay-Naked-All-Nighter-Face-Primer.jpg?sw=250&sh=250&sm=fit&q=70" alt="Card image cap">
+                  </a>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                     <p class="card-text">$19</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Content end -->
+         <!-- Slider -->
          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                <div class="carousel-item active">
+                  <img class="d-block w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dwb3a6b667/images/homepage/M5/CodeFriends_25_GWP_ONS_M1_CHOICE.jpg?sw=1680&sh=750&sm=fit&q=70" alt="Second slide">
+               </div>
+               <div class="carousel-item">
                   <img class="d-block w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dw15c39db0/images/homepage/hero-slider/25PercentOFF_ANSS_ONS_M1.jpg?sw=1680&sh=750&sm=fit&q=70" alt="First slide">
                </div>
             </div>
@@ -122,62 +194,8 @@
          <!-- Content -->
          <div class="container">
             <div class="card-deck mt-4 mb-4">
-               <h2 class="w-100 m-2 text-center">WHAT'S TRENDING</h2>
                <div class="card border-0">
-                  <a href="http://">
-                  <img class="card-img-top" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-master-catalog/default/dw064a1845/ProductImages/Sets/2020%20Sets/Urban-Decay-Makeup-Sets-Stay-Naked-All-Nighter-Face-Primer.jpg?sw=250&sh=250&sm=fit&q=70" alt="Card image cap">
-                  </a>
-                  <div class="card-body">
-                     <h5 class="card-title">Card title</h5>
-                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                     <p class="card-text">$22</p>
-                  </div>
-               </div>
-               <div class="card border-0">
-                  <a href="http://">
-                  <img class="card-img-top" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-master-catalog/default/dw064a1845/ProductImages/Sets/2020%20Sets/Urban-Decay-Makeup-Sets-Stay-Naked-All-Nighter-Face-Primer.jpg?sw=250&sh=250&sm=fit&q=70" alt="Card image cap">
-                  </a>
-                  <div class="card-body">
-                     <h5 class="card-title">Card title</h5>
-                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                     <p class="card-text">$39</p>
-                  </div>
-               </div>
-               <div class="card border-0">
-                  <a href="http://">
-                  <img class="card-img-top" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-master-catalog/default/dw064a1845/ProductImages/Sets/2020%20Sets/Urban-Decay-Makeup-Sets-Stay-Naked-All-Nighter-Face-Primer.jpg?sw=250&sh=250&sm=fit&q=70" alt="Card image cap">
-                  </a>
-                  <div class="card-body">
-                     <h5 class="card-title">Card title</h5>
-                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                     <p class="card-text">$19</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- Content end -->
-         <!-- Slider -->
-         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-               <div class="carousel-item active">
-                  <img class="d-block w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dwb3a6b667/images/homepage/M5/CodeFriends_25_GWP_ONS_M1_CHOICE.jpg?sw=1680&sh=750&sm=fit&q=70" alt="First slide">
-               </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-            </a>
-         </div>
-         <!-- Slide end -->
-         <!-- Content -->
-         <div class="container">
-            <div class="card-deck mt-4 mb-4">
-               <div class="card border-0">
-                  <a href="http://">
+                  <a href="details">
                   <img class="rounded-circle w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dwc92530df/loyalty/loyalty-homepage-slot.jpg?sw=340&sh=340&sm=fit&q=70" alt="Card image cap">
                   </a>
                   <div class="card-body">
@@ -187,7 +205,7 @@
                   </div>
                </div>
                <div class="card border-0">
-                  <a href="http://">
+                  <a href="details">
                   <img class="rounded-circle w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dwc96c0716/images/homepage/G2/UDAllAccess_G123_110515.jpg?sw=340&sh=340&sm=fit&q=70" alt="Card image cap">
                   </a>
                   <div class="card-body">
@@ -197,7 +215,7 @@
                   </div>
                </div>
                <div class="card border-0">
-                  <a href="http://">
+                  <a href="details">
                   <img class="card-img-top" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dw55235f2f/images/homepage/G3/UVEdge_G3_030815.jpg?sw=340&sh=340&sm=fit&q=70" alt="Card image cap">
                   </a>
                   <div class="card-body">
@@ -216,9 +234,9 @@
                   <div class="row">
                      <div class="col-sm">
                         <div class="row">
-                           <form class="form-inline mb-3">
-                              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Assinar</button>
+                           <form class="form-inline mb-3 w-50">
+                              <input class="form-control mr-sm-2 w-100" type="search" placeholder="Enter your e-mail" aria-label="Search">
+                              <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Assinar</button> -->
                            </form>
                         </div>
                         <div class="row">
