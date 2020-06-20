@@ -87,7 +87,7 @@
                     <!--  -->
                 </div>
                 <div class="col-md-4 col-12 text-center">
-                    <a href="/iluminatta"><h1>Iluminatta</h1></a>
+                    <a href="/ilumi"><h1>Iluminatta</h1></a>
                 </div>
                 <div class="col-4">
                     <form class="form-inline mt-3 float-right w-75">
