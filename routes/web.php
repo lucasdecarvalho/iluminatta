@@ -16,9 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/details', function () {
-    return view('details');
-});
+
+Route::get('/details', 'DetailsController@index')->name('details');
 
 Auth::routes();
 
