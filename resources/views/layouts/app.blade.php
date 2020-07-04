@@ -69,7 +69,7 @@
                 <span class="navbar-text p-0">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                        <a class="nav-link" href="#">USA</a>
+                        <a class="nav-link" href="#">{{ Auth::user()->name ?? null }}</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="home">Sign in / Register</a>
