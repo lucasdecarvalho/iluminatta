@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 
    <!-- teste começo -->
@@ -22,7 +21,7 @@
                   
                </div>
                <div class="details col-md-6">
-                  <h3 class="product-title">men's shoes fashion</h3>
+                  <h3 class="product-title">{{ $product->name ?? null }}</h3>
                   <!-- <div class="rating">
                      <div class="stars">
                         <span class="fa fa-star checked"></span>
@@ -33,9 +32,9 @@
                      </div>
                      <span class="review-no">41 reviews</span>
                   </div> -->
-                  <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
-                  <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
-                  <h4 class="price">current price: <span>$180</span></h4>
+                  <p class="product-description">{{ $product->caption ?? null }}</p>
+                  <p class="product-description">{{ $product->details ?? null }}</p>
+                  <h4 class="price"><span>R$ {{ $product->price ?? null }}</span></h4>
                   <!-- <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> -->
                   <!-- <h5 class="sizes">sizes:
                      <span class="size" data-toggle="tooltip" title="small">s</span>
