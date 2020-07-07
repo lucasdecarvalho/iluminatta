@@ -23,10 +23,34 @@
     </div>
 @endif
    
-<form action="{{ route('products.store') }}" method="POST">
+<form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
   
      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Imagem 1:</strong>
+                <input id="file-upload" type="file" name="fileUpload1" accept="image/*" onchange="readURL(this);">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Imagem 2:</strong>
+                <input id="file-upload" type="file" name="fileUpload2" accept="image/*" onchange="readURL(this);">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Imagem 3:</strong>
+                <input id="file-upload" type="file" name="fileUpload3" accept="image/*" onchange="readURL(this);">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Imagem 4:</strong>
+                <input id="file-upload" type="file" name="fileUpload4" accept="image/*" onchange="readURL(this);">
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>

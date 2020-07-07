@@ -30,7 +30,7 @@
 
          <div class="card border-0">
             <a href="{{ route('details',$product->id) }}">
-            <img class="card-img-top" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-master-catalog/default/dw064a1845/ProductImages/Sets/2020%20Sets/Urban-Decay-Makeup-Sets-Stay-Naked-All-Nighter-Face-Primer.jpg?sw=250&sh=250&sm=fit&q=70" alt="Card image cap">
+            <img class="card-img-top" src="{{ asset($product->image1) }}" alt="{{ $product->name ?? null }}">
             </a>
             <div class="card-body">
                <h5 class="card-title">{{ $product->name ?? null }}</h5>

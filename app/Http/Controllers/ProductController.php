@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
 use Illuminate\Http\Request;
+use Validator,Redirect,Response,File;
+use App\Product;
 
 class ProductController extends Controller
 {
@@ -38,15 +39,74 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        
+        // começo
+
         $request->validate([
             'name' => 'required',
             'price' => 'required',
-        ]);
-  
-        Product::create($request->all());
+            'fileUpload1' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'fileUpload2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'fileUpload3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'fileUpload4' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+       ]);
+
+       if ($files = $request->file('fileUpload1')) {
+           $destinationPath = 'images/'; // upload path
+           $profileImage1 = date('YmdHis') . "1." . $files->getClientOriginalExtension();
+           $files->move($destinationPath, $profileImage1);
+           $image1 = $destinationPath.$profileImage1;
+        }
+        else {
+            $image1 = null;
+        }
+
+       if ($files = $request->file('fileUpload2')) {
+           $destinationPath = 'images/'; // upload path
+           $profileImage2 = date('YmdHis') . "2." . $files->getClientOriginalExtension();
+           $files->move($destinationPath, $profileImage2);
+           $image2 = $destinationPath.$profileImage2;
+        }
+        else {
+            $image2 = null;
+        }
+
+       if ($files = $request->file('fileUpload3')) {
+           $destinationPath = 'images/'; // upload path
+           $profileImage3 = date('YmdHis') . "3." . $files->getClientOriginalExtension();
+           $files->move($destinationPath, $profileImage3);
+           $image3 = $destinationPath.$profileImage3;
+        }
+        else {
+            $image3 = null;
+        }
+
+       if ($files = $request->file('fileUpload4')) {
+           $destinationPath = 'images/'; // upload path
+           $profileImage4 = date('YmdHis') . "4." . $files->getClientOriginalExtension();
+           $files->move($destinationPath, $profileImage4);
+           $image4 = $destinationPath.$profileImage4;
+        }
+        else {
+            $image4 = null;
+        }
+        
+        $data = [
+            'name'  => $request->name,
+            'price' => $request->price,
+            'image1' => $image1,
+            'image2' => $image2,
+            'image3' => $image3,
+            'image4' => $image4,
+        ];
+        
+        // fim
+
+        Product::create($data);
    
         return redirect()->route('products.index')
                         ->with('success','Product created successfully.');
+
     }
 
     /**

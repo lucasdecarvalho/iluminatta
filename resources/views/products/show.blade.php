@@ -24,5 +24,17 @@
                 {{ $product->details }}
             </div>
         </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Fotos:</strong>
+                <div class="col">
+                    <img src="{{ asset($product->image1) }}" alt="" style="width:240px !important;height:auto !important;float:left;margin-right:2px;">
+                    <img src="{{ asset($product->image2) }}" alt="" style="width:240px !important;height:auto !important;float:left;margin-right:2px;">
+                    <img src="{{ asset($product->image3) }}" alt="" style="width:240px !important;height:auto !important;float:left;margin-right:2px;">
+                    <img src="{{ asset($product->image4) }}" alt="" style="width:240px !important;height:180px !important;float:left;margin-right:2px;">
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

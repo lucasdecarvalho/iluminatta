@@ -9,14 +9,14 @@
                <div class="preview col-md-6">
                   
                   <div class="preview-pic tab-content">
-                  <div class="tab-pane active" id="pic-1"><img src="https://ph-cdn3.ecosweb.com.br/imagens01/foto/moda-feminina/vestido-curto/vestido-bordo-assimetrico-com-alcas_277169_600_1.jpg" /></div>
-                  <div class="tab-pane" id="pic-2"><img src="https://ph-cdn3.ecosweb.com.br/imagens01/foto/moda-feminina/vestido-curto/vestido-xadrez-flor-mangas-7-8-abertura-sino_308713_600_1.jpg" /></div>
-                  <div class="tab-pane" id="pic-3"><img src="https://ph-cdn3.ecosweb.com.br/imagens01/foto/moda-feminina/macaquinho/macaquinho-chumbo-com-decote-transpassado_312263_600_1.jpg" /></div>
+                  <div class="tab-pane active" id="pic-1"><img src="{{ asset($product->image1) }}" /></div>
+                  <div class="tab-pane" id="pic-2"><img src="{{ asset($product->image2) }}" /></div>
+                  <div class="tab-pane" id="pic-3"><img src="{{ asset($product->image3) }}" /></div>
                   </div>
                   <ul class="preview-thumbnail nav nav-tabs">
-                  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="https://ph-cdn3.ecosweb.com.br/imagens01/foto/moda-feminina/vestido-curto/vestido-bordo-assimetrico-com-alcas_277169_600_1.jpg" /></a></li>
-                  <li><a data-target="#pic-2" data-toggle="tab"><img src="https://ph-cdn3.ecosweb.com.br/imagens01/foto/moda-feminina/vestido-curto/vestido-xadrez-flor-mangas-7-8-abertura-sino_308713_600_1.jpg" /></a></li>
-                  <li><a data-target="#pic-3" data-toggle="tab"><img src="https://ph-cdn3.ecosweb.com.br/imagens01/foto/moda-feminina/macaquinho/macaquinho-chumbo-com-decote-transpassado_312263_600_1.jpg" /></a></li>
+                  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{ asset($product->image1) }}" /></a></li>
+                  <li><a data-target="#pic-2" data-toggle="tab"><img src="{{ asset($product->image2) }}" /></a></li>
+                  <li><a data-target="#pic-3" data-toggle="tab"><img src="{{ asset($product->image3) }}" /></a></li>
                   </ul>
                   
                </div>
