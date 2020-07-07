@@ -48,7 +48,6 @@ class ProductController extends Controller
             'fileUpload1' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'fileUpload2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'fileUpload3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'fileUpload4' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
        ]);
 
        if ($files = $request->file('fileUpload1')) {
@@ -80,16 +79,6 @@ class ProductController extends Controller
         else {
             $image3 = null;
         }
-
-       if ($files = $request->file('fileUpload4')) {
-           $destinationPath = 'images/'; // upload path
-           $profileImage4 = date('YmdHis') . "4." . $files->getClientOriginalExtension();
-           $files->move($destinationPath, $profileImage4);
-           $image4 = $destinationPath.$profileImage4;
-        }
-        else {
-            $image4 = null;
-        }
         
         $data = [
             'name'  => $request->name,
@@ -97,7 +86,6 @@ class ProductController extends Controller
             'image1' => $image1,
             'image2' => $image2,
             'image3' => $image3,
-            'image4' => $image4,
         ];
         
         // fim
