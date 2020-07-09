@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'IndexController@index')->name('index');
 Route::get('details/{product}', 'IndexController@show')->name('details');
-Route::resource('products','ProductController');
+Route::get('carrinho', 'IndexController@cart')->name('carrinho');
 
 Auth::routes();
-
-Route::get('home', 'HomeController@index')->name('home');
+Route::resource('admin','ProductController')->middleware('is_admin');;
+Route::get('cliente', 'HomeController@index')->name('cliente');

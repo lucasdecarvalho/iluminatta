@@ -32,4 +32,11 @@ class IndexController extends Controller
         return view('details',compact('product'));
     }
 
+    public function cart()
+    {
+        $products = Product::all();
+  
+        return view('checkout',compact('products'));
+    }
+
 }

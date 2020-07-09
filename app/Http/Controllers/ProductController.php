@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
         $products = Product::latest()->paginate(5);
   
-        return view('products.index',compact('products'))
+        return view('admin.index',compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -28,7 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('admin.create');
     }
 
     /**
@@ -92,7 +92,7 @@ class ProductController extends Controller
 
         Product::create($data);
    
-        return redirect()->route('products.index')
+        return redirect()->route('admin.index')
                         ->with('success','Product created successfully.');
 
     }
@@ -103,9 +103,9 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Product $admin)
     {
-        return view('products.show',compact('product'));
+        return view('admin.show',compact('admin'));
     }
 
     /**
@@ -114,9 +114,9 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Product $admin)
     {
-        return view('products.edit',compact('product'));
+        return view('admin.edit',compact('admin'));
     }
 
     /**
@@ -135,7 +135,7 @@ class ProductController extends Controller
   
         $product->update($request->all());
   
-        return redirect()->route('products.index')
+        return redirect()->route('admin.index')
                         ->with('success','Product updated successfully');
     }
 
@@ -145,11 +145,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Product $admin)
     {
-        $product->delete();
+        $admin->delete();
   
-        return redirect()->route('products.index')
+        return redirect()->route('admin.index')
                         ->with('success','Product deleted successfully');
     }
 }

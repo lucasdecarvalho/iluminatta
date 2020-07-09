@@ -63,7 +63,7 @@
                         <a class="nav-link" href="#">Store Locator</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="home">Sign Up for Email Newsletter</a>
+                        <a class="nav-link" href="cliente">Sign Up for Email Newsletter</a>
                     </li>
                 </ul>
                 <span class="navbar-text p-0">
@@ -72,10 +72,10 @@
                         <a class="nav-link" href="#">{{ Auth::user()->name ?? null }}</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="home">Sign in / Register</a>
+                        <a class="nav-link" href="cliente">Sign in / Register</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Carrinho</a>
+                        <a class="nav-link" href="carrinho">Carrinho</a>
                         </li>
                     </ul>
                 </span>
@@ -87,7 +87,7 @@
                     <!--  -->
                 </div>
                 <div class="col-md-4 col-12 text-center">
-                    <a href="/ilumi"><h1>Iluminatta</h1></a>
+                    <a href="/"><h1>Iluminatta</h1></a>
                 </div>
                 <div class="col-4">
                     <form class="form-inline mt-3 float-right w-75">

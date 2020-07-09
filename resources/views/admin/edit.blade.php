@@ -1,13 +1,12 @@
-@extends('layouts.products')
-   
+@extends('layouts.admin')
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Product</h2>
+                <h2>Editar Produto</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
+                <a class="btn btn-primary float-right mb-4" href="{{ route('admin.index') }}"> Voltar</a>
             </div>
         </div>
     </div>
@@ -23,7 +22,7 @@
         </div>
     @endif
   
-    <form action="{{ route('products.update',$product->id) }}" method="POST">
+    <form action="{{ route('admin.update',$admin->id) }}" method="POST">
         @csrf
         @method('PUT')
    
@@ -31,19 +30,19 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Name:</strong>
-                    <input type="text" name="name" value="{{ $product->name }}" class="form-control" placeholder="Name">
+                    <input type="text" name="name" value="{{ $admin->name }}" class="form-control" placeholder="Name">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Name:</strong>
-                    <input type="text" name="price" value="{{ $product->price }}" class="form-control" placeholder="Name">
+                    <input type="text" name="price" value="{{ $admin->price }}" class="form-control" placeholder="Name">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Details:</strong>
-                    <textarea class="form-control" style="height:150px" name="details" placeholder="Detail">{{ $product->details }}</textarea>
+                    <textarea class="form-control" style="height:150px" name="details" placeholder="Detail">{{ $admin->details }}</textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
