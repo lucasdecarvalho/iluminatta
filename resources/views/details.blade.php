@@ -48,7 +48,7 @@
                      <span class="color blue"></span>
                   </h5> -->
                   <div class="action">
-                     <a class="btn btn-success" href="../carrinho">Adicionar ao carrinho</a>
+                     <a class="btn btn-success" href="{{ route('cart',$product->id) }}">Adicionar ao carrinho</a>
                      <!-- <button class="btn btn-success" type="button">Adicionar ao carrinho</button> -->
                      <button class="btn btn-secondary" type="button"><span class="fa fa-heart"></span></button>
                   </div>

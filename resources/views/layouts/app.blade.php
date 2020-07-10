@@ -63,7 +63,7 @@
                         <a class="nav-link" href="#">Store Locator</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cliente">Sign Up for Email Newsletter</a>
+                        <a class="nav-link" href="../client">Sign Up for Email Newsletter</a>
                     </li>
                 </ul>
                 <span class="navbar-text p-0">
@@ -72,10 +72,10 @@
                         <a class="nav-link" href="#">{{ Auth::user()->name ?? null }}</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="cliente">Sign in / Register</a>
+                        <a class="nav-link" href="../client">Sign in / Register</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="carrinho">Carrinho</a>
+                        <a class="nav-link" href="../cart">Carrinho</a>
                         </li>
                     </ul>
                 </span>

@@ -15,10 +15,9 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(3);
+        $products = Product::take(3)->orderBy('id', 'DESC')->get();
   
-        return view('index',compact('products'))
-            ->with('i', (request()->input('page', 1) - 1) * 3);
+        return view('index',compact('products'));
     }
 
     /**
@@ -32,11 +31,29 @@ class IndexController extends Controller
         return view('details',compact('product'));
     }
 
-    public function cart()
+    public function cart(Product $product)
     {
-        $products = Product::all();
-  
-        return view('checkout',compact('products'));
+        $cart = [
+            "client"  => [
+                "id" => auth()->user()->id ?? null,
+                "name" => auth()->user()->name ?? null,
+                "email" => auth()->user()->email ?? null,
+            ],
+            "address" => [
+                "logradouro" => "Rua Bela Cintra", 
+                "numero" => 238, 
+                "bairro" => "Jardins", 
+                "uf" => "SP", 
+                "cep" => "01234-567",
+            ],
+            "shop" => [
+                "product" => $product->cvv ?? null,
+            ],
+        ];
+
+        // return $cart;
+
+        return view('cart',compact('product'));
     }
 
 }

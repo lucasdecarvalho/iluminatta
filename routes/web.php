@@ -13,14 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-
-Route::get('/', 'IndexController@index')->name('index');
+// Main
+Route::get('/',                 'IndexController@index')->name('index');
 Route::get('details/{product}', 'IndexController@show')->name('details');
-Route::get('carrinho', 'IndexController@cart')->name('carrinho');
+Route::get('cart',              'IndexController@cart')->name('cartIndex');
+Route::get('cart/{product}',    'IndexController@cart')->name('cart');
+Route::get('checkout',          'CieloController@index')->name('checkout');
+Route::post('checkout',         'CieloController@payer')->name('checkout');
 
+// Authentications
 Auth::routes();
-Route::resource('admin','ProductController')->middleware('is_admin');;
-Route::get('cliente', 'HomeController@index')->name('cliente');
+Route::resource('admin',        'ProductController')->middleware('is_admin');
+Route::get('client',            'HomeController@index')->name('client');
