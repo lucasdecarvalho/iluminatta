@@ -4,7 +4,7 @@
    <!-- teste começo -->
    <div class="flex-center position-ref full-height mb-4">
       <div class="container">
-         <form class="needs-validation" novalidate="" action="{{ route('checkout') }}" method="post">
+         <form class="needs-validation" novalidate="" action="{{ route('checkout.index') }}" method="post">
             @csrf
             <hr class="mb-4">
 

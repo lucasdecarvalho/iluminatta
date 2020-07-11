@@ -14,14 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Main
-Route::get('/',                 'IndexController@index')->name('index');
-Route::get('details/{product}', 'IndexController@show')->name('details');
-Route::get('cart',              'IndexController@cart')->name('cartIndex');
-Route::get('cart/{product}',    'IndexController@cart')->name('cart');
-Route::get('checkout',          'CieloController@index')->name('checkout');
-Route::post('checkout',         'CieloController@payer')->name('checkout');
+Route::get('/', 'IndexController@index')->name('index');
+Route::get('/shop/{product}', 'IndexController@show')->name('shop.show');
+
+Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::post('/cart', 'CartController@store')->name('cart.store');
+Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
+
+Route::get('logout', function () {
+    auth()->user()->destroy();
+})->name('logout');
+
+Route::get('empty', function () {
+    Cart::destroy();
+})->name('empty');
+
+Route::get('/checkout', 'CieloController@index')->name('checkout.index');
+Route::post('/checkout', 'CieloController@payer')->name('checkout.payer');
 
 // Authentications
 Auth::routes();
-Route::resource('admin',        'ProductController')->middleware('is_admin');
-Route::get('client',            'HomeController@index')->name('client');
+Route::resource('/admin', 'ProductController')->middleware('is_admin');
+Route::get('/client', 'HomeController@index')->name('client.index');

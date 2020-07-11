@@ -48,8 +48,13 @@
                      <span class="color blue"></span>
                   </h5> -->
                   <div class="action">
-                     <a class="btn btn-success" href="{{ route('cart',$product->id) }}">Adicionar ao carrinho</a>
-                     <!-- <button class="btn btn-success" type="button">Adicionar ao carrinho</button> -->
+                     <form action="{{ route('cart.store') }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id" value="{{ $product->id }}">
+                        <input type="hidden" name="name" value="{{ $product->name }}">
+                        <input type="hidden" name="price" value="{{ $product->price }}">
+                        <button type="submit" class="btn btn-success">Adicionar ao carrinho</button>
+                     </form>
                      <button class="btn btn-secondary" type="button"><span class="fa fa-heart"></span></button>
                   </div>
                </div>

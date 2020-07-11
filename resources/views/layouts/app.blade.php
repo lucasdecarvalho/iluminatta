@@ -75,7 +75,7 @@
                         <a class="nav-link" href="../client">Sign in / Register</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="../cart">Carrinho</a>
+                        <a class="nav-link" href="{{ route('cart.index') }}">Carrinho</a>
                         </li>
                     </ul>
                 </span>

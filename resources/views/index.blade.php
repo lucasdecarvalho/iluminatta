@@ -29,7 +29,7 @@
          @foreach ($products as $product)
 
          <div class="card border-0">
-            <a href="{{ route('details',$product->id) }}">
+            <a href="{{ route('shop.show',$product->id) }}">
             <img class="card-img-top" src="{{ asset($product->image1) }}" alt="{{ $product->name ?? null }}">
             </a>
             <div class="card-body">

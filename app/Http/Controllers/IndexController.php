@@ -28,7 +28,7 @@ class IndexController extends Controller
      */
     public function show(Product $product)
     {
-        return view('details',compact('product'));
+        return view('shop',compact('product'));
     }
 
     public function cart(Product $product)
