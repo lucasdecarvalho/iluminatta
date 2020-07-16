@@ -82,7 +82,13 @@ class ProductController extends Controller
         
         $data = [
             'name'  => $request->name,
+            'category' => $request->category,
+            'caption' => $request->caption,
             'price' => $request->price,
+            'storage' => $request->storage,
+            'promo' => $request->promo,
+            'status' => $request->status,
+            'details' => $request->details,
             'image1' => $image1,
             'image2' => $image2,
             'image3' => $image3,

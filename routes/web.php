@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 // Main
 Route::get('/', 'IndexController@index')->name('index');
+
+Route::get('/shop', 'IndexController@show')->name('shop.index');
 Route::get('/shop/{product}', 'IndexController@show')->name('shop.show');
 
 Route::get('/cart', 'CartController@index')->name('cart.index');
@@ -36,3 +38,4 @@ Route::post('/checkout', 'CieloController@payer')->name('checkout.payer');
 Auth::routes();
 Route::resource('/admin', 'ProductController')->middleware('is_admin');
 Route::get('/client', 'HomeController@index')->name('client.index');
+Route::get('/home', 'HomeController@index')->name('client.index');

@@ -69,7 +69,7 @@
                 <span class="navbar-text p-0">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                        <a class="nav-link" href="#">{{ Auth::user()->name ?? null }}</a>
+                        <a class="nav-link" href="#">@if (Auth::check()) {{ "Olá, ". Auth::user()->name }} @endif</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="../client">Sign in / Register</a>
@@ -110,13 +110,12 @@
             </div>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                 <ul class="navbar-nav">
-                    <li><a class="nav-item nav-link active" href="#"><i class="fa fa-bars" aria-hidden="true"></i> SHOP <span class="sr-only">(current)</span></a></li>
-                    <li><a class="nav-item nav-link" href="#">WHAT`S NEW</a></li>
-                    <li><a class="nav-item nav-link" href="#">MAKE UP</a></li>
-                    <li><a class="nav-item nav-link" href="#">FOUNDATION FINDER</a></li>
-                    <li><a class="nav-item nav-link" href="#">LEGENDS NEVER FADE</a></li>
-                    <li><a class="nav-item nav-link" href="#">NAKED PALETTES</a></li>
-                    <li><a class="nav-item nav-link" href="#">VIRTUAL TRY ON</a></li>
+                    <!-- <li><a class="nav-item nav-link active" href="#"><i class="fa fa-bars" aria-hidden="true"></i> SHOP <span class="sr-only">(current)</span></a></li> -->
+                    @foreach ($categories as $catg)
+
+                        <li><a class="nav-item nav-link" href="{{ route('shop.show',$catg->path ?? null) }}">{{ $catg->title ?? null }}</a></li>
+                    
+                    @endforeach
                 </ul>
             </div>
         </div>

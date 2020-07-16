@@ -46,24 +46,53 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Name:</strong>
-                <input type="text" name="name" class="form-control" placeholder="Name">
+                <strong>Nome do Produto:</strong>
+                <input type="text" name="name" class="form-control" placeholder="Nome do produto">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Price:</strong>
-                <input type="text" name="price" class="form-control" placeholder="Price">
+                <strong>Caption:</strong>
+                <input type="text" name="caption" class="form-control" placeholder="Descrição curta">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Details:</strong>
-                <textarea class="form-control" style="height:150px" name="details" placeholder="Details"></textarea>
+                <strong>Preço:</strong>
+                <input type="text" name="price" class="form-control" placeholder="Preço (ex: 120) para 120,00 reais)">
             </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Status:</strong>
+                <input type="number" name="status" min="1" class="form-control" placeholder="Status">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Detalhes:</strong>
+                <textarea class="form-control" style="height:150px" name="details" placeholder="Detalhes"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Categoria</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="category">
+                <option value="1">01</option>
+                <option value="2">02</option>
+                <option value="3">03</option>
+                <option value="4">04</option>
+                <option value="5">05</option>
+                <option value="6">06</option>
+                <option value="7">07</option>
+                <option value="8">08</option>
+                <option value="9">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
     </div>
    
