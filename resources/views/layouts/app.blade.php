@@ -112,9 +112,7 @@
                 <ul class="navbar-nav">
                     <!-- <li><a class="nav-item nav-link active" href="#"><i class="fa fa-bars" aria-hidden="true"></i> SHOP <span class="sr-only">(current)</span></a></li> -->
                     @foreach ($categories as $catg)
-
-                        <li><a class="nav-item nav-link" href="{{ route('shop.show',$catg->path ?? null) }}">{{ $catg->title ?? null }}</a></li>
-                    
+                        <li><a class="nav-item nav-link" href="{{ route('shop.index',$catg->path ?? null) }}">{{ $catg->title ?? null }}</a></li>
                     @endforeach
                 </ul>
             </div>

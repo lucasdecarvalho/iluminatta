@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
    <!-- Slider -->
    <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -26,10 +25,9 @@
       <div class="card-deck mt-4 mb-4">
          <h2 class="w-100 m-2 text-center">DESTAQUES</h2>
 
-         @foreach ($products as $product)
-
+         @foreach ($pr as $product)
          <div class="card border-0">
-            <a href="{{ route('shop.show',$product->id) }}">
+            <a href="{{ route('shop.show',[$product->category,$product->id]) }}">
             <img class="card-img-top" src="{{ asset($product->image1) }}" alt="{{ $product->name ?? null }}">
             </a>
             <div class="card-body">
@@ -38,31 +36,7 @@
                <p class="card-text">$ {{ $product->price ?? null }}</p>
             </div>
          </div>
-
          @endforeach
-
-         <!--
-         <div class="card border-0">
-            <a href="details">
-            <img class="card-img-top" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-master-catalog/default/dw064a1845/ProductImages/Sets/2020%20Sets/Urban-Decay-Makeup-Sets-Stay-Naked-All-Nighter-Face-Primer.jpg?sw=250&sh=250&sm=fit&q=70" alt="Card image cap">
-            </a>
-            <div class="card-body">
-               <h5 class="card-title">Card title</h5>
-               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-               <p class="card-text">$39</p>
-            </div>
-         </div>
-         <div class="card border-0">
-            <a href="details">
-            <img class="card-img-top" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-master-catalog/default/dw064a1845/ProductImages/Sets/2020%20Sets/Urban-Decay-Makeup-Sets-Stay-Naked-All-Nighter-Face-Primer.jpg?sw=250&sh=250&sm=fit&q=70" alt="Card image cap">
-            </a>
-            <div class="card-body">
-               <h5 class="card-title">Card title</h5>
-               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-               <p class="card-text">$19</p>
-            </div>
-         </div>
-         -->
 
       </div>
    </div>

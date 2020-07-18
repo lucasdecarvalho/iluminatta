@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Index;
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -15,9 +16,21 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $products = Product::take(3)->orderBy('id', 'DESC')->get();
-  
-        return view('index',compact('products'));
+
+        $pr = Product::offset(0)->limit(4)->orderBy('id','DESC')->get();
+        
+        foreach ($pr as $p) {
+
+            $ca = Category::where('id', $p->category)->get();
+
+            foreach ($ca as $cc) {
+
+                $p->category = $cc->path;
+            }
+
+        }
+        
+        return view('index',compact('pr'));
     }
 
     /**
@@ -28,7 +41,7 @@ class IndexController extends Controller
      */
     public function show(Product $product)
     {
-        return view('shop',compact('product'));
+        //
     }
 
     public function cart(Product $product)
