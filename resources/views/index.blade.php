@@ -26,14 +26,16 @@
          <h2 class="w-100 m-2 text-center">DESTAQUES</h2>
 
          @foreach ($pr as $product)
-         <div class="card border-0">
-            <a href="{{ route('shop.show',[$product->category,$product->id]) }}">
-            <img class="card-img-top" src="{{ asset($product->image1) }}" alt="{{ $product->name ?? null }}">
-            </a>
-            <div class="card-body">
-               <h5 class="card-title">{{ $product->name ?? null }}</h5>
-               <p class="card-text">{{ $product->details ?? null }}</p>
-               <p class="card-text">$ {{ $product->price ?? null }}</p>
+         <div class="col-3">
+            <div class="card border-0">
+               <a href="{{ route('shop.show',[$product->category,$product->id]) }}">
+               <img class="card-img-top" src="{{ asset($product->image1) }}" alt="{{ $product->name ?? null }}">
+               </a>
+               <div class="card-body">
+                  <h5 class="card-title">{{ $product->name ?? null }}</h5>
+                  <p class="card-text">{{ $product->details ?? null }}</p>
+                  <p class="card-text">$ {{ $product->price ?? null }}</p>
+               </div>
             </div>
          </div>
          @endforeach

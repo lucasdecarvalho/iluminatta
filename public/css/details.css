@@ -4,7 +4,8 @@ body {
   overflow-x: hidden; }
 
 img {
-  max-width: 100%; }
+  max-width: 100%; 
+  background: #efefef; }
 
 .preview {
   display: -webkit-box;
@@ -25,16 +26,19 @@ img {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-          height:400px; }
+          max-height: 750px; }
 
 .preview-thumbnail.nav-tabs {
   border: none;
   margin-top: 5px; }
   .preview-thumbnail.nav-tabs li {
     width: 33.03%;
+    height: 130px;
+    overflow: hidden;
     margin: 0 .15%; }
     .preview-thumbnail.nav-tabs li img {
-      max-width: 100%;
+      width: 100%;
+      min-height: 100%;
       display: block; }
     .preview-thumbnail.nav-tabs li a {
       padding: 0;

@@ -45,9 +45,9 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'price' => 'required',
-            'fileUpload1' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'fileUpload2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'fileUpload3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'fileUpload1' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+            'fileUpload2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+            'fileUpload3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
        ]);
 
        if ($files = $request->file('fileUpload1')) {
