@@ -51,19 +51,19 @@
     <div class="flex-center position-ref full-height bg-white">
         <!-- header -->
         <div class="navbar p-1" style="background:#b08bbe;">
-            <span class="w-100 text-center text-light">FRIENDS & FANATICS IS HAPPENING! Get 25% OFF + free ship. Spend $60 and get a free gift. Code: FRIENDS25</span>
+            <span class="w-100 text-center text-light">Indique-nos a uma amiga ou amigo e ganhe 25% de desconto em sua próxima compra. Código: FRIENDS25</span>
             </div>
             <nav class="navbar sticky-top navbar-expand-md navbar-dark d-none d-md-block pt-0 pb-0" style="background:#2c1b47;border-bottom: solid 1px rgba(157, 111, 174, .3);">
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">1.800.784.8722 <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">(19) 1234-5678 <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Store Locator</a>
+                        <a class="nav-link" href="#">Localidade da Loja</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../client">Sign Up for Email Newsletter</a>
+                        <a class="nav-link" href="../client">Inscreva-se em nossa Newsletter</a>
                     </li>
                 </ul>
                 <span class="navbar-text p-0">
@@ -72,7 +72,7 @@
                         <a class="nav-link" href="#">@if (Auth::check()) {{ "Olá, ". Auth::user()->name }} @endif</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="../client">Sign in / Register</a>
+                        <a class="nav-link" href="../client">Login / Registro</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="{{ route('cart.index') }}">Carrinho</a>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="col-4">
                     <form class="form-inline mt-3 float-right w-75">
-                        <input class="form-control mr-sm-2 w-100" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-2 w-100" type="search" placeholder="Buscar" aria-label="Search">
                         <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
                     </form>   
                 </div>
@@ -129,12 +129,12 @@
                         <div class="col-sm">
                         <div class="row">
                             <form class="form-inline mb-3 w-50">
-                                <input class="form-control mr-sm-2 w-100" type="search" placeholder="Enter your e-mail" aria-label="Search">
+                                <input class="form-control mr-sm-2 w-100" type="search" placeholder="Digite seu e-mail" aria-label="Search">
                                 <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Assinar</button> -->
                             </form>
                         </div>
                         <div class="row">
-                            <span>This sign up is for U.S. consumers. By registering, your information will be collected and used in the US subject to our US Privacy Policy and Terms of Use. Non-US consumers should visit the country website serving their region.</span>
+                            <span>Inscreva-se em nossa newsletter e receba mensagens periodicamente sobre promoções, novidades e destaques de nossa loja.</span>
                         </div>
                         </div>
                         <div class="col-sm">
@@ -155,7 +155,7 @@
                     <div class="col-sm">
                         <div class="row">
                         <h4>Sobre</h4>
-                        <p>Badass cruelty-free, high-pigment makeup. Born in Southern California. Color that goes all day and lasts all night. Reinvention over perfection. Inspiration without replication. Kindness over cruelty. Unsubscribe from beauty telling you to be pretty. Be whatever you want to be. PRETTY DIFFERENT.</p>
+                        <p>Somos uma loja de produtos importados, com ótimo estoque e custo benefício. Navegue por nossas páginas e encontre os produtos que mais tem a ver com o seu estilo. Temos diversas formas de pagamento e facilidades.</p>
                         </div>
                         <div class="row">
                         <p>Selos</p>
@@ -190,7 +190,7 @@
                         </div>
                         <div class="row">
                         <div class="col-sm">
-                            <p>© 2020 Urban Decay Cosmetics. All rights reserved. This site is intended for US consumers. Cookies and related technology are used for advertising. To learn more or opt-out, visit AdChoices and our Privacy Policy.</p>
+                            <p>© 2020 Iluminatta. Todos os direitos reservados.</p>
                         </div>
                         </div>
                     </div>

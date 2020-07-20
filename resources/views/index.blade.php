@@ -71,9 +71,9 @@
             <img class="rounded-circle w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dwc92530df/loyalty/loyalty-homepage-slot.jpg?sw=340&sh=340&sm=fit&q=70" alt="Card image cap">
             </a>
             <div class="card-body">
-               <h5 class="card-title">Card title</h5>
-               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">BECOME A MEMBER/LOG IN</button>
+               <!-- <h5 class="card-title">Card title</h5> -->
+               <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+               <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">TORNE-SE UM MEMBRO</button> -->
             </div>
          </div>
          <div class="card border-0">
@@ -81,9 +81,9 @@
             <img class="rounded-circle w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dwc96c0716/images/homepage/G2/UDAllAccess_G123_110515.jpg?sw=340&sh=340&sm=fit&q=70" alt="Card image cap">
             </a>
             <div class="card-body">
-               <h5 class="card-title">Card title</h5>
-               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">CHECK IT OUT</button>
+               <!-- <h5 class="card-title">Card title</h5> -->
+               <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+               <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">CONFIRA</button> -->
             </div>
          </div>
          <div class="card border-0">
@@ -91,9 +91,9 @@
             <img class="card-img-top" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dw55235f2f/images/homepage/G3/UVEdge_G3_030815.jpg?sw=340&sh=340&sm=fit&q=70" alt="Card image cap">
             </a>
             <div class="card-body">
-               <h5 class="card-title">Card title</h5>
-               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">LEARN MORE</button>
+               <!-- <h5 class="card-title">Card title</h5> -->
+               <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+               <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">SAIBA MAIS</button> -->
             </div>
          </div>
       </div>
