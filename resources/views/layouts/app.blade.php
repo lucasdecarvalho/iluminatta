@@ -100,7 +100,7 @@
             <div class="navbar sticky-top navbar-expand-md navbar-dark pt-0 pb-0 m-0" id="menuItens" style="background:#2c1b47;">
             <div class="row w-100 p-0 m-0 d-md-none d-block">
                 <div class="col-9 d-md-none d-block float-left">
-                        <a href="/iluminatta"><h1 class="mt-1">Iluminatta</h1></a>
+                        <a href="/"><h1 class="mt-1">Iluminatta</h1></a>
                 </div>
                 <div class="col-3 float-right mt-3">
                     <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
