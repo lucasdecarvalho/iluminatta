@@ -8,7 +8,7 @@
 
       <div class="row">
 
-         <div class="col-12">
+         <div class="col-xl-12 col-sm-12">
 
          <!-- <h2 class="float-left">Carrinho</h2> -->
 
@@ -31,7 +31,7 @@
 
          </div>
 
-         <div class="col-8 float-left">
+         <div class="col-xl-8 col-sm-12 float-left">
             
             @foreach (Cart::content() as $item)
 
@@ -62,24 +62,24 @@
             @endforeach
 
             <div class="row w-100 mt-4 mb-4 border rounded">
-               <div class="col-8 mt-3">
+               <div class="col-sm-8 col-xl-8 mt-3">
                   <p>Tem um cupom desconto? Insira o código na caixa ao lado:</p>
                </div>
-               <div class="col-4 text-right mt-3">
+               <div class="col-4 col-xl-4 text-right mt-3">
                   <input class="w-100" type="text" name="cupom" placeholder="Cupom de desconto" id="">
                </div>
             </div>
             <div class="row w-100">
-               <div class="col-6">
+               <div class="col-sm-6 col-xl-6">
                   <a href="/">Voltar às compras</a>
                </div>
-               <div class="col-6 text-right">
+               <div class="col-sm-4 col-xl-6 text-right">
                   <h2>Total: R$ {{ Cart::total() }}</h2>
                </div>
             </div>
          </div>
 
-         <div class="col-4">
+         <div class="col-xl-4 col-sm-12">
             <div class="row w-100 p-2 border rounded" style="height:auto;">
                <h4 class="w-100 border-bottom pt-3 pb-4 mb-3 text-center">Resumo da Compra</h4>
                <div class="col-12">

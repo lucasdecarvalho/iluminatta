@@ -26,7 +26,7 @@
          <h2 class="w-100 m-2 text-center">DESTAQUES</h2>
 
          @foreach ($pr as $product)
-         <div class="col-3">
+         <div class="col-sm-3">
             <div class="card border-0">
                <a href="{{ route('shop.show',[$product->category,$product->id]) }}">
                <img class="card-img-top" src="{{ asset($product->image1) }}" alt="{{ $product->name ?? null }}">

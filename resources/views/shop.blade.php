@@ -7,7 +7,7 @@
          <h2 class="w-100 m-2 text-center">Página geral de produtos</h2>
 
          @foreach ($products as $product)
-         <div class="col-3">
+         <div class="col-sm-3">
             <div class="card border-0">
                <a href="{{ route('shop.show',[$slug,$product->id]) }}">
                <img class="card-img-top" src="{{ asset($product->image1 ?? null) }}" alt="{{ $product->name ?? null }}">
