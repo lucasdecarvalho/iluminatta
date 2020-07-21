@@ -55,5 +55,7 @@
     </form>
 
     {!! $products->links() !!}
+
+    
       
 @endsection

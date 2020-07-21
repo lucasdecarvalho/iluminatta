@@ -87,20 +87,22 @@
                   @if (!!auth()->user())
 
                   <h6><b>Dados do comprador</b></h6>
-                  <p>Nome: <span><b>{{ auth()->user()->name ?? null }}</b></span></p>
-                  <p>CPF: <span><b>{{ auth()->user()->id ?? null }}</b></span></p>
+                  <p>Nome: <span><b>{{ auth()->user()->name ?? null }}</b></span>
+                  <br>CPF: <span><b>{{ auth()->user()->doc ?? null }}</b></span></p>
                   
                   <h6><b>Contatos do comprador</b></h6>
-                  <p>E-mail: <span><b>{{ auth()->user()->email ?? null }}</b></span></p>
-                  <p>Telefone: <span><b>{{ auth()->user()->id ?? null }}</b></span></p>
+                  E-mail: <span><b>{{ auth()->user()->email ?? null }}</b></span>
+                  <br>Telefone: <span><b>{{ auth()->user()->phone1 ?? null }}</b></span>
+                  <br>Telefone adicional: <span><b>{{ auth()->user()->phone2 ?? null }}</b></span></p>
 
                   <h6><b>Endereço de entrega</b></h6>
-                  <p>Logradouro: <span></span></p>
-                  <p>Número: <span></span></p>
-                  <p>Bairro: <span></span></p>
-                  <p>Cidade: <span></span></p>
-                  <p>UF: <span></span></p>
-                  <p>CEP: <span></span></p>
+                  <p><span>{{ auth()->user()->address ?? null }}, 
+                     {{ auth()->user()->number ?? null }} - 
+                     {{ auth()->user()->obs ?? null }}<br>
+                     {{ auth()->user()->neigh ?? null }} - 
+                     {{ auth()->user()->city ?? null }}/{{ auth()->user()->state ?? null }}<br>
+                     CEP: {{ auth()->user()->zipcode ?? null }} -
+                     {{ auth()->user()->country ?? null }}</span></p>
 
                   @else
 

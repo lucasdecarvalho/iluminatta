@@ -31,12 +31,12 @@ class CreateUsersTable extends Migration
             $table->string('address_title')->nullable();
             $table->string('address')->nullable();
             $table->string('number')->nullable();
+            $table->string('obs')->nullable();
             $table->string('neigh')->nullable();
+            $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('zipcode')->nullable();
             $table->string('country')->nullable();
-            // optionals
-            $table->string('obs')->nullable();
             // registration data
             $table->rememberToken();
             $table->timestamps();

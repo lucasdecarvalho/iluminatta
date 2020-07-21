@@ -39,7 +39,10 @@ class ShopController extends Controller
                                 ->where('id', $productId)
                                 ->firstOrFail();
 
-        return view('shop-show',compact('product'));
+        $related = Product::all()->random('4');
+        // dd($related);
+
+        return view('shop-show',compact('product','related'));
     }
 
 }

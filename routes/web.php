@@ -35,4 +35,5 @@ Route::post('/checkout', 'CieloController@payer')->name('checkout.payer');
 Auth::routes();
 Route::resource('/admin', 'ProductController')->middleware('is_admin');
 Route::get('/client', 'HomeController@index')->name('client.index');
+Route::put('/client', 'HomeController@update')->name('client.update');
 Route::get('/home', 'HomeController@index')->name('client.index');
