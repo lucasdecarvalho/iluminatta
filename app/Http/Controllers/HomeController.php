@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use App\Product;
 use App\User;
-use App\Auth;
 
 class HomeController extends Controller
 {
@@ -30,18 +28,16 @@ class HomeController extends Controller
         return view('auth.index');
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
-
-        $user = User::all()->first();
 
         // dd($request);
         // $request->validate([
-        //     'name' => 'required',
-        //     'email' => 'required',
+        //   'name' => 'required',
+        //   'email' => 'required',
         // ]);
 
-        User::where('id',$user->id)->first()->update($request->all());
+        User::where('id',$request->id)->first()->update($request->all());
 
         return redirect()->route('client.index')
                             ->with('success','Dados atualizados com sucesso!');

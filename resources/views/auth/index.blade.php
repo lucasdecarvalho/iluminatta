@@ -28,9 +28,16 @@
                     @csrf
                     @method('PUT')
 
+                    <input type="hidden" name="id" value="{{ Auth::user()->id  }}">
+
                     <div class="form-group mt-4">
                         <label for="name">Nome:</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="Nome" value="{{ Auth::user()->name ?? null  }}">
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label for="lastname">Sobrenome:</label>
+                        <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Sobrenome" value="{{ Auth::user()->lastname ?? null  }}">
                     </div>
                     
                     <div class="form-group">

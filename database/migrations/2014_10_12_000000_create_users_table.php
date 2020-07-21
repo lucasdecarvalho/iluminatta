@@ -18,7 +18,8 @@ class CreateUsersTable extends Migration
             // user data
             $table->id();
             $table->string('name');
-            $table->string('doc')->nullable();
+            $table->string('lastname');
+            $table->string('doc')->unique();
             // user contacts and logon data
             $table->string('phone1')->nullable();
             $table->string('phone2')->nullable();
