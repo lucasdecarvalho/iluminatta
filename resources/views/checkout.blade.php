@@ -4,50 +4,60 @@
    <!-- teste começo -->
    <div class="flex-center position-ref full-height mb-4">
       <div class="container">
-         <form class="needs-validation" novalidate="" action="{{ route('checkout.index') }}" method="post">
-            @csrf
-            <hr class="mb-4">
+         <div class="row justify-content-center mt-4 mb-3">
+            <div class="col-xl-6 col-sm-12">
+               <form class="needs-validation" action="{{ route('checkout.index') }}" method="POST">
+                  @csrf
 
-            <h4 class="mb-3">Pagamento com Cielo</h4>
+                  <h4 class="mb-3">Pagamento com cartão de crédito</h4>
+                  <hr class="mb-4">
 
-            <div class="d-block my-3">
-            <div class="custom-control custom-radio">
-               <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-               <label class="custom-control-label" for="credit">Credit card</label>
+                  <div class="d-none my-3">
+                     <div class="custom-control custom-radio">
+                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                        <label class="custom-control-label" for="credit">Cartão de crédito</label>
+                     </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-md-6 mb-3">
+                     <label for="cc-name">Nome completo:</label>
+                     <input type="text" name="holder" class="form-control" id="cc-name" required>
+                     <small class="text-muted">Nome completo como impresso no cartão.</small>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                     <label for="cc-number">Número do cartão:</label>
+                     <input type="number" name="numberCard" class="form-control" id="cc-number" required>
+                  </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-md-4 mb-3">
+                     <label for="flag">Bandeira:</label>
+                     <select class="form-control" name="flag" id="flag" required>
+                        <option value="">Selecione...</option>
+                        <option value="elo">Elo</option>
+                        <option value="dinners">Dinners</option>
+                        <option value="master">Mastercard</option>
+                        <option value="visa">Visa</option>
+                     </select>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                     <label for="cc-expiration">Data de exp.</label>
+                     <input type="text" name="date" class="form-control" id="cc-expiration" placeholder="_ _ / _ _ _ _" required>
+                  </div>
+                  <div class="col-md-2 mb-3">
+                     <label for="cc-cvv">CVV:</label>
+                     <input type="text" name="cvv" class="form-control" id="cc-cvv" placeholder="***" required>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                     <label>Valor total (R$):</label>
+                     <input type="text" name="price" class="form-control" id="" placeholder="" value="<?= $valor = str_replace('.', '',Cart::total()); ?>" required readonly>
+                  </div>
+                  </div>
+                  <hr class="mb-4">
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Pagar agora</button>
+               </form>
             </div>
-            </div>
-            <div class="row">
-            <div class="col-md-6 mb-3">
-               <label for="cc-name">Name on card</label>
-               <input type="text" name="holder" class="form-control" id="cc-name" placeholder="" required="">
-               <small class="text-muted">Full name as displayed on card</small>
-            </div>
-            <div class="col-md-6 mb-3">
-               <label for="cc-number">Credit card number</label>
-               <input type="text" name="numberCard" class="form-control" id="cc-number" placeholder="" required="">
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-md-3 mb-3">
-               <label>Flag Card</label>
-               <input type="text" name="flag" class="form-control" placeholder="" required="">
-            </div>
-            <div class="col-md-3 mb-3">
-               <label for="cc-expiration">Expiration</label>
-               <input type="text" name="date" class="form-control" id="cc-expiration" placeholder="" required="">
-            </div>
-            <div class="col-md-3 mb-3">
-               <label for="cc-cvv">CVV</label>
-               <input type="text" name="cvv" class="form-control" id="cc-cvv" placeholder="" required="">
-            </div>
-            <div class="col-md-3 mb-3">
-               <label>Price</label>
-               <input type="text" name="price" class="form-control" id="" placeholder="" required="">
-            </div>
-            </div>
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Pagar agora</button>
-         </form>
+         </div>
       </div>
    </div>
    <!-- teste fim -->

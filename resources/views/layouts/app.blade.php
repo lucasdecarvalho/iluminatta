@@ -27,9 +27,9 @@
             list-style: none;
         }
         #carouselExampleControls {
-        width:100%;
-        height:auto;
-        background:#f90;
+            width:100%;
+            height:auto;
+            background:#f90;
         }
         h1 {
             font-family: 'Libre Baskerville', serif;
@@ -37,13 +37,22 @@
             color:#fff;
         }
         .slide {
-        overflow:hidden;
+            overflow:hidden;
         }
         @media (min-width: 800px)
         {
-        #menuItens {
-        top:40px;
+            #menuItens {
+                top:40px;
+            }
         }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
         }
     </style>
 </head>

@@ -66,7 +66,7 @@
                   <p>Tem um cupom desconto? Insira o código na caixa ao lado:</p>
                </div>
                <div class="col-4 col-xl-4 text-right mt-3">
-                  <input class="w-100" type="text" name="cupom" placeholder="Cupom de desconto" id="">
+                  <input class="w-100" type="text" name="cupom" placeholder="Cupom de desconto">
                </div>
             </div>
             <div class="row w-100">
@@ -74,7 +74,7 @@
                   <a href="/">Voltar às compras</a>
                </div>
                <div class="col-sm-4 col-xl-6 text-right">
-                  <h2>Total: R$ {{ Cart::total() }}</h2>
+                  <h2>Total: R$ <?= $valor = str_replace('.', ',',Cart::total()); ?></h2>
                </div>
             </div>
          </div>
