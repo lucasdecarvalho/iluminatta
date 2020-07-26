@@ -36,15 +36,23 @@ class ShopController extends Controller
     public function show($slug, $productId) 
     {
         $catg = Category::where('path', $slug)
-                                ->firstOrFail('id');
-
+        ->firstOrFail('id');
+        
         $product = Product::where('category', $catg->id)
-                                ->where('id', $productId)
-                                ->firstOrFail();
-
+        ->where('id', $productId)
+        ->firstOrFail();
+        
         $related = Product::all()->random('4');
-        // dd($related);
+                    
+            foreach ($related as $r) {
+                
+                $ca = Category::where('id',$r->category)->get();
 
+                foreach ($ca as $rr) {
+                    $r->category = $rr->path;
+                }
+            }
+            
         return view('shop-show',compact('product','related'));
     }
 

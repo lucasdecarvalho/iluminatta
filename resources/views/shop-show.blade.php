@@ -46,16 +46,16 @@
       <div class="card-deck mt-4 mb-4">
          <h2 class="w-100 m-0 text-center">Produtos Relacionados</h2>
 
-         @foreach ($related as $product)
+         @foreach ($related as $prod)
          <div class="col-sm-3">
             <div class="card border-0">
-               <a href="{{ route('shop.show',[$product->category,$product->id]) }}">
-               <img class="card-img-top" src="{{ asset($product->image1) }}" alt="{{ $product->name ?? null }}">
+               <a href="{{ route('shop.show',[$prod->category,$prod->id]) }}">
+               <img class="card-img-top" src="{{ asset($prod->image1) }}" alt="{{ $prod->name ?? null }}">
                </a>
                <div class="card-body">
-                  <h5 class="card-title">{{ $product->name ?? null }}</h5>
-                  <p class="card-text">{{ $product->details ?? null }}</p>
-                  <p class="card-text">$ {{ $product->price ?? null }}</p>
+                  <h5 class="card-title">{{ $prod->name ?? null }}</h5>
+                  <p class="card-text">{{ $prod->details ?? null }}</p>
+                  <p class="card-text">$ {{ $prod->price ?? null }}</p>
                </div>
             </div>
          </div>
