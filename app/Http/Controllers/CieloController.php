@@ -29,22 +29,20 @@ class CieloController extends Controller
     }
 
     public function index(){
-    
         return view('checkout');
     }
     
     public function payer(Request $request){
-
         // Crie uma instância de Customer informando o nome do cliente
         $this->sale->customer($request->holder);
-
+        
         // Crie uma instância de Payment informando o valor do pagamento
         $this->paymentInit($request->price);
-
+        
         // Crie uma instância de Credit Card utilizando os dados de teste
         // esses dados estão disponíveis no manual de integração
         $this->cardData($request->price,$request->cvv,$request->date,$request->numberCard,$request->holder);
-
+        
         // Crie o pagamento na Cielo
         try {
             // Configure o SDK com seu merchant e o ambiente apropriado para criar a venda
@@ -57,6 +55,8 @@ class CieloController extends Controller
         } catch (CieloRequestException $e) {
             // Em caso de erros de integração, podemos tratar o erro aqui.
             // os códigos de erro estão todos disponíveis no manual de integração.
+
+            // dd($e);
             $error = $e->getCieloError();
             return view('error', compact('error'));
         }
@@ -84,7 +84,7 @@ class CieloController extends Controller
 
     private function cardData($price,$cvv,$date,$numberCard,$holder){
         $this->paymentInit($price)->setType($this->payment)
-                ->creditCard($cvv, CreditCard::VISA)
+                ->creditCard($cvv, CreditCard::MASTERCARD)
                 ->setExpirationDate($date)
                 ->setCardNumber($numberCard)
                 ->setHolder($holder);

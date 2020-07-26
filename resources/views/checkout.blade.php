@@ -34,10 +34,10 @@
                      <label for="flag">Bandeira:</label>
                      <select class="form-control" name="flag" id="flag" required>
                         <option value="">Selecione...</option>
-                        <option value="elo">Elo</option>
-                        <option value="dinners">Dinners</option>
-                        <option value="master">Mastercard</option>
-                        <option value="visa">Visa</option>
+                        <option value="Elo">Elo</option>
+                        <option value="Dinners">Dinners</option>
+                        <option value="MASTERCARD">Mastercard</option>
+                        <option value="Visa">Visa</option>
                      </select>
                   </div>
                   <div class="col-md-3 mb-3">

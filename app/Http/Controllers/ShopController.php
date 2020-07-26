@@ -20,8 +20,11 @@ class ShopController extends Controller
                             ->firstOrFail('id');
 
         $products = Product::whereIn('category', $catg)->get();
+
+        $getCatg = Category::where('path',$slug)->first('title');
+        $title = $getCatg["title"];
         
-        return view('shop',compact('slug','products'));
+        return view('shop',compact('title','slug','products'));
     }
     
     /**

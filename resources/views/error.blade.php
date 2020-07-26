@@ -12,7 +12,7 @@
                     <a href="#" class="btn btn-primary">Código: {{ $error->getCode() }}</a>
                 </div>
                 <div class="card-footer text-muted">
-                    {{@date('d/m/Y')}}
+                    {{ @date('d/m/Y') }}
                 </div>
             </div>
         </div>

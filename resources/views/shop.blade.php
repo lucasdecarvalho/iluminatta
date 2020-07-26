@@ -4,7 +4,7 @@
    <!-- Content -->
    <div class="container">
       <div class="card-deck mt-4 mb-4">
-         <h2 class="w-100 m-2 text-center">Página geral de produtos</h2>
+         <h2 class="w-100 m-2 text-center">{{ $title }}</h2>
 
          @foreach ($products as $product)
          <div class="col-sm-3">
