@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-   <!-- teste começo -->
    <div class="container mt-4 mb-4">
 
       @if (Cart::count() > 0)
@@ -61,6 +60,19 @@
 
             @endforeach
 
+            <!-- Valor da compra -->
+            <div class="row w-100">
+               <div class="col-12 text-right">
+                  <p>Valor da compra: R$ {{ str_replace('.', ',', $valor) ?? "error checkout 1" }}</p>
+               </div>
+            </div>
+            <!-- Valor do frete -->
+            <div class="row w-100">
+               <div class="col-12 text-right">
+                  <p>Valor do frete (cep: {{ auth()->user()->zipcode ?? null }})<!--<a href="/client">Alterar?</a>-->: R$ {{ str_replace('.', ',', $valor) ?? "error checkout frete" }}</p>
+               </div>
+            </div>
+            <!-- Cupom de desconto -->
             <div class="row w-100 mt-4 mb-4 border rounded">
                <div class="col-sm-8 col-xl-8 mt-3">
                   <p>Tem um cupom desconto? Insira o código na caixa ao lado:</p>
@@ -69,12 +81,13 @@
                   <input class="w-100" type="text" name="cupom" placeholder="Cupom de desconto">
                </div>
             </div>
+            <!-- Valor total -->
             <div class="row w-100">
                <div class="col-sm-6 col-xl-6">
                   <a href="/">Voltar às compras</a>
                </div>
                <div class="col-sm-4 col-xl-6 text-right">
-                  <h2>Total: R$ {{ str_replace('.', ',', $valor) ?? "error checkout 1" }}</h2>
+                  <h2>Total: R$ {{ str_replace('.', ',', $valor) ?? "error checkout total" }}</h2>
                </div>
             </div>
          </div>
@@ -87,7 +100,7 @@
                   @if (!!auth()->user())
 
                   <h6><b>Dados do comprador</b></h6>
-                  <p>Nome: <span><b>{{ auth()->user()->name ?? null }}</b></span>
+                  <p>Nome: <span><b>{{ auth()->user()->name ?? null }} {{ auth()->user()->lastname ?? null }}</b></span>
                   <br>CPF: <span><b>{{ auth()->user()->doc ?? null }}</b></span></p>
                   
                   <h6><b>Contatos do comprador</b></h6>
@@ -137,6 +150,5 @@
       @endif
 
    </div>
-   <!-- teste fim -->
 
 @endsection
