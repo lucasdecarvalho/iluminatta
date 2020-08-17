@@ -34,10 +34,10 @@
                      <label for="flag">Bandeira:</label>
                      <select class="form-control" name="flag" id="flag" required>
                         <option value="">Selecione...</option>
-                        <option value="Elo">Elo</option>
-                        <option value="Dinners">Dinners</option>
-                        <option value="MASTERCARD">Mastercard</option>
-                        <option value="Visa">Visa</option>
+                        <option value="elo">Elo</option>
+                        <option value="dinners">Dinners</option>
+                        <option value="mastercard">Mastercard</option>
+                        <option value="visa">Visa</option>
                      </select>
                   </div>
                   <div class="col-md-3 mb-3">
@@ -50,7 +50,7 @@
                   </div>
                   <div class="col-md-3 mb-3">
                      <label>Valor total (R$):</label>
-                     <input type="text" name="price" class="form-control" id="" placeholder="" value="<?= $valor = str_replace('.', '',Cart::total()); ?>" required readonly>
+                     <input type="text" name="price" class="form-control" id="" placeholder="" value="{{ str_replace('.', '', Cart::total() - Cart::tax()) }}" required readonly>
                   </div>
                   </div>
                   <hr class="mb-4">

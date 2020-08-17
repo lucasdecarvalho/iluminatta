@@ -74,7 +74,7 @@
                   <a href="/">Voltar às compras</a>
                </div>
                <div class="col-sm-4 col-xl-6 text-right">
-                  <h2>Total: R$ <?= $valor = str_replace('.', ',',Cart::total()); ?></h2>
+                  <h2>Total: R$ {{ str_replace('.', ',', $valor) ?? "error checkout 1" }}</h2>
                </div>
             </div>
          </div>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,10 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('cart');
+        $valor = Cart::total() - Cart::tax();
+        $valor = number_format($valor, 2);
+        
+        return view('cart', compact('valor'));
     }
 
     /**
