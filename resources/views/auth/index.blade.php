@@ -37,7 +37,7 @@
 
                     <div class="form-group mt-4">
                         <label for="lastname">Sobrenome:</label>
-                        <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Sobrenome" value="{{ Auth::user()->lastname ?? null  }}">
+                        <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Sobrenome" value="{{ Auth::user()->lastname ?? null }}">
                     </div>
                     
                     <div class="form-group">
@@ -69,39 +69,39 @@
                     <hr class="w-100 float-left mt-4 mb-4">
 
                     <div class="form-group">
+                        <label for="zipcode">CEP:</label>
+                        <input type="text" name="zipcode" class="form-control" id="zipcode" placeholder="CEP" value="{{ Auth::user()->zipcode ?? null  }}">
+                    </div>
+
+                    <div class="form-group">
                         <label for="address">Endereço:</label>
-                        <input type="text" name="address" class="form-control" id="address" placeholder="Logradouro" value="{{ Auth::user()->address ?? null  }}">
+                        <input type="text" name="address" class="form-control" id="address" placeholder="Logradouro" value="{{ $end['street'] }}">
                     </div>
 
                     
                     <div class="form-group">
                         <label for="number">Número:</label>
-                        <input type="text" name="number" class="form-control" id="number" placeholder="Número" value="{{ Auth::user()->number ?? null  }}">
+                        <input type="text" name="number" class="form-control" id="number" placeholder="Número" value="{{ Auth::user()->number ?? null }}">
                     </div>
                     
                     <div class="form-group">
                         <label for="obs">Complemento:</label>
-                        <input type="text" name="obs" class="form-control" id="obs" placeholder="Complemento" value="{{ Auth::user()->obs ?? null  }}">
+                        <input type="text" name="obs" class="form-control" id="obs" placeholder="Complemento" value="{{ Auth::user()->obs ?? null }}">
                     </div>
 
                     <div class="form-group">
                         <label for="neigh">Bairro:</label>
-                        <input type="text" name="neigh" class="form-control" id="neigh" placeholder="Bairro" value="{{ Auth::user()->neigh ?? null  }}">
+                        <input type="text" name="neigh" class="form-control" id="neigh" placeholder="Bairro" value="{{ $end['district'] ?? null }}">
                     </div>
                     
                     <div class="form-group">
                         <label for="city">Cidade:</label>
-                        <input type="text" name="city" class="form-control" id="city" placeholder="Cidade" value="{{ Auth::user()->city ?? null  }}">
+                        <input type="text" name="city" class="form-control" id="city" placeholder="Cidade" value="{{ $end['city'] ?? null }}">
                     </div>
 
                     <div class="form-group">
                         <label for="state">Estado:</label>
-                        <input type="text" name="state" class="form-control" id="state" placeholder="Estado" value="{{ Auth::user()->state ?? null  }}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="zipcode">CEP:</label>
-                        <input type="text" name="zipcode" class="form-control" id="zipcode" placeholder="CEP" value="{{ Auth::user()->zipcode ?? null  }}">
+                        <input type="text" name="state" class="form-control" id="state" placeholder="Estado" value="{{ $end['uf'] ?? null }}">
                     </div>
 
                     <div class="form-group">

@@ -37,57 +37,53 @@
             <!-- linha de produto -->
             <div class="row w-100 p-2 mb-1 border rounded">
                <div class="col-2 float-left">
-                  <img style="width:auto;height:36px;" src="{{ asset($item->model->image1 ?? null) }}" />
+                  <img style="width:auto;height:36px;" class="mt-2" src="{{ asset($item->model->image1 ?? null) }}" />
                </div>
                <div class="col-4 float-left">
-                  <h6 class="product-title">{{ $item->model->name ?? null }}</h6>
-                  <p>{{ $item->model->details ?? null }}</p>
+                  <h6 class="product-title mt-2">{{ $item->model->name ?? null }}</h6>
                </div>
                <div class="col-2 float-left">
                   <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
                      {{ csrf_field() }}
                      {{ method_field('DELETE') }}
-                     <button type="submit" class="btn btn-text">Remover</button>
+                     <button type="submit" class="btn btn-text mt-1">Remover</button>
                   </form>
                </div>
                <div class="col-2 float-left">
-                  <input style="width:100%;" type="number" name="qtd" value="1">
+                  <input style="width:100%;" class="mt-2" type="number" name="qtd" value="1">
                </div>
                <div class="col-2 float-left">
-                  <h6 class="product-title">R$ {{ $item->model->price ?? null }}</h6>
+                  <h6 class="product-title mt-3">R$ {{ number_format($item->model->price, 2, ',','') ?? null }}</h6>
                </div>
             </div>
 
             @endforeach
 
-            <!-- Valor da compra -->
-            <div class="row w-100">
-               <div class="col-12 text-right">
+            <div class="row w-100 mt-4 mb-1 border rounded">
+                  <!-- Valor da compra -->
+                  <!-- Valor do frete -->
+               <div class="col-12 text-right mt-4">
                   <p>Valor da compra: R$ {{ str_replace('.', ',', $valor) ?? "error checkout 1" }}</p>
-               </div>
-            </div>
-            <!-- Valor do frete -->
-            <div class="row w-100">
-               <div class="col-12 text-right">
-                  <p>Valor do frete (cep: {{ auth()->user()->zipcode ?? null }})<!--<a href="/client">Alterar?</a>-->: R$ {{ str_replace('.', ',', $valor) ?? "error checkout frete" }}</p>
+                  <p>Valor do frete<!-- (<a href="/client">mudar endereço?</a>) --> {{ "(".$frete[0]["name"] ."): R$ ". number_format($frete[0]["price"], 2, ',','') }} <!-- | {{ $frete[1]["name"] ." - R$ ". $frete[1]["price"] }} --></p>
                </div>
             </div>
             <!-- Cupom de desconto -->
-            <div class="row w-100 mt-4 mb-4 border rounded">
-               <div class="col-sm-8 col-xl-8 mt-3">
+            <div class="row w-100 mt-0 mb-4 border rounded">
+               <div class="col-sm-8 col-xl-8 mt-4 mb-2">
                   <p>Tem um cupom desconto? Insira o código na caixa ao lado:</p>
                </div>
-               <div class="col-4 col-xl-4 text-right mt-3">
+               <div class="col-4 col-xl-4 text-right mt-4 mb-4">
                   <input class="w-100" type="text" name="cupom" placeholder="Cupom de desconto">
                </div>
             </div>
             <!-- Valor total -->
             <div class="row w-100">
-               <div class="col-sm-6 col-xl-6">
-                  <a href="/">Voltar às compras</a>
+               <div class="col-sm-6 col-xl-6 mt-0">
+                  <a href="/shop" class="btn btn-secondary">Voltar às compras</a>
                </div>
                <div class="col-sm-4 col-xl-6 text-right">
-                  <h2>Total: R$ {{ str_replace('.', ',', $valor) ?? "error checkout total" }}</h2>
+                  <?php $cupom = null ?>
+                  <h2>Total: R$ {{ number_format($valor + $frete[0]["price"] - $cupom, 2, ',','') ?? "error checkout total" }}</h2>
                </div>
             </div>
          </div>
@@ -99,22 +95,18 @@
 
                   @if (!!auth()->user())
 
-                  <h6><b>Dados do comprador</b></h6>
                   <p>Nome: <span><b>{{ auth()->user()->name ?? null }} {{ auth()->user()->lastname ?? null }}</b></span>
                   <br>CPF: <span><b>{{ auth()->user()->doc ?? null }}</b></span></p>
                   
-                  <h6><b>Contatos do comprador</b></h6>
                   E-mail: <span><b>{{ auth()->user()->email ?? null }}</b></span>
-                  <br>Telefone: <span><b>{{ auth()->user()->phone1 ?? null }}</b></span>
-                  <br>Telefone adicional: <span><b>{{ auth()->user()->phone2 ?? null }}</b></span></p>
+                  <br>Telefone: <span><b>{{ auth()->user()->phone1 ?? null }}</b></span></p>
 
-                  <h6><b>Endereço de entrega</b></h6>
-                  <p><span>{{ auth()->user()->address ?? null }}, 
+                  <p><span>{{ $end['street']  ?? null }}, 
                      {{ auth()->user()->number ?? null }} - 
                      {{ auth()->user()->obs ?? null }}<br>
-                     {{ auth()->user()->neigh ?? null }} - 
-                     {{ auth()->user()->city ?? null }}/{{ auth()->user()->state ?? null }}<br>
-                     CEP: {{ auth()->user()->zipcode ?? null }} -
+                     {{ $end['district']  ?? null }} - 
+                     {{ $end['city']  ?? null }}/{{ $end['uf']  ?? null }}<br>
+                     CEP: {{ $end['zipcode'] ?? null }} -
                      {{ auth()->user()->country ?? null }}</span></p>
 
                   @else

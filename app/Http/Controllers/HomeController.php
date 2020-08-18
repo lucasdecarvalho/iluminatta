@@ -6,6 +6,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 
+use FlyingLuscas\Correios\Client;
+use FlyingLuscas\Correios\Service;
+
 class HomeController extends Controller
 {
     /**
@@ -25,7 +28,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('auth.index');
+        $correios = new Client;
+
+        $end = $correios->zipcode()
+                        ->find(auth()->user()->zipcode);
+
+        return view('auth.index', compact('end'));
     }
 
     public function update(Request $request)

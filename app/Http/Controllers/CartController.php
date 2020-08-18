@@ -6,6 +6,9 @@ use Cart;
 use App\Product;
 use Illuminate\Http\Request;
 
+use FlyingLuscas\Correios\Client;
+use FlyingLuscas\Correios\Service;
+
 class CartController extends Controller
 {
 
@@ -18,8 +21,22 @@ class CartController extends Controller
     {
         $valor = Cart::total() - Cart::tax();
         $valor = number_format($valor, 2);
+
+        $correios = new Client;
+
+        $end = $correios->zipcode()
+                        ->find(auth()->user()->zipcode);
+
+        $frete = $correios->freight()
+                        ->origin('13501-140')
+                        ->destination(auth()->user()->zipcode)
+                        ->services(Service::SEDEX, Service::PAC)
+                        ->item(11, 2, 16, .3, Cart::count()) // largura min 11, altura min 2, comprimento min 16, peso min .3 e quantidade
+                        ->calculate();
         
-        return view('cart', compact('valor'));
+        // dd($end);
+        
+        return view('cart', compact('valor','end','frete'));
     }
 
     /**
