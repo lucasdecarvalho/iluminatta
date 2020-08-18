@@ -22,19 +22,26 @@ class CartController extends Controller
         $valor = Cart::total() - Cart::tax();
         $valor = number_format($valor, 2);
 
+        $end = null;
+        $frete = null;
+
         $correios = new Client;
+        
+        if(auth()->user()) {
 
         $end = $correios->zipcode()
                         ->find(auth()->user()->zipcode);
 
         $frete = $correios->freight()
-                        ->origin('13501-140')
-                        ->destination(auth()->user()->zipcode)
-                        ->services(Service::SEDEX, Service::PAC)
+                        ->origin('13501-140') // endereço da loja
+                        ->destination(auth()->user()->zipcode) // endereço da entrega
+                        ->services(Service::SEDEX, Service::PAC) // serviços dos correios
                         ->item(11, 2, 16, .3, Cart::count()) // largura min 11, altura min 2, comprimento min 16, peso min .3 e quantidade
                         ->calculate();
+
+        }
         
-        // dd($end);
+        // dd(Cart::content());
         
         return view('cart', compact('valor','end','frete'));
     }
@@ -94,7 +101,16 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($request->sub == "up")
+        {
+            $up = $request->qtd + 1;
+        }
+        else
+        {
+            $up = $request->qtd - 1;
+        }
+        Cart::update($id, $up); // Will update the quantity
+        return back()->with('success_message', 'Quantidade alterada com sucesso');
     }
 
     /**
@@ -106,7 +122,6 @@ class CartController extends Controller
     public function destroy($id)
     {
         Cart::remove($id);
-
         return back()->with('success_message', 'Item removido do carrinho');
     }
 }

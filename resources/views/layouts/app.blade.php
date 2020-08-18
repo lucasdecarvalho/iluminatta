@@ -57,7 +57,7 @@
     </style>
 </head>
 <body>
-    <div class="flex-center position-ref full-height bg-white">
+    <div class="flex-center position-ref full-height">
         <!-- header -->
         <div class="navbar p-1" style="background:#b08bbe;">
             <span class="w-100 text-center text-light">Indique-nos a uma amiga ou amigo e ganhe 25% de desconto em sua próxima compra. Código: FRIENDS25</span>
@@ -102,7 +102,7 @@
                     <form class="form-inline mt-3 float-right w-75">
                         <input class="form-control mr-sm-2 w-100" type="search" placeholder="Buscar" aria-label="Search">
                         <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-                    </form>   
+                    </form>
                 </div>
             </div>
             </div>
@@ -137,8 +137,8 @@
                     <div class="row">
                         <div class="col-sm">
                         <div class="row">
-                            <form class="form-inline mb-3 w-50">
-                                <input class="form-control mr-sm-2 w-100" type="search" placeholder="Digite seu e-mail" aria-label="Search">
+                            <form class="form-inline mb-3 w-100 w-xl-75">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Digite seu e-mail" aria-label="Search">
                                 <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Assinar</button> -->
                             </form>
                         </div>
