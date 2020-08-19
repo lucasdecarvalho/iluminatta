@@ -96,9 +96,8 @@
                         @if (!!auth()->user() || $frete[0]["price"] != null)
                         <br>Entrega (Sedex) <i class="fas fa-truck"></i> {{ "R$ ". number_format($frete[0]["price"], 2, ',','') }} <!-- | {{ $frete[1]["name"] ." - R$ ". $frete[1]["price"] }} --></p>
                         @else
-                        <form action="{{ route('cart.update', 'zipcode') }}" method="POST">
+                        <form action="{{ route('cart.store') }}" method="POST">
                             {{ csrf_field() }}
-                            {{ method_field('PUT') }}
                             <label for="zipcode">Calcule o frete <i class="fas fa-truck"></i></label>
                             <input type="text" name="zipcode" id="zipcode" class="border rounded" placeholder="Digite seu CEP" value="<?php $frete[0]["price"] ?? "" ?>">
                         </form>

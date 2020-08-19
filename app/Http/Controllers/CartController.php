@@ -62,10 +62,32 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->zipcode)
+        {
+
+            $correios = new Client;
+
+            $valor = Cart::total() - Cart::tax();
+            $valor = number_format($valor, 2);
+
+            $frete = $correios->freight()
+                            ->origin('13501-140') // endereço da loja
+                            ->destination($request->zipcode) // endereço da entrega
+                            ->services(Service::SEDEX, Service::PAC) // serviços dos correios
+                            ->item(11, 2, 16, .3, Cart::count()) // largura min 11, altura min 2, comprimento min 16, peso min .3 e quantidade
+                            ->calculate();
+
+        return view('cart', compact('valor','frete'));
+        }
+
+        if($request->id)
+        {
+
         Cart::add($request->id, $request->name, 1, $request->price)
             ->associate('App\Product');
 
             return redirect()->route('cart.index')->with('success_message', 'Item adicionado ao carrinho!');
+        }
     }
 
     /**
@@ -102,24 +124,6 @@ class CartController extends Controller
 
         // dd($request->zipcode);
         
-        if($request->zipcode)
-        {
-
-            $correios = new Client;
-
-            $valor = Cart::total() - Cart::tax();
-            $valor = number_format($valor, 2);
-
-            $frete = $correios->freight()
-                            ->origin('13501-140') // endereço da loja
-                            ->destination($request->zipcode) // endereço da entrega
-                            ->services(Service::SEDEX, Service::PAC) // serviços dos correios
-                            ->item(11, 2, 16, .3, Cart::count()) // largura min 11, altura min 2, comprimento min 16, peso min .3 e quantidade
-                            ->calculate();
-
-        return view('cart', compact('valor','frete'));
-        }
-
         if($request->sub)
         {
             if($request->sub == "up")
