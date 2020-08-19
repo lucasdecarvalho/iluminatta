@@ -19,6 +19,7 @@ class CartController extends Controller
      */
     public function index()
     {
+        
         $valor = Cart::total() - Cart::tax();
         $valor = number_format($valor, 2);
 
@@ -29,19 +30,16 @@ class CartController extends Controller
         
         if(auth()->user()) {
 
-        $end = $correios->zipcode()
-                        ->find(auth()->user()->zipcode);
+            $end = $correios->zipcode()
+                            ->find(auth()->user()->zipcode);
 
-        $frete = $correios->freight()
-                        ->origin('13501-140') // endereço da loja
-                        ->destination(auth()->user()->zipcode) // endereço da entrega
-                        ->services(Service::SEDEX, Service::PAC) // serviços dos correios
-                        ->item(11, 2, 16, .3, Cart::count()) // largura min 11, altura min 2, comprimento min 16, peso min .3 e quantidade
-                        ->calculate();
-
+            $frete = $correios->freight()
+                            ->origin('13501-140') // endereço da loja
+                            ->destination(auth()->user()->zipcode) // endereço da entrega
+                            ->services(Service::SEDEX, Service::PAC) // serviços dos correios
+                            ->item(11, 2, 16, .3, Cart::count()) // largura min 11, altura min 2, comprimento min 16, peso min .3 e quantidade
+                            ->calculate();
         }
-        
-        // dd(Cart::content());
         
         return view('cart', compact('valor','end','frete'));
     }
@@ -78,7 +76,7 @@ class CartController extends Controller
      */
     public function show($id)
     {
-        //
+        //                   
     }
 
     /**
@@ -101,16 +99,41 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($request->sub == "up")
+
+        // dd($request->zipcode);
+        
+        if($request->zipcode)
         {
-            $up = $request->qtd + 1;
+
+            $correios = new Client;
+
+            $valor = Cart::total() - Cart::tax();
+            $valor = number_format($valor, 2);
+
+            $frete = $correios->freight()
+                            ->origin('13501-140') // endereço da loja
+                            ->destination($request->zipcode) // endereço da entrega
+                            ->services(Service::SEDEX, Service::PAC) // serviços dos correios
+                            ->item(11, 2, 16, .3, Cart::count()) // largura min 11, altura min 2, comprimento min 16, peso min .3 e quantidade
+                            ->calculate();
+
+        return view('cart', compact('valor','frete'));
         }
-        else
+
+        if($request->sub)
         {
-            $up = $request->qtd - 1;
-        }
+            if($request->sub == "up")
+            {
+                $up = $request->qtd + 1;
+            }
+            else
+            {
+                $up = $request->qtd - 1;
+            }
+        
         Cart::update($id, $up); // Will update the quantity
         return back()->with('success_message', 'Quantidade alterada com sucesso');
+        }
     }
 
     /**

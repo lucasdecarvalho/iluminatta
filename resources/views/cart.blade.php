@@ -56,7 +56,7 @@
                         <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button type="submit" class="btn btn-text mt-1 bg-info text-white"><i class="far fa-trash-alt"></i></button>
+                            <button type="submit" class="btn btn-text mt-1 bg-light"><i class="far fa-trash-alt"></i></button>
                         </form>
                     </div>
 
@@ -82,8 +82,9 @@
                 <!-- Acaba linha de produto -->
                 @endforeach
                 
-                @if(!!auth()->user())
                 <div class="row mt-2 mb-2 border rounded bg-white">
+                @if(!!auth()->user())
+                    @endif
                     <!-- Cupom de desconto -->
                     <div class="col-12 col-xl-6 mt-xl-3 mt-4 pb-4 border-xl border-bottom">
                         <input class="w-100 w-xl-50 p-2 border rounded" type="text" name="cupom" placeholder="Cupom de desconto">
@@ -91,7 +92,19 @@
                     <!-- Valor da compra e do frete -->
                     <div class="col-12 col-xl-6 text-center text-xl-right mt-3 border-bottom">
                         <p >Compra <i class="fas fa-shopping-basket"></i> R$ {{ str_replace('.', ',', $valor) ?? "error checkout 1" }}
+                        
+                        @if (!!auth()->user() || $frete[0]["price"] != null)
                         <br>Entrega (Sedex) <i class="fas fa-truck"></i> {{ "R$ ". number_format($frete[0]["price"], 2, ',','') }} <!-- | {{ $frete[1]["name"] ." - R$ ". $frete[1]["price"] }} --></p>
+                        @else
+                        <form action="{{ route('cart.update', 'zipcode') }}" method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('PUT') }}
+                            <label for="zipcode">Calcule o frete <i class="fas fa-truck"></i></label>
+                            <input type="text" name="zipcode" id="zipcode" class="border rounded" placeholder="Digite seu CEP" value="<?php $frete[0]["price"] ?? "" ?>">
+                        </form>
+                        </p>
+                        @endif
+                    
                     </div>
                     <div class="col-6 text-center">
                         <a href="/shop" class="w-100 float-left mt-3"><i class="fas fa-undo-alt"></i> Voltar às compras</a>
@@ -110,13 +123,12 @@
                                 @if (!!auth()->user())
                                 <a class="w-100 btn btn-success float-right" href="{{ route('checkout.index') }}"><i class="far fa-credit-card"></i> Efetuar Pagamento</a>
                                 @else
-                                <a class="w-100 btn btn-info float-right" href="{{ route('client.index') }}">Login / Cadastro</a>
+                                <a class="w-100 btn btn-success float-right" href="{{ route('client.index') }}"><i class="far fa-credit-card"></i> Efetuar Pagamento</a>
                                 @endif
                             </div>
                         </div>
                     </div>
                 </div>
-                @endif
 
             </div>
 
@@ -140,7 +152,8 @@
                             {{ auth()->user()->country ?? null }}</span>
                         </p>
                         @else
-                        <p class="w-100 text-center">Para prosseguir, você precisa se identificar.</p>
+                        <p class="w-100 text-center">Para prosseguir, é preciso se logar.</p>
+                        <a class="w-100 btn btn-info float-right mb-4 text-white" href="{{ route('client.index') }}"><i class="fas fa-sign-in-alt"></i> Login / Cadastro</a>
                         @endif
                     </div>
                 </div>
