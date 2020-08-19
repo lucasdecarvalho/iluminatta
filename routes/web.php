@@ -20,16 +20,13 @@ Route::get('/shop', 'IndexController@index')->name('index');
 Route::get('/shop/{slug}', 'ShopController@index')->name('shop.index');
 Route::get('/shop/{slug}/{productId}', 'ShopController@show')->name('shop.show');
 
-
+// Cart
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::put('/cart/{product}', 'CartController@update')->name('cart.update');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
 
-// Route::get('logout', function () {
-//     auth()->user()->destroy();
-// })->name('logout');
-
+// Checkout
 Route::get('/checkout', 'CieloController@index')->name('checkout.index');
 Route::post('/checkout', 'CieloController@payer')->name('checkout.payer');
 

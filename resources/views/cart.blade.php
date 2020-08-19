@@ -167,7 +167,7 @@
         <div class="row">
             <div class="col-12">
                 <p class="w-100 mt-3 p-2 border rounded text-center">Não tem produtos em seu carrinho.<br>
-                <a href="{{ route('index') }}">Voltar às compras</a></p>
+                <a href="{{ route('index') }}">Volte às compras</a></p>
             </div>
         </div>
 
