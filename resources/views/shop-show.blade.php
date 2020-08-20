@@ -48,8 +48,8 @@
 
          @foreach ($related as $prod)
          <div class="col-sm-3">
-            <div class="card border-0">
-               <a class="text-center" href="{{ route('shop.show',[$prod->category,$prod->id]) }}">
+            <div class="card text-center">
+               <a href="{{ route('shop.show',[$prod->category,$prod->id]) }}">
                <img class="card-img-top" style="width:auto !important;height:120px;" src="{{ asset($prod->image1) }}" alt="{{ $prod->name ?? null }}">
                </a>
                <div class="card-body" style="height:140px;">

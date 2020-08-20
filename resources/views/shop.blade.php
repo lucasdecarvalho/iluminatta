@@ -8,8 +8,8 @@
 
          @foreach ($products as $product)
          <div class="col-sm-3">
-            <div class="card border-0">
-               <a class="text-center" href="{{ route('shop.show',[$product->category,$product->id]) }}">
+            <div class="card text-center">
+               <a href="{{ route('shop.show',[$product->category,$product->id]) }}">
                <img class="card-img-top" style="width:auto !important;height:120px;" src="{{ asset($product->image1) }}" alt="{{ $product->name ?? null }}">
                </a>
                <div class="card-body" style="height:140px;">
