@@ -49,12 +49,12 @@
          @foreach ($related as $prod)
          <div class="col-sm-3">
             <div class="card border-0">
-               <a href="{{ route('shop.show',[$prod->category,$prod->id]) }}">
-               <img class="card-img-top" src="{{ asset($prod->image1) }}" alt="{{ $prod->name ?? null }}">
+               <a class="text-center" href="{{ route('shop.show',[$prod->category,$prod->id]) }}">
+               <img class="card-img-top" style="width:auto !important;height:120px;" src="{{ asset($prod->image1) }}" alt="{{ $prod->name ?? null }}">
                </a>
-               <div class="card-body">
+               <div class="card-body" style="height:140px;">
                   <h5 class="card-title">{{ $prod->name ?? null }}</h5>
-                  <p class="card-text">{{ $prod->details ?? null }}</p>
+                  <!-- <p class="card-text">{{ $prod->details ?? null }}</p> -->
                   <p class="card-text">$ {{ $prod->price ?? null }}</p>
                </div>
             </div>
