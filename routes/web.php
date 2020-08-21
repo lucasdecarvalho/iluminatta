@@ -26,7 +26,6 @@ Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::put('/cart/{product}', 'CartController@update')->name('cart.update');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
 
-
 // Checkout
 Route::get('/checkout', 'CieloController@index')->name('checkout.index')->middleware('auth');
 Route::post('/checkout', 'CieloController@payer')->name('checkout.payer')->middleware('auth');;

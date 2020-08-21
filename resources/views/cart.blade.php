@@ -47,7 +47,6 @@
 
                     <!-- Nome do produto -->
                     <div class="col-9 col-xl-5">
-                        <!-- <a class="product-title mt-2 text-black" href="/shop/{{ $item->model->category .'/'. $item->model->id }}">{{ $item->model->name ?? null }}</a> -->
                         <h6 class="mt-3 text-black">{{ $item->model->name ?? null }}</h6>
                     </div>
 
@@ -75,7 +74,7 @@
 
                     <!-- Valor do produto -->
                     <div class="col-4 col-xl-2 text-right">
-                        <h6 class="mt-3">R$ {{ number_format($item->model->price * $item->qty, 2, ',','') ?? null }}</h6>
+                        <h6 class="mt-3">R$ {{ number_format($item->model->price * $item->qty, 2, ',','.') }}</h6>
                     </div>
 
                 </div>
@@ -93,16 +92,15 @@
                     <!-- Valor do total -->
                     <div class="col-12 col-xl-6 text-center text-xl-right">
 
-                        <?php $cupom = null ?>
-                        <h4 class="pt-3"><span style="font-size:.7em;">Subtotal:</span> R$ {{ number_format($valor - $cupom, 2, ',','') ?? "error checkout total" }}</h4>
+                        <h4 class="pt-3"><span style="font-size:.7em;">Subtotal:</span> R$ {{ $ftotal }}</h4>
                                                 
-                        @if (!!auth()->user() || $frete[0]["price"] != null)
-                        <p><i class="fas fa-truck"></i> (Sedex) {{ "R$ ". number_format($frete[0]["price"], 2, ',','') }}</p>
+                        @if (!!auth()->user() || $fship != 0.00)
+                        <p><i class="fas fa-truck"></i> (Sedex) R$ {{ $fship }}</p>
                         @else
                         <form action="{{ route('cart.store') }}" method="POST">
                             {{ csrf_field() }}
                             <label class="pr-2" for="zipcode">Calcule o frete <i class="fas fa-truck"></i></label>
-                            <input class="w-50 p-2 border rounded"  type="text" name="zipcode" id="zipcode" placeholder="Digite seu CEP" value="<?php $frete[0]["price"] ?? "" ?>">
+                            <input class="w-50 p-2 border rounded"  type="text" name="zipcode" id="zipcode" placeholder="Digite seu CEP">
                         </form>
                         </p>
                         @endif

@@ -9,7 +9,7 @@
          <h4><i class="fas fa-money-check-alt mr-2"></i><span>Checkout</span></h4>
       </div>
       <div class="col-12 col-xl-6 text-center text-xl-right">
-            <p><i class="fas fa-lock"></i> Compra segura. Parcele em até 12x.</p>
+            <p><i class="fas fa-lock"></i> Compra segura</p>
       </div>
    </div>
 
@@ -47,8 +47,7 @@
             </div>
             <!-- valor do total -->
             <div class="col-12 col-xl-6 text-center text-xl-right">
-               <?php $cupom = null ?>
-               <h4 class="w-100 pt-3"><span style="font-size:.7em;">Total:</span> R$ {{ number_format($valor + $frete[0]["price"] - $cupom, 2, ',','') ?? "error checkout total" }}</h4>
+               <h4 class="w-100 pt-3"><span style="font-size:.7em;">Total:</span> R$ {{ $fftotal }}</h4>
             </div>
          </div>
 
@@ -161,15 +160,9 @@
                               <input type="text" name="holder" class="form-control" id="cc-name" placeholder="Nome completo (como impresso no cartão):" required>
                               <!-- <small class="text-muted"></small> -->
                            </div>
-                           <div class="col-12 mb-2">
+                           <!-- <div class="col-12 mb-2">
                               <input type="number" name="doc" class="form-control" id="cc-number" placeholder="CPF:" required>
-                           </div>
-                        </div>
-                        <div class="row">
-                           <div class="col-12 mb-2 d-none">
-                              <label>Valor total (R$):</label>
-                              <input type="text" name="price" class="form-control" id="" placeholder="" value="{{ str_replace('.', '', Cart::total() - Cart::tax()) }}" required readonly>
-                           </div>
+                           </div> -->
                         </div>
                         <div class="row">
                            <div class="col-12">

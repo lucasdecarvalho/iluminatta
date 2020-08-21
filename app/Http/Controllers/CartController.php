@@ -2,31 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Cart;
 use App\Product;
-use Illuminate\Http\Request;
-
 use FlyingLuscas\Correios\Client;
 use FlyingLuscas\Correios\Service;
 
 class CartController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        
-        $valor = Cart::total() - Cart::tax();
-        $valor = number_format($valor, 2);
-
+        $correios = new Client;
         $end = null;
         $frete = null;
-
-        $correios = new Client;
+        $cupom = null;
         
         if(auth()->user()) {
 
@@ -41,7 +31,18 @@ class CartController extends Controller
                             ->calculate();
         }
         
-        return view('cart', compact('valor','end','frete'));
+        // Total limpo
+        $ctotal = str_replace(',','',Cart::total());
+        // Taxa limpa
+        $ctax = str_replace(',','',Cart::tax());
+        // Total sem taxa limpo
+        $nttotal = $ctotal - $ctax;
+        $ftotal = number_format($nttotal,2,',','.');
+        // Frete formatado
+        $fship = number_format($frete[0]["price"],2,',','.');
+        // dd($nttotal);
+                
+        return view('cart', compact('ftotal','fship','end','frete'));
     }
 
     /**
@@ -62,13 +63,10 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->zipcode)
+        if(!!$request->zipcode)
         {
-
             $correios = new Client;
-
-            $valor = Cart::total() - Cart::tax();
-            $valor = number_format($valor, 2);
+            $cupom = null;
 
             $frete = $correios->freight()
                             ->origin('13501-140') // endereço da loja
@@ -77,10 +75,20 @@ class CartController extends Controller
                             ->item(11, 2, 16, .3, Cart::count()) // largura min 11, altura min 2, comprimento min 16, peso min .3 e quantidade
                             ->calculate();
 
-        return view('cart', compact('valor','frete'));
+            // Total limpo
+            $ctotal = str_replace(',','',Cart::total());
+            // Taxa limpa
+            $ctax = str_replace(',','',Cart::tax());
+            // Total sem taxa limpo
+            $nttotal = $ctotal - $ctax;
+            $ftotal = number_format($nttotal,2,',','.');
+            // Frete formatado
+            $fship = number_format($frete[0]["price"],2,',','.');
+
+            return view('cart', compact('ftotal','fship','frete'));
         }
 
-        if($request->id)
+        if(!!$request->id)
         {
 
         Cart::add($request->id, $request->name, 1, $request->price)
@@ -121,8 +129,6 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        // dd($request->zipcode);
         
         if($request->sub)
         {
