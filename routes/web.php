@@ -26,12 +26,15 @@ Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::put('/cart/{product}', 'CartController@update')->name('cart.update');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
 
+
 // Checkout
-Route::get('/checkout', 'CieloController@index')->name('checkout.index');
-Route::post('/checkout', 'CieloController@payer')->name('checkout.payer');
+Route::get('/checkout', 'CieloController@index')->name('checkout.index')->middleware('auth');
+Route::post('/checkout', 'CieloController@payer')->name('checkout.payer')->middleware('auth');;
 
 // Authentications
 Auth::routes();
+
+// Admin
 Route::resource('/admin', 'ProductController')->middleware('is_admin');
 Route::get('/client', 'HomeController@index')->name('client.index');
 Route::put('/client', 'HomeController@update')->name('client.update');
