@@ -92,12 +92,12 @@
                     <!-- Valor do total -->
                     <div class="col-12 col-xl-6 text-center text-xl-right">
 
-                        <h4 class="pt-3"><span style="font-size:.7em;">Subtotal:</span> R$ {{ $ftotal }}</h4>
+                        <h4 class="pt-3"><span style="font-size:.7em;">Subtotal:</span> R$ {{ $shop->fmt_price }}</h4>
                                                 
-                        @if (!!auth()->user() || $fship != 0.00)
-                        <p><i class="fas fa-truck"></i> (Sedex) R$ {{ $fship }}</p>
+                        @if (!!auth()->user() || $shop->fmt_ship != 0.00)
+                        <p><i class="fas fa-truck"></i> (Sedex) R$ {{ $shop->fmt_ship }}</p>
                         @else
-                        <form action="{{ route('cart.store') }}" method="POST">
+                        <form action="{{ route('cart.index') }}" method="POST">
                             {{ csrf_field() }}
                             <label class="pr-2" for="zipcode">Calcule o frete <i class="fas fa-truck"></i></label>
                             <input class="w-50 p-2 border rounded"  type="text" name="zipcode" id="zipcode" placeholder="Digite seu CEP">

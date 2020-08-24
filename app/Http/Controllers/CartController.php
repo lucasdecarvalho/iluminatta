@@ -4,45 +4,53 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Cart;
+use App\Shop;
 use App\Product;
 use FlyingLuscas\Correios\Client;
 use FlyingLuscas\Correios\Service;
 
 class CartController extends Controller
-{
+{ 
 
     public function index()
     {
         $correios = new Client;
-        $end = null;
-        $frete = null;
+        $shop = new Shop;
         $cupom = null;
         
         if(auth()->user()) {
 
-            $end = $correios->zipcode()
+            $address = $correios->zipcode()
                             ->find(auth()->user()->zipcode);
 
-            $frete = $correios->freight()
+            $ship = $correios->freight()
                             ->origin('13501-140') // endereço da loja
                             ->destination(auth()->user()->zipcode) // endereço da entrega
                             ->services(Service::SEDEX, Service::PAC) // serviços dos correios
                             ->item(11, 2, 16, .3, Cart::count()) // largura min 11, altura min 2, comprimento min 16, peso min .3 e quantidade
                             ->calculate();
+
+            $shop->address    = $address;
+            $shop->ship       = $ship[0]["price"];
         }
         
-        // Total limpo
-        $ctotal = str_replace(',','',Cart::total());
-        // Taxa limpa
-        $ctax = str_replace(',','',Cart::tax());
-        // Total sem taxa limpo
-        $nttotal = $ctotal - $ctax;
-        $ftotal = number_format($nttotal,2,',','.');
-        // Frete formatado
-        $fship = number_format($frete[0]["price"],2,',','.');
-        // dd($nttotal);
+            $price              = str_replace(',','',Cart::total());
+            $tax                = str_replace(',','',Cart::tax());
+            
+            $shop->price      = $price - $tax;
+            $shop->fmt_price  = number_format($shop['price'],2,',','.');
+            $shop->fmt_ship   = number_format($shop['ship'],2,',','.');
+            $shop->final      = number_format($shop['price'] + $shop['ship'],2,'','');
+            $shop->fmt_final  = number_format($shop['price'] + $shop['ship'],2,',','.');
+
+            // dd($shop);
+
+            // if(Cart::count() >= 20)
+            // {
+            //     echo "vc atingiu o limite de produtos em um frete.";
+            // }
                 
-        return view('cart', compact('ftotal','fship','end','frete'));
+        return view('cart', compact('shop'));
     }
 
     /**
@@ -65,27 +73,23 @@ class CartController extends Controller
     {
         if(!!$request->zipcode)
         {
+            $data = CartController::index();
             $correios = new Client;
-            $cupom = null;
+            $shop = new Shop;
 
-            $frete = $correios->freight()
+            $shop->fmt_final = $data->shop->fmt_final;
+
+            $ship = $correios->freight()
                             ->origin('13501-140') // endereço da loja
                             ->destination($request->zipcode) // endereço da entrega
                             ->services(Service::SEDEX, Service::PAC) // serviços dos correios
                             ->item(11, 2, 16, .3, Cart::count()) // largura min 11, altura min 2, comprimento min 16, peso min .3 e quantidade
                             ->calculate();
 
-            // Total limpo
-            $ctotal = str_replace(',','',Cart::total());
-            // Taxa limpa
-            $ctax = str_replace(',','',Cart::tax());
-            // Total sem taxa limpo
-            $nttotal = $ctotal - $ctax;
-            $ftotal = number_format($nttotal,2,',','.');
-            // Frete formatado
-            $fship = number_format($frete[0]["price"],2,',','.');
+            $shop->fmt_ship = number_format($ship[0]["price"],2,',','.');
+            // dd($shop);
 
-            return view('cart', compact('ftotal','fship','frete'));
+            return view('cart', compact('shop'));
         }
 
         if(!!$request->id)

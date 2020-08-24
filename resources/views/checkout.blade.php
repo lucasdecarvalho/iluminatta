@@ -47,7 +47,7 @@
             </div>
             <!-- valor do total -->
             <div class="col-12 col-xl-6 text-center text-xl-right">
-               <h4 class="w-100 pt-3"><span style="font-size:.7em;">Total:</span> R$ {{ $fftotal }}</h4>
+               <h4 class="w-100 pt-3"><span style="font-size:.7em;">Total:</span> R$ {{ $shop->fmt_final }}</h4>
             </div>
          </div>
 

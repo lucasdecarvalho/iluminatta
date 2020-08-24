@@ -14,10 +14,11 @@ use Cielo\API30\Ecommerce\Request\CieloRequestException;
 
 use Cart;
 use App\Product;
+use App\Shop;
 use FlyingLuscas\Correios\Client;
 use FlyingLuscas\Correios\Service;
 
-class CieloController extends Controller
+class CieloController extends CartController
 {
     private $environment;
     private $merchant;
@@ -35,96 +36,44 @@ class CieloController extends Controller
     
     public function index()
     {
-        $correios = new Client;
-        $end = null;
-        $frete = null;
-        $cupom = null;
-        
-        if(auth()->user()) {
+        $data = CartController::index();
+        $shop = new Shop;
 
-            $end = $correios->zipcode()
-                            ->find(auth()->user()->zipcode);
+        $shop->final = $data->shop->final;
+        $shop->fmt_final = $data->shop->fmt_final;
 
-            $frete = $correios->freight()
-                            ->origin('13501-140') // endereço da loja
-                            ->destination(auth()->user()->zipcode) // endereço da entrega
-                            ->services(Service::SEDEX, Service::PAC) // serviços dos correios
-                            ->item(11, 2, 16, .3, Cart::count()) // largura min 11, altura min 2, comprimento min 16, peso min .3 e quantidade
-                            ->calculate();
-        }
-
-        // Total limpo
-        $ctotal = str_replace(',','',Cart::total());
-        // Taxa limpa
-        $ctax = str_replace(',','',Cart::tax());
-        // Total sem taxa limpo
-        $nttotal = $ctotal - $ctax;
-        // Total formatado
-        $ftotal = number_format($nttotal,2,',','.');
-        // Frete limpo
-        $cship = str_replace(',','',$frete[0]["price"]);
-        // Total sem taxa limpo + frete limpo
-        $cftotal1 = $nttotal + $cship;
-        $cftotal = number_format($cftotal1,2,'','');
-        // Total sem taxa limpo + frete limpo formatado
-        $fftotal = number_format($cftotal1,2,',','.');
-        // dd($fftotal);
-        
-        return view('checkout', compact('fftotal','nttotal','ftotal','end','frete'));
+        return view('checkout', compact('shop'));
     }
     
     public function payer(Request $request)
     {
-        $correios = new Client;
-        $end = null;
-        $frete = null;
-        $cupom = null;
 
-        $frete = $correios->freight()
-                            ->origin('13501-140') // endereço da loja
-                            ->destination(auth()->user()->zipcode) // endereço da entrega
-                            ->services(Service::SEDEX, Service::PAC) // serviços dos correios
-                            ->item(11, 2, 16, .3, Cart::count()) // largura min 11, altura min 2, comprimento min 16, peso min .3 e quantidade
-                            ->calculate();
+        $data = CartController::index();
+        $shop = new Shop;
 
-        // Total limpo
-        $ctotal = str_replace(',','',Cart::total());
-        // Taxa limpa
-        $ctax = str_replace(',','',Cart::tax());
-        // Total sem taxa limpo
-        $nttotal = $ctotal - $ctax;
-        // Total formatado
-        $ftotal = number_format($nttotal,2,',','.');
-        // Frete limpo
-        $cship = str_replace(',','',$frete[0]["price"]);
-        // Total sem taxa limpo + frete limpo
-        $cftotal1 = $nttotal + $cship;
-        $cftotal = number_format($cftotal1,2,'','');
-        // Total sem taxa limpo + frete limpo formatado
-        $fftotal = number_format($cftotal1,2,',','.');
-        // dd($cftotal);
-        
+        $shop->final = $data->shop->final;
+
         // Crie uma instância de Customer informando o nome do cliente
         $this->sale->customer($request->holder);
         
         // Crie uma instância de Payment informando o valor do pagamento
-        $this->paymentInit($cftotal);
+        $this->paymentInit($shop->final);
         
         // Crie uma instância de Credit Card utilizando os dados de teste
         // esses dados estão disponíveis no manual de integração
-        $this->cardData($cftotal,$request->cvv,$request->date,$request->numberCard,$request->holder);
+        $this->cardData($shop->final,$request->cvv,$request->date,$request->numberCard,$request->holder);
         
         // Crie o pagamento na Cielo
         try {
             // Configure o SDK com seu merchant e o ambiente apropriado para criar a venda
             $this->createSale();
             
-            $total = $cftotal;
+            $total = $shop->final;
             // Com o ID do pagamento, podemos fazer sua captura, se ela não tiver sido capturada ainda
-            $captura = $this->captureSale($cftotal);
+            $captura = $this->captureSale($shop->final);
 
             // Salvar no banco os dados da compra
-
+            dd($request,$shop);
             // Enviar email de sucesso
 
             return view('success', compact('total'));
