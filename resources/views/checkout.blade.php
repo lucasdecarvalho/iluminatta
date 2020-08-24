@@ -67,12 +67,12 @@
                      <br><span>{{ auth()->user()->phone1 ?? null }}</span></p>
 
                      <h6><b>Endereço de entrega:</b></h6>
-                     <p><span>{{ $end['street']  ?? null }}, 
+                     <p><span>{{ auth()->user()->address ?? null }}, 
                            {{ auth()->user()->number ?? null }}<br>
                            {{ auth()->user()->obs ?? null }}<br>
-                           {{ $end['district']  ?? null }} - 
-                           {{ $end['city']  ?? null }}/{{ $end['uf']  ?? null }}<br>
-                           CEP: {{ $end['zipcode'] ?? null }} -
+                           {{ auth()->user()->neigh ?? null }} - 
+                           {{ auth()->user()->city ?? null }}/{{ auth()->user()->state ?? null }}<br>
+                           CEP: {{ auth()->user()->zipcode ?? null }} -
                            {{ auth()->user()->country ?? null }}</span>
                      </p>
                      @else
@@ -130,7 +130,7 @@
                         </div>
                         <div class="row">
                            <div class="col-12 mb-2">
-                              <select class="form-control" name="parc" id="parc" required>
+                              <select class="form-control" name="installments" id="installments" required>
                               <option value="">Parcelamento:</option>
                               <option value="1">À vista</option>
                               <option value="2">02</option>

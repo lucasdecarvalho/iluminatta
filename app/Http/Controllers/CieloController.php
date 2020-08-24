@@ -13,6 +13,7 @@ use Cielo\API30\Ecommerce\CreditCard;
 use Cielo\API30\Ecommerce\Request\CieloRequestException;
 
 use Cart;
+use App\Sold;
 use App\Product;
 use App\Shop;
 use FlyingLuscas\Correios\Client;
@@ -53,6 +54,23 @@ class CieloController extends CartController
 
         $shop->final = $data->shop->final;
 
+        $saveCart = [
+            'user_id' => auth()->user()->id,
+            'street' => auth()->user()->address,
+            'number' => auth()->user()->number,
+            'comp' => auth()->user()->obs,
+            'city' => auth()->user()->city,
+            'state' => auth()->user()->state,
+            'zipcode' => auth()->user()->zipcode,
+            'id_shop' => 123,
+            'tild' => 123,
+            'payment_type' => $this->payment ." - ". $request->flag,
+            'value' => $data->shop->final,
+            'installments' => $request->installments,
+            'cart' => Cart::content(),
+            'tracking_number' => null
+        ];       
+
         // Crie uma instância de Customer informando o nome do cliente
         $this->sale->customer($request->holder);
         
@@ -73,13 +91,20 @@ class CieloController extends CartController
             $captura = $this->captureSale($shop->final);
 
             // Salvar no banco os dados da compra
-            dd($request,$shop);
+            $saveCart["success"] = true;
+            Sold::create($saveCart);
+            
             // Enviar email de sucesso
 
-            return view('success', compact('total'));
+            return view('success', compact('total','shop'));
+
         } catch (CieloRequestException $e) {
             // Em caso de erros de integração, podemos tratar o erro aqui.
             // os códigos de erro estão todos disponíveis no manual de integração.
+
+            // Salvar no banco os dados da compra
+            $saveCart["success"] = false;
+            Sold::create($saveCart);
 
             // dd($e);
             $error = $e->getCieloError();
