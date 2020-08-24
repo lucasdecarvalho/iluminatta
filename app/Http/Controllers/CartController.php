@@ -77,7 +77,7 @@ class CartController extends Controller
             $correios = new Client;
             $shop = new Shop;
 
-            $shop->fmt_final = $data->shop->fmt_final;
+            $shop->fmt_price = $data->shop->fmt_price;
 
             $ship = $correios->freight()
                             ->origin('13501-140') // endereço da loja
