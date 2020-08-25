@@ -51,9 +51,9 @@ class CieloController extends CartController
 
         $data = CartController::index();
         $shop = new Shop;
-
+        
         $shop->final = $data->shop->final;
-
+        
         $saveCart = [
             'user_id' => auth()->user()->id,
             'street' => auth()->user()->address,
@@ -70,16 +70,17 @@ class CieloController extends CartController
             'cart' => Cart::content(),
             'tracking_number' => null
         ];       
-
+        
         // Crie uma instância de Customer informando o nome do cliente
         $this->sale->customer($request->holder);
         
         // Crie uma instância de Payment informando o valor do pagamento
-        $this->paymentInit($shop->final);
+        $this->paymentInit($shop->final, $request->installments);
         
         // Crie uma instância de Credit Card utilizando os dados de teste
         // esses dados estão disponíveis no manual de integração
-        $this->cardData($shop->final,$request->cvv,$request->date,$request->numberCard,$request->holder);
+        // dd($request->installments);
+        $this->cardData($shop->final,$request->cvv,$request->date,$request->installments,$request->numberCard,$request->holder);
         
         // Crie o pagamento na Cielo
         try {
@@ -115,25 +116,25 @@ class CieloController extends CartController
     private function createSale(){
         return ($this->cielo)->createSale($this->sale);
     }
-
+    
     private function captureSale($price){
         return ($this->cielo)->captureSale($this->paymentId(), $price, 0);
     }
-
-    private function cancelSale($price){
-        return ($this->cielo)->cancelSale($this->paymentId(), $price);
-    }
-
-    private function paymentInit($price){
-        return $this->sale->payment($price,$request->installments);
+    
+    // private function cancelSale($price){
+    //     return ($this->cielo)->cancelSale($this->paymentId(), $price);
+    // }
+    
+    private function paymentInit($price, $installments){
+            return $this->sale->payment($price, $installments);
     }
 
     private function paymentId(){
         return $this->createSale()->getPayment()->getPaymentId();
     }
 
-    private function cardData($price,$cvv,$date,$numberCard,$holder){
-        $this->paymentInit($price)->setType($this->payment)
+    private function cardData($price,$cvv,$date,$installments,$numberCard,$holder){
+        $this->paymentInit($price,$installments)->setType($this->payment)
                 ->creditCard($cvv, CreditCard::MASTERCARD)
                 ->setExpirationDate($date)
                 ->setCardNumber($numberCard)
