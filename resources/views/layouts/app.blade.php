@@ -18,7 +18,8 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600&Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,600&Libre+Baskerville:wght@700&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Amita:wght@400&display=swap" rel="stylesheet">
     <style>
         a {
             text-decoration: none !important;
@@ -32,9 +33,11 @@
             background:#f90;
         }
         h1 {
-            font-family: 'Libre Baskerville', serif;
-            font-size:42px;
+            font-family: 'Amita', cursive;
+            font-size:32px;
             color:#fff;
+            line-height:0;
+            margin-top:1.3em;
         }
         .slide {
             overflow:hidden;
@@ -96,7 +99,7 @@
                     <!--  -->
                 </div>
                 <div class="col-md-4 col-12 text-center">
-                    <a href="/"><h1>Iluminatta</h1></a>
+                    <a href="/"><h1>Iluminatta</h1><i class="fas fa-seedling" style="position:absolute;margin-left:-0em;margin-top:-2em;font-size:1.2em;color:#ff7700;"></i></a>
                 </div>
                 <div class="col-4">
                     <form class="form-inline mt-3 float-right w-75">
