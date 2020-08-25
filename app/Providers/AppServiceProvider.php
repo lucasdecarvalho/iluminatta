@@ -25,6 +25,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        // $this->app->bind('path.public', function() {
+        //     return base_path().'/../public_html';
+        // });
+        
         $category = Category::take(12)->orderBy('id', 'ASC')->get();
 
         View::share('categories', $category);
