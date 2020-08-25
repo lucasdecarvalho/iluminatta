@@ -96,6 +96,11 @@ class CieloController extends CartController
             Sold::create($saveCart);
             
             // Enviar email de sucesso
+            $details = [
+                'title' => 'Compra efetuada com sucesso!',
+                'body' => 'Um de nossos consultores entrarão em contato. Obrigado.'
+            ];
+            \Mail::to('contato@lucasdecarvalho.com.br')->send(new \App\Mail\SoldMail($details));
 
             return view('success', compact('total','shop'));
 
