@@ -125,7 +125,7 @@ class CieloController extends CartController
     }
 
     private function paymentInit($price){
-        return $this->sale->payment($price);
+        return $this->sale->payment($price,$request->installments);
     }
 
     private function paymentId(){
