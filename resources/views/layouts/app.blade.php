@@ -37,7 +37,7 @@
             font-size:32px;
             color:#fff;
             line-height:0;
-            margin-top:1.3em;
+            margin-top:1.1em;
         }
         .slide {
             overflow:hidden;
@@ -81,13 +81,10 @@
                 <span class="navbar-text p-0">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                        <a class="nav-link" href="#">@if (Auth::check()) {{ "Olá, ". Auth::user()->name }} @endif</a>
+                            <a class="nav-link" href="../client">@if (Auth::check()) {{ "Olá, ". Auth::user()->name }} @else Login / Registro @endif</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="../client">Login / Registro</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="{{ route('cart.index') }}">Carrinho</a>
+                            <a class="nav-link" href="{{ route('cart.index') }}">Carrinho</a>
                         </li>
                     </ul>
                 </span>
@@ -112,9 +109,9 @@
             <div class="navbar sticky-top navbar-expand-md navbar-dark pt-0 pb-0 m-0" id="menuItens" style="background:#2c1b47;">
             <div class="row w-100 p-0 m-0 d-md-none d-block">
                 <div class="col-9 d-md-none d-block float-left">
-                        <a href="/"><h1 class="mt-1">Iluminatta</h1></a>
+                        <a href="/"><h1 style="margin-top:1em;">Iluminatta</h1><i class="fas fa-seedling" style="position:absolute;margin-left:4.45em;margin-top:-1.9em;font-size:1.2em;color:#ff7700;"></i></a>
                 </div>
-                <div class="col-3 float-right mt-3">
+                <div class="col-3 float-right mt-2 mb-2">
                     <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -122,9 +119,14 @@
             </div>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                 <ul class="navbar-nav">
-                    <!-- <li><a class="nav-item nav-link active" href="#"><i class="fa fa-bars" aria-hidden="true"></i> SHOP <span class="sr-only">(current)</span></a></li> -->
+                    <li class="nav-item d-block d-xl-none">
+                        <a class="nav-link" href="../client">@if (Auth::check()) {{ "Olá, ". Auth::user()->name }} @else Login / Registro @endif</a>
+                    </li>
+                    <li class="nav-item border-bottom d-block d-xl-none">
+                        <a class="nav-link" href="{{ route('cart.index') }}">Carrinho</a>
+                    </li>
                     @foreach ($categories as $catg)
-                        <li><a class="nav-item nav-link" href="{{ route('shop.index',$catg->path ?? null) }}">{{ $catg->title ?? null }}</a></li>
+                    <li><a class="nav-item nav-link" href="{{ route('shop.index',$catg->path ?? null) }}">{{ $catg->title ?? null }}</a></li>
                     @endforeach
                 </ul>
             </div>
