@@ -57,20 +57,18 @@ class CieloController extends CartController
         $shop->email = auth()->user()->email;
         
         $saveCart = [
-            'user_id' => auth()->user()->id,
+            'userId' => auth()->user()->id,
             'street' => auth()->user()->address,
             'number' => auth()->user()->number,
             'comp' => auth()->user()->obs,
             'city' => auth()->user()->city,
             'state' => auth()->user()->state,
             'zipcode' => auth()->user()->zipcode,
-            'id_shop' => 123,
-            'tild' => 123,
-            'payment_type' => $this->payment ." - ". $request->flag,
+            'paymentType' => $this->payment ." - ". $request->flag,
             'value' => $data->shop->final,
             'installments' => $request->installments,
             'cart' => Cart::content(),
-            'tracking_number' => null
+            'trackingNumber' => null
         ];       
         
         // Crie uma instância de Customer informando o nome do cliente
@@ -96,14 +94,16 @@ class CieloController extends CartController
             
             // Com a venda criada na Cielo, já temos o ID do pagamento, TID e demais
             // dados retornados pela Cielo
+            $merchantOrderId = $this->sale->getMerchantOrderId();
             $paymentId = $sale->getPayment()->getPaymentId();
             $tId = $sale->getPayment()->getTid();
             
             // Com o ID do pagamento, podemos fazer sua captura, se ela não tiver sido capturada ainda
             $sale = ($this->cielo)->captureSale($paymentId, $shop->final, 0);
-            
+
             // Salvar no banco os dados da compra
-            $saveCart["id_shop"] = $paymentId;
+            $saveCart["merchantOrderId"] = $merchantOrderId;
+            $saveCart["paymentId"] = $paymentId;
             $saveCart["tid"] = $tId;
             $saveCart["success"] = true;
             Sold::create($saveCart);

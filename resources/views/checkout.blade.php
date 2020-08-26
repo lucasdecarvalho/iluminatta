@@ -98,7 +98,7 @@
                   </div>
                   <div class="col-12 pb-2">
                      <!-- form credit -->
-                     <form class="needs-validation" action="{{ route('checkout.index') }}" method="POST">
+                     <form class="needs-validation" action="{{ route('checkout.payer') }}" method="POST">
                         @csrf
                         <!-- <div class="row">
                            <div class="col-12 mt-3 mb-2">

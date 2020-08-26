@@ -15,21 +15,26 @@ class CreateSoldsTable extends Migration
     {
         Schema::create('solds', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+
+            $table->string('merchantOrderId');
+            $table->boolean('success');
+            $table->string('tid');
+            
+            $table->string('value');
+            $table->string('paymentType');
+            $table->string('installments')->nullable();
+            
+            $table->string('userId');
             $table->string('street');
             $table->string('number');
             $table->string('comp')->nullable();
             $table->string('city');
             $table->string('state');
             $table->string('zipcode');
-            $table->string('id_shop')->nullable();
-            $table->string('tid')->nullable();
-            $table->string('payment_type');
-            $table->string('value');
-            $table->string('installments')->nullable();
             $table->longText('cart');
-            $table->string('tracking_number')->nullable();
-            $table->boolean('success');
+            
+            $table->string('paymentId');
+            $table->string('trackingNumber')->nullable();
             $table->timestamps();
         });
     }
