@@ -86,6 +86,9 @@ class CieloController extends CartController
                     ->setExpirationDate($request->date)
                     ->setCardNumber($request->numberCard)
                     ->setHolder($request->holder);
+
+        $merchantOrderId = $this->sale->getMerchantOrderId();
+        $saveCart["merchantOrderId"] = $merchantOrderId;
         
         // Crie o pagamento na Cielo
         try {
@@ -94,7 +97,6 @@ class CieloController extends CartController
             
             // Com a venda criada na Cielo, já temos o ID do pagamento, TID e demais
             // dados retornados pela Cielo
-            $merchantOrderId = $this->sale->getMerchantOrderId();
             $paymentId = $sale->getPayment()->getPaymentId();
             $tId = $sale->getPayment()->getTid();
             
@@ -102,7 +104,6 @@ class CieloController extends CartController
             $sale = ($this->cielo)->captureSale($paymentId, $shop->final, 0);
 
             // Salvar no banco os dados da compra
-            $saveCart["merchantOrderId"] = $merchantOrderId;
             $saveCart["paymentId"] = $paymentId;
             $saveCart["tid"] = $tId;
             $saveCart["success"] = true;
@@ -123,12 +124,13 @@ class CieloController extends CartController
             // Em caso de erros de integração, podemos tratar o erro aqui.
             // os códigos de erro estão todos disponíveis no manual de integração.
             // dd($e);
+            $error = $e->getCieloError();
 
             // Salvar no banco os dados da compra
             $saveCart["success"] = false;
+            $saveCart["errorCod"] = $error->getCode();
             Sold::create($saveCart);
 
-            $error = $e->getCieloError();
             return view('error', compact('error'));
         }
     }

@@ -34,6 +34,7 @@ class CreateSoldsTable extends Migration
             $table->longText('cart');
             
             $table->string('paymentId')->nullable();
+            $table->string('errorCod')->nullable();
             $table->string('trackingNumber')->nullable();
             $table->timestamps();
         });
