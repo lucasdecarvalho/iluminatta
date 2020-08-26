@@ -50,4 +50,5 @@ class HomeController extends Controller
         return redirect()->route('client.index')
                             ->with('success','Dados atualizados com sucesso!');
     }
+    
 }
