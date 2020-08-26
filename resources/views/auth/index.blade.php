@@ -110,7 +110,7 @@
                         <div class="col-12 col-xl-6 mt-4 mb-4">
                             <div class="row">
                                 <label for="zipcode" class="w-100">Digite seu CEP:</label>
-                                <input type="text" name="zipcode" class="col-8 border rounded-left" id="zipcode" placeholder="Digite seu CEP" value="{{ Auth::user()->zipcode ?? null  }}" disabled required>
+                                <input type="text" name="zipcode" class="col-8 border rounded-left" id="zipcode" placeholder="Digite seu CEP" value="{{ Auth::user()->zipcode ?? null  }}" required>
                                 <input type="hidden" name="number" value=" ">
                                 <input type="hidden" name="comp" value=" ">
                                 <button type="submit" name="" class="col-4 bg-secondary p-2 border-0 text-white rounded-right">Preencher</button>
