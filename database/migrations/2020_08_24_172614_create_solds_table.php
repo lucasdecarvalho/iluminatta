@@ -16,9 +16,9 @@ class CreateSoldsTable extends Migration
         Schema::create('solds', function (Blueprint $table) {
             $table->id();
 
-            $table->string('merchantOrderId');
+            $table->string('merchantOrderId')->nullable();
             $table->boolean('success');
-            $table->string('tid');
+            $table->string('tid')->nullable();
             
             $table->string('value');
             $table->string('paymentType');
@@ -33,7 +33,7 @@ class CreateSoldsTable extends Migration
             $table->string('zipcode');
             $table->longText('cart');
             
-            $table->string('paymentId');
+            $table->string('paymentId')->nullable();
             $table->string('trackingNumber')->nullable();
             $table->timestamps();
         });
