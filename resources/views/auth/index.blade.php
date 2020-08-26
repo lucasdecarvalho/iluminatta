@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center mb-3">
-        <div class="col-8">
+        <div class="col-12 col-xl-8">
             <div class="card">
                 <div class="card-header">Meus dados</div>
 
@@ -176,7 +176,7 @@
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-12 col-xl-4">
             <div class="card">
                 <div class="card-header">Meus Pedidos</div>
 
