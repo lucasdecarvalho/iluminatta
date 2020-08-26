@@ -53,12 +53,12 @@
 
          <div class="row border border-top-0 rounded-bottom bg-white">
             <div class="col-12 col-xl-6 d-none d-xl-block">
-               <div class="row">
+               <div class="row border-right">
                   <div class="col-12 p-3">
-                  <h4>Dados da compra</h4>
+                  <h4>Dados da Entrega</h4>
 
                      @if (!!auth()->user())
-                     <h6><b>Comprador(a):</b></h6>
+                     <h6 class="mt-3"><b>Comprador(a):</b></h6>
                      <p><span>{{ auth()->user()->name ?? null }} {{ auth()->user()->lastname ?? null }}</span>
                            <br><span>{{ auth()->user()->doc ?? null }}</span></p>
                      
@@ -83,7 +83,7 @@
                </div>
             </div>
             <div class="col-12 col-xl-6">
-               <div class="row border-left">
+               <div class="row">
                   <div class="col-12 p-3">
                   <h4>Forma de Pagamento</h4>
                      <div class="col-12">
@@ -101,7 +101,7 @@
                      <form class="needs-validation" action="{{ route('checkout.payer') }}" method="POST">
                         @csrf
                         <div class="row">
-                           <div class="col-12 mb-2">
+                           <div class="col-12 col-xl-6 mb-2 pr-0">
                               <select class="form-control" name="flag" id="flag" required>
                                     <option value="">Bandeira:</option>
                                     <option value="elo">Elo</option>
@@ -110,29 +110,27 @@
                                     <option value="visa">Visa</option>
                               </select>
                            </div>
-                        </div>
-                        <div class="row">
-                           <div class="col-12 mb-2">
-                              <input type="number" name="numberCard" class="form-control" id="cc-number" placeholder="Número do cartão:" required>
+                           <div class="col-12 col-xl-6 mb-2">
+                              <select class="form-control" name="installments" id="installments" required>
+                              <option value="">Parcelamento:</option>
+                              <option value="1">À vista</option>
+                              <option value="2">Parcelar em 02x</option>
+                              <option value="3">Parcelar em 03x</option>
+                              <option value="4">Parcelar em 04x</option>
+                              <option value="5">Parcelar em 05x</option>
+                              <option value="6">Parcelar em 06x</option>
+                              <option value="7">Parcelar em 07x</option>
+                              <option value="8">Parcelar em 08x</option>
+                              <option value="9">Parcelar em 09x</option>
+                              <option value="10">Parcelar em 10x</option>
+                              <option value="11">Parcelar em 11x</option>
+                              <option value="12">Parcelar em 12x</option>
+                              </select>
                            </div>
                         </div>
                         <div class="row">
                            <div class="col-12 mb-2">
-                              <select class="form-control" name="installments" id="installments" required>
-                              <option value="">Parcelamento:</option>
-                              <option value="1">À vista</option>
-                              <option value="2">02</option>
-                              <option value="3">03</option>
-                              <option value="4">04</option>
-                              <option value="5">05</option>
-                              <option value="6">06</option>
-                              <option value="7">07</option>
-                              <option value="8">08</option>
-                              <option value="9">09</option>
-                              <option value="10">10</option>
-                              <option value="11">11</option>
-                              <option value="12">12</option>
-                              </select>
+                              <input type="number" name="numberCard" class="form-control" id="cc-number" placeholder="Número do cartão:" required>
                            </div>
                         </div>
                         <div class="row">
