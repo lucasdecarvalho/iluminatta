@@ -85,8 +85,8 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="obs">Complemento:</label>
-                        <input type="text" name="obs" class="form-control" id="obs" placeholder="Complemento" value="{{ Auth::user()->obs ?? null }}">
+                        <label for="comp">Complemento:</label>
+                        <input type="text" name="comp" class="form-control" id="comp" placeholder="Complemento" value="{{ Auth::user()->comp ?? null }}">
                     </div>
 
                     <div class="form-group">
