@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Iluminatta.com.br !</title>
-</head>
-<body>
-    <h1>{{ $details['title'] }}</h1>
+@component('mail::message')
+
+    <h1>Olá, {{ auth()->user()->name }}!</h1>
+    <h2>{{ $details['title'] }}</h2>
+    <p>Número do pedido: {{ $details['idPed'] }}</p>
     <p>{{ $details['body'] }}</p>
-   
-    <p>Thank you</p>
-</body>
-</html>
+
+@endcomponent

@@ -30,7 +30,7 @@ class SoldMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('E-mail de venda teste')
-                    ->view('emails.sold');
+        return $this->subject('Compra efetuada com sucesso!')
+                    ->markdown('emails.sold');
     }
 }

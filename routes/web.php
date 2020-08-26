@@ -28,7 +28,18 @@ Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy')
 
 // Checkout
 Route::get('/checkout', 'CieloController@index')->name('checkout.index')->middleware('auth');
-Route::post('/checkout', 'CieloController@payer')->name('checkout.payer')->middleware('auth');;
+Route::post('/checkout', 'CieloController@payer')->name('checkout.payer')->middleware('auth');
+
+Route::get('send-mail', function () {
+   
+    $details = [
+        'title' => 'Olá, {{ $shop->name }}! Agradecemos por sua compra em nossa loja.',
+        'body' => 'Caso precise de alguma ajuda com o seu pedido, fale conosco através do WhatsApp® (19) 91234-5678.'
+    ];
+   
+    \Mail::to('contato@lucasdecarvalho.com.br')->send(new \App\Mail\SoldMail($details));
+   
+});
 
 // Authentications
 Auth::routes();

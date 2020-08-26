@@ -28,7 +28,7 @@ class CieloController extends CartController
     private $payment;
 
     public function __construct(Request $request){
-        $this->environment = Environment::sandbox();
+        $this->environment = Environment::production();
         $this->merchant = new Merchant(config('cielo.MerchantId'), config('cielo.MerchantKey'));
         $this->cielo = new CieloEcommerce($this->merchant, $this->environment);
         $this->sale = new Sale('123');
@@ -53,6 +53,8 @@ class CieloController extends CartController
         $shop = new Shop;
         
         $shop->final = $data->shop->final;
+        $shop->name = auth()->user()->name;
+        $shop->email = auth()->user()->email;
         
         $saveCart = [
             'user_id' => auth()->user()->id,
@@ -75,74 +77,56 @@ class CieloController extends CartController
         $this->sale->customer($request->holder);
         
         // Crie uma instância de Payment informando o valor do pagamento
-        $this->paymentInit($shop->final, $request->installments);
+        $payment = $this->sale->payment($shop->final, $request->installments);
         
         // Crie uma instância de Credit Card utilizando os dados de teste
         // esses dados estão disponíveis no manual de integração
         // dd($request->installments);
-        $this->cardData($shop->final,$request->cvv,$request->date,$request->installments,$request->numberCard,$request->holder);
+        // $this->cardData($shop->final,$request->cvv,$request->date,$request->installments,$request->numberCard,$request->holder);
+        $payment->setType($this->payment)
+                    ->creditCard($request->cvv, CreditCard::MASTERCARD)
+                    ->setExpirationDate($request->date)
+                    ->setCardNumber($request->numberCard)
+                    ->setHolder($request->holder);
         
         // Crie o pagamento na Cielo
         try {
             // Configure o SDK com seu merchant e o ambiente apropriado para criar a venda
-            $this->createSale();
+            $sale = ($this->cielo)->createSale($this->sale);
             
-            $total = $shop->final;
+            // Com a venda criada na Cielo, já temos o ID do pagamento, TID e demais
+            // dados retornados pela Cielo
+            $paymentId = $sale->getPayment()->getPaymentId();
+            
             // Com o ID do pagamento, podemos fazer sua captura, se ela não tiver sido capturada ainda
-            $captura = $this->captureSale($shop->final);
-
+            $sale = ($this->cielo)->captureSale($paymentId, $shop->final, 0);
+            
             // Salvar no banco os dados da compra
             $saveCart["success"] = true;
             Sold::create($saveCart);
             
             // Enviar email de sucesso
             $details = [
-                'title' => 'Compra efetuada com sucesso!',
-                'body' => 'Um de nossos consultores entrarão em contato. Obrigado.'
+                'idPed' => $paymentId,
+                'title' => 'Agradecemos por sua compra em nossa loja.',
+                'body' => 'Caso precise de alguma ajuda com o seu pedido, fale conosco através do WhatsApp® (19) 91234-5678.'
             ];
-            \Mail::to('contato@lucasdecarvalho.com.br')->send(new \App\Mail\SoldMail($details));
+           
+            \Mail::to($shop->email)->send(new \App\Mail\SoldMail($details));        
 
-            return view('success', compact('total','shop'));
+            return view('success', compact('shop'));
 
         } catch (CieloRequestException $e) {
             // Em caso de erros de integração, podemos tratar o erro aqui.
             // os códigos de erro estão todos disponíveis no manual de integração.
+            // dd($e);
 
             // Salvar no banco os dados da compra
             $saveCart["success"] = false;
             Sold::create($saveCart);
 
-            // dd($e);
             $error = $e->getCieloError();
             return view('error', compact('error'));
         }
-    }
-
-    private function createSale(){
-        return ($this->cielo)->createSale($this->sale);
-    }
-    
-    private function captureSale($price){
-        return ($this->cielo)->captureSale($this->paymentId(), $price, 0);
-    }
-    
-    // private function cancelSale($price){
-    //     return ($this->cielo)->cancelSale($this->paymentId(), $price);
-    // }
-    
-    private function paymentInit($price, $installments){
-            return $this->sale->payment($price, $installments);
-    }
-
-    private function paymentId(){
-        return $this->createSale()->getPayment()->getPaymentId();
-    }
-
-    private function cardData($price,$cvv,$date,$installments,$numberCard,$holder){
-        $this->paymentInit($price,$installments)->setType($this->payment)
-                ->creditCard($cvv, CreditCard::MASTERCARD)
-                ->setExpirationDate($date)
-                ->setCardNumber($numberCard)
-                ->setHolder($holder);
     }
 }
