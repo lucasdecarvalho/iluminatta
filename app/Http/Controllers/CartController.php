@@ -17,22 +17,20 @@ class CartController extends Controller
         $correios = new Client;
         $shop = new Shop;
         $cupom = null;
+        $zipcode = auth()->user()->zipcode ?? null;
         
-        if(auth()->user()) {
-
-            $address = $correios->zipcode()
-                            ->find(auth()->user()->zipcode);
+            // $address = $correios->zipcode()
+            //                 ->find($zipcode);
 
             $ship = $correios->freight()
                             ->origin('13501-140') // endereço da loja
-                            ->destination(auth()->user()->zipcode) // endereço da entrega
+                            ->destination($zipcode) // endereço da entrega
                             ->services(Service::SEDEX, Service::PAC) // serviços dos correios
                             ->item(11, 2, 16, .3, Cart::count()) // largura min 11, altura min 2, comprimento min 16, peso min .3 e quantidade
                             ->calculate();
 
-            $shop->address    = $address;
+            // $shop->address    = $address;
             $shop->ship       = $ship[0]["price"];
-        }
         
             $price              = str_replace(',','',Cart::total());
             $tax                = str_replace(',','',Cart::tax());
