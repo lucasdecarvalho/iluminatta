@@ -34,7 +34,7 @@
                <div class="card-body" style="height:140px;">
                   <h5 class="card-title">{{ $product->name ?? null }}</h5>
                   <!-- <p class="card-text">{{ $product->details ?? null }}</p> -->
-                  <p class="card-text">R$ {{ $product->price ?? null }}</p>
+                  <p class="card-text">R$ {{ number_format($product->price,2,",",".") }}</p>
                </div>
             </div>
          </div>

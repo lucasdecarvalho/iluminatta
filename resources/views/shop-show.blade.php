@@ -20,18 +20,17 @@
                   </ul>
                   
                </div>
-               <div class="details col-md-6">
+               <div class="details col-md-6 text-center text-xl-left">
                   <h3 class="product-title">{{ $product->name ?? null }}</h3>
-                  <p class="product-description">{{ $product->caption ?? null }}</p>
-                  <p class="product-description">{{ $product->details ?? null }}</p>
-                  <h4 class="price"><span>R$ {{ $product->price ?? null }}</span></h4>
-                  <div class="action">
+                  <p class="product-description">{{ $product->caption ?? null }} {{ $product->details ?? null }}</p>
+                  <h4 class="price">R$ {{ number_format($product->price,2,",",".") }}</h4>
+                  <div class="col-12 col-xl-6 p-0">
                      <form action="{{ route('cart.store') }}" method="POST">
                         {{ csrf_field() }}
                         <input type="hidden" name="id" value="{{ $product->id }}">
                         <input type="hidden" name="name" value="{{ $product->name }}">
                         <input type="hidden" name="price" value="{{ $product->price }}">
-                        <button type="submit" class="btn btn-success">Adicionar ao carrinho</button>
+                        <button type="submit" class="btn btn-success w-100">Adicionar ao carrinho</button>
                      </form>
                      <!-- <button class="btn btn-secondary" type="button"><span class="fa fa-heart"></span></button> -->
                   </div>
@@ -55,7 +54,7 @@
                <div class="card-body" style="height:140px;">
                   <h5 class="card-title">{{ $prod->name ?? null }}</h5>
                   <!-- <p class="card-text">{{ $prod->details ?? null }}</p> -->
-                  <p class="card-text">$ {{ $prod->price ?? null }}</p>
+                  <p class="card-text">R$ {{ number_format($product->price,2,",",".") }}</p>
                </div>
             </div>
          </div>
