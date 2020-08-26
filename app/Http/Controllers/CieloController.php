@@ -28,7 +28,7 @@ class CieloController extends CartController
     private $payment;
 
     public function __construct(Request $request){
-        $this->environment = Environment::production();
+        $this->environment = Environment::sandbox();
         $this->merchant = new Merchant(config('cielo.MerchantId'), config('cielo.MerchantKey'));
         $this->cielo = new CieloEcommerce($this->merchant, $this->environment);
         $this->sale = new Sale('123');
@@ -97,17 +97,20 @@ class CieloController extends CartController
             // Com a venda criada na Cielo, já temos o ID do pagamento, TID e demais
             // dados retornados pela Cielo
             $paymentId = $sale->getPayment()->getPaymentId();
+            $tId = $sale->getPayment()->getTid();
             
             // Com o ID do pagamento, podemos fazer sua captura, se ela não tiver sido capturada ainda
             $sale = ($this->cielo)->captureSale($paymentId, $shop->final, 0);
             
             // Salvar no banco os dados da compra
+            $saveCart["id_shop"] = $paymentId;
+            $saveCart["tid"] = $tId;
             $saveCart["success"] = true;
             Sold::create($saveCart);
             
             // Enviar email de sucesso
             $details = [
-                'idPed' => $paymentId,
+                'idPed' => $tId,
                 'title' => 'Agradecemos por sua compra em nossa loja.',
                 'body' => 'Caso precise de alguma ajuda com o seu pedido, fale conosco através do WhatsApp® (19) 91234-5678.'
             ];

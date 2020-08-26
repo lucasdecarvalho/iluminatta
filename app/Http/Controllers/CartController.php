@@ -31,7 +31,7 @@ class CartController extends Controller
         $price            = str_replace(',','',Cart::total());
         $tax              = str_replace(',','',Cart::tax());
         
-        $shop->price      = $price - $tax;
+        $shop->price      = str_replace(',','',Cart::subtotal());
         $shop->fmt_price  = number_format($shop['price'],2,',','.');
         $shop->fmt_ship   = number_format($shop['ship'],2,',','.');
         $shop->final      = number_format($shop['price'] + $shop['ship'],2,'','');

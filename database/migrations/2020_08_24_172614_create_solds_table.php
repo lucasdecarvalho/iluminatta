@@ -23,7 +23,7 @@ class CreateSoldsTable extends Migration
             $table->string('state');
             $table->string('zipcode');
             $table->string('id_shop')->nullable();
-            $table->string('tild')->nullable();
+            $table->string('tid')->nullable();
             $table->string('payment_type');
             $table->string('value');
             $table->string('installments')->nullable();
