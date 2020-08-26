@@ -67,9 +67,9 @@
                      <br><span>{{ auth()->user()->phone1 ?? null }}</span></p>
 
                      <h6><b>Endereço de entrega:</b></h6>
-                     <p><span>{{ auth()->user()->address ?? null }}, 
+                     <p><span>{{ auth()->user()->street ?? null }}, 
                            {{ auth()->user()->number ?? null }}<br>
-                           {{ auth()->user()->obs ?? null }}<br>
+                           {{ auth()->user()->comp ?? null }}<br>
                            {{ auth()->user()->neigh ?? null }} - 
                            {{ auth()->user()->city ?? null }}/{{ auth()->user()->state ?? null }}<br>
                            CEP: {{ auth()->user()->zipcode ?? null }} -
@@ -100,18 +100,6 @@
                      <!-- form credit -->
                      <form class="needs-validation" action="{{ route('checkout.payer') }}" method="POST">
                         @csrf
-                        <!-- <div class="row">
-                           <div class="col-12 mt-3 mb-2">
-                              <div class="custom-control custom-radio">
-                                    <label class="custom-control-label" for="credit">Cartão de crédito</label>
-                                    <input id="credit" name="paymentMethod1" type="radio" class="custom-control-input" checked>
-                              </div>
-                              <div class="custom-control custom-radio">
-                                    <label class="custom-control-label" for="debit">Cartão de débito</label>
-                                    <input id="credit" name="paymentMethod2" type="radio" class="custom-control-input">
-                              </div>
-                           </div>
-                        </div> -->
                         <div class="row">
                            <div class="col-12 mb-2">
                               <select class="form-control" name="flag" id="flag" required>
