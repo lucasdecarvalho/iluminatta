@@ -74,8 +74,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="address">Endereço:</label>
-                        <input type="text" name="address" class="form-control" id="address" placeholder="Logradouro" value="{{ $end['street'] }}">
+                        <label for="street">Endereço:</label>
+                        <input type="text" name="street" class="form-control" id="street" placeholder="Logradouro" value="{{ $end['street'] ?? null }}">
                     </div>
 
                     
