@@ -49,7 +49,7 @@
                         
                         <div class="form-group">
                             <label for="doc">CPF:</label>
-                            <input type="text" name="doc" class="form-control" id="doc" placeholder="CPF" value="{{ Auth::user()->doc ?? null  }}" disabled required>
+                            <input type="text" name="doc" class="form-control cpf" id="doc" placeholder="CPF" value="{{ Auth::user()->doc ?? null  }}" disabled required>
                             <small id="emailHelp" class="form-text text-muted">Caso precise alterar o seu CPF, entre em contato com nosso suporte <a href="mailto:iluminatta@iluminatta.com.br">clicando aqui</a>.</small>
                         </div>
 
@@ -73,12 +73,12 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-6">
-                                    <label for="">Telefone:</label>
-                                    <input type="text" name="phone1" class="form-control" id="phone1" placeholder="Telefone" value="{{ Auth::user()->phone1 ?? null }}">
+                                    <label for="">Celular:</label>
+                                    <input type="text" name="phone1" class="form-control cel" id="phone1" placeholder="Telefone" value="{{ Auth::user()->phone1 ?? null }}">
                                 </div>
                                 <div class="col-6">
-                                    <label for="phone2">Telefone adicional:</label>
-                                    <input type="text" name="phone2" class="form-control" id="phone2" placeholder="Telefone adicional" value="{{ Auth::user()->phone2 ?? null }}">
+                                    <label for="phone2">Telefone (opcional)):</label>
+                                    <input type="text" name="phone2" class="form-control phone" id="phone2" placeholder="Telefone adicional" value="{{ Auth::user()->phone2 ?? null }}">
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                         <div class="col-12 col-xl-6 mt-4 mb-4">
                             <div class="row">
                                 <label for="zipcode" class="w-100">Digite seu CEP:</label>
-                                <input type="text" name="zipcode" class="col-8 border rounded-left" id="zipcode" placeholder="Digite seu CEP" value="{{ Auth::user()->zipcode ?? null  }}" required>
+                                <input type="text" name="zipcode" class="col-8 border rounded-left cep" id="zipcode" placeholder="Digite seu CEP" value="{{ Auth::user()->zipcode ?? null  }}" required>
                                 <input type="hidden" name="number" value=" ">
                                 <input type="hidden" name="comp" value=" ">
                                 <button type="submit" name="" class="col-4 bg-secondary p-2 border-0 text-white rounded-right">Preencher</button>

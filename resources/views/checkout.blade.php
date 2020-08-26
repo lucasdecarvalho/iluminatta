@@ -130,15 +130,15 @@
                         </div>
                         <div class="row">
                            <div class="col-12 mb-2">
-                              <input type="number" name="numberCard" class="form-control" id="cc-number" placeholder="Número do cartão:" required>
+                              <input type="text" name="numberCard" class="form-control ccnumber" id="cc-number" placeholder="Número do cartão:" required>
                            </div>
                         </div>
                         <div class="row">
                            <div class="col-6 mb-2 pr-0">
-                              <input type="text" name="date" class="form-control" id="cc-expiration" placeholder="_ _ / _ _ _ _" required>
+                              <input type="text" name="date" class="form-control exp" id="cc-expiration" placeholder="_ _ / _ _ _ _" required>
                            </div>
                            <div class="col-6 mb-2">
-                              <input type="text" name="cvv" class="form-control" id="cc-cvv" placeholder="CVV:" required>
+                              <input type="text" name="cvv" class="form-control cvv" id="cc-cvv" placeholder="CVV:" required>
                            </div>
                         </div>
                         <div class="row">
