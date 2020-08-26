@@ -29,10 +29,10 @@ class CreateUsersTable extends Migration
             // permition level
             $table->boolean('is_admin')->nullable();
             // address data
-            $table->string('address_title')->nullable();
-            $table->string('address')->nullable();
+            $table->string('addressTitle')->nullable();
+            $table->string('street')->nullable();
             $table->string('number')->nullable();
-            $table->string('obs')->nullable();
+            $table->string('comp')->nullable();
             $table->string('neigh')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
