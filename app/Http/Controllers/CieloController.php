@@ -58,9 +58,9 @@ class CieloController extends CartController
         
         $saveCart = [
             'userId' => auth()->user()->id,
-            'street' => auth()->user()->address,
+            'street' => auth()->user()->street,
             'number' => auth()->user()->number,
-            'comp' => auth()->user()->obs,
+            'comp' => auth()->user()->comp,
             'city' => auth()->user()->city,
             'state' => auth()->user()->state,
             'zipcode' => auth()->user()->zipcode,
