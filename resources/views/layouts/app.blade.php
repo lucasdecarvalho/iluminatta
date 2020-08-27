@@ -154,10 +154,10 @@
                         <div class="col-sm">
                         <div class="row">
                             <ul class="mt-3" style="font-size:3rem;">
-                                <li class="float-left m-2"><a class="text-light" href="http://" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
-                                <li class="float-left m-2"><a class="text-light" href="http://" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
-                                <li class="float-left m-2"><a class="text-light" href="http://" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                <li class="float-left m-2"><a class="text-light" href="http://" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                                <li class="float-left m-2"><a class="text-light" href="https://www.facebook.com/Iluminatta-654918827851954/" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+                                <!-- <li class="float-left m-2"><a class="text-light" href="http://" target="_blank"><i class="fab fa-twitter-square"></i></a></li> -->
+                                <li class="float-left m-2"><a class="text-light" href="https://www.instagram.com/iluminatta/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                <!-- <li class="float-left m-2"><a class="text-light" href="http://" target="_blank"><i class="fab fa-youtube"></i></a></li> -->
                             </ul>
                         </div>
                         </div>
@@ -183,18 +183,10 @@
                                 <li><a class="text-light" href="http://">FAQ</a></li>
                                 <li><a class="text-light" href="http://">Meus Pedidos</a></li>
                                 <li><a class="text-light" href="http://">Política de retorno</a></li>
-                                <li><a class="text-light" href="http://">Informações de compra</a></li>
-                                <li><a class="text-light" href="http://">Privacidade</a></li>
-                                <li><a class="text-light" href="http://">Termos de uso</a></li>
-                                <li><a class="text-light" href="http://">Permissão de uso</a></li>
                             </ul>
                         </div>
                         <div class="col">
                             <ul>
-                                <li><a class="text-light" href="http://">Contato</a></li>
-                                <li><a class="text-light" href="http://">FAQ</a></li>
-                                <li><a class="text-light" href="http://">Meus Pedidos</a></li>
-                                <li><a class="text-light" href="http://">Política de retorno</a></li>
                                 <li><a class="text-light" href="http://">Informações de compra</a></li>
                                 <li><a class="text-light" href="http://">Privacidade</a></li>
                                 <li><a class="text-light" href="http://">Termos de uso</a></li>
