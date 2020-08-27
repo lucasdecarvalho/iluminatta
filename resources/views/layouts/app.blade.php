@@ -156,7 +156,7 @@
                             <ul class="mt-3" style="font-size:3rem;">
                                 <li class="float-left m-2"><a class="text-light" href="https://www.facebook.com/Iluminatta-654918827851954/" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
                                 <!-- <li class="float-left m-2"><a class="text-light" href="http://" target="_blank"><i class="fab fa-twitter-square"></i></a></li> -->
-                                <li class="float-left m-2"><a class="text-light" href="https://www.instagram.com/iluminatta/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                <li class="float-left m-2"><a class="text-light" href="https://www.instagram.com/iluminattastore/" target="_blank"><i class="fab fa-instagram"></i></a></li>
                                 <!-- <li class="float-left m-2"><a class="text-light" href="http://" target="_blank"><i class="fab fa-youtube"></i></a></li> -->
                             </ul>
                         </div>
