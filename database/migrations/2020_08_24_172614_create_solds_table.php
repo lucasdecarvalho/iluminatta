@@ -18,6 +18,7 @@ class CreateSoldsTable extends Migration
 
             $table->string('merchantOrderId')->nullable();
             $table->boolean('success');
+            $table->string('status');
             $table->string('tid')->nullable();
             
             $table->string('value');

@@ -69,7 +69,7 @@ class CieloController extends CartController
             'installments' => $request->installments,
             'cart' => Cart::content(),
             'trackingNumber' => null
-        ];       
+        ]; 
         
         // Crie uma instância de Customer informando o nome do cliente
         $this->sale->customer($request->holder);
@@ -106,6 +106,7 @@ class CieloController extends CartController
             // Salvar no banco os dados da compra
             $saveCart["paymentId"] = $paymentId;
             $saveCart["tid"] = $tId;
+            $saveCart['status'] = 'waiting';
             $saveCart["success"] = true;
             Sold::create($saveCart);
             
@@ -127,6 +128,7 @@ class CieloController extends CartController
             $error = $e->getCieloError();
 
             // Salvar no banco os dados da compra
+            $saveCart['status'] = 'fail';
             $saveCart["success"] = false;
             $saveCart["errorCod"] = $error->getCode();
             Sold::create($saveCart);

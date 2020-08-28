@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-
+use App\Sold;
 use FlyingLuscas\Correios\Client;
 use FlyingLuscas\Correios\Service;
 
@@ -29,6 +29,8 @@ class HomeController extends Controller
     public function index()
     {
         $correios = new Client;
+        $sale = Sold::all()->where('userId', auth()->user()->id)
+                        ->where('success', true);
 
         $end = $correios->zipcode()
                         ->find(auth()->user()->zipcode);

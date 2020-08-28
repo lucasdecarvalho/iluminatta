@@ -49,7 +49,7 @@
                         
                         <div class="form-group">
                             <label for="doc">CPF:</label>
-                            <input type="text" name="doc" class="form-control cpf" id="doc" placeholder="CPF" value="{{ Auth::user()->doc ?? null  }}" disabled required>
+                            <input type="text" name="doc" class="form-control cpf" id="doc" placeholder="CPF" value="{{ Auth::user()->doc ?? null  }}" readonly required>
                             <small id="emailHelp" class="form-text text-muted">Caso precise alterar o seu CPF, entre em contato com nosso suporte <a href="mailto:iluminatta@iluminatta.com.br">clicando aqui</a>.</small>
                         </div>
 
@@ -131,7 +131,7 @@
                             <div class="row">
                                 <div class="col-9">
                                     <label for="street">Endereço:</label>
-                                    <input type="text" name="street" class="form-control" id="street" placeholder="Logradouro" value="{{ $end['street'] ?? null }}" disabled required>
+                                    <input type="text" name="street" class="form-control" id="street" placeholder="Logradouro" value="{{ $end['street'] ?? null }}" readonly required>
                                 </div>
                                 <div class="col-3">
                                     <label for="number">Número:</label>
@@ -148,7 +148,7 @@
                                 </div>
                                 <div class="col-6">
                                     <label for="neigh">Bairro:</label>
-                                    <input type="text" name="neigh" class="form-control" id="neigh" placeholder="Bairro" value="{{ $end['district'] ?? null }}" disabled required>
+                                    <input type="text" name="neigh" class="form-control" id="neigh" placeholder="Bairro" value="{{ $end['district'] ?? null }}" readonly required>
                                 </div>
                             </div>
                         </div>
@@ -157,12 +157,12 @@
                             <div class="row">
                                 <div class="col-6">
                                     <label for="city">Cidade:</label>
-                                    <input type="text" name="city" class="form-control" id="city" placeholder="Cidade" value="{{ $end['city'] ?? null }}" disabled required>
+                                    <input type="text" name="city" class="form-control" id="city" placeholder="Cidade" value="{{ $end['city'] ?? null }}" readonly required>
                                 </div>
                                 <div class="col-6">
                                     <label for="state">Estado:</label>
-                                    <input type="text" name="state" class="form-control" id="state" placeholder="Estado" value="{{ $end['uf'] ?? null }}" disabled required>
-                                    <input type="hidden" name="country" value="Brasil" disabled required>
+                                    <input type="text" name="state" class="form-control" id="state" placeholder="Estado" value="{{ $end['uf'] ?? null }}" readonly required>
+                                    <input type="hidden" name="country" value="Brasil" readonly required>
                                 </div>
                             </div>  
                         </div>
