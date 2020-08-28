@@ -376,7 +376,7 @@
             <div class="modal-body">Deseja realmente sair do dashboard?</div>
             <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Não</button>
-            <a class="btn btn-primary" href="">Sim</a>
+            <a class="btn btn-primary" href="{{ route('logout') }}">Sim</a>
             </div>
         </div>
         </div>
