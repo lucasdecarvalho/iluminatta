@@ -73,7 +73,7 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-6">
-                                    <label for="">Celular:</label>
+                                    <label for="phone1">Celular:</label>
                                     <input type="text" name="phone1" class="form-control cel" id="phone1" placeholder="Telefone" value="{{ Auth::user()->phone1 ?? null }}">
                                 </div>
                                 <div class="col-6">
