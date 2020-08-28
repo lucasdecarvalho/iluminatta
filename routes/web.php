@@ -51,3 +51,6 @@ Route::get('/client', 'HomeController@index')->name('client.index');
 Route::put('/client', 'HomeController@update')->name('client.update');
 
 Route::get('/home', 'HomeController@index')->name('client.index');
+
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
