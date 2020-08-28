@@ -181,7 +181,45 @@
                 <div class="card-header">Meus Pedidos</div>
 
                 <div class="card-body">
+                    <div class="row">
+                        @foreach($done as $key => $item)
+                            @if($item->status == 'waiting' || $item->status == 'delivered')
+                            <ul class="w-100 p-2 border rounded">
+                                
+                                <li class="">Número do pedido: {{ $item->tid }}</li>
+                                <li>Status: <button class="btn btn-info text-white p-0 pl-1 pr-1">{{ $item->status }}</button></li>
+                                    
+                                    <ul class="w-100 p-0 mt-2">
+                                    @foreach($item->cart as $prods)
+                                        <li class="p-2 border-top">{{ $prods }}</li>
+                                    @endforeach
+                                    </ul>
+                            </ul>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">Pedidos Entregues</div>
 
+                <div class="card-body">
+                    <div class="row">
+                        @foreach($done as $key => $item)
+                            @if($item->status == 'done')
+                            <ul class="w-100 p-2 border rounded">
+                                
+                                <li class="">Número do pedido: {{ $item->tid }}</li>
+                                    
+                                    <ul class="w-100 p-0 mt-2">
+                                    @foreach($item->cart as $prods)
+                                        <li class="p-2 border-top">{{ $prods }}</li>
+                                    @endforeach
+                                    </ul>
+                            </ul>
+                            @endif
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>

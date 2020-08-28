@@ -55,7 +55,12 @@ class CieloController extends CartController
         $shop->final = $data->shop->final;
         $shop->name = auth()->user()->name;
         $shop->email = auth()->user()->email;
-        
+
+        foreach (Cart::content() as $item)
+        {
+            $p[] = $item->qty." - ".$item->model->name." (".$item->model->id.")";
+        }
+
         $saveCart = [
             'userId' => auth()->user()->id,
             'street' => auth()->user()->street,
@@ -67,9 +72,12 @@ class CieloController extends CartController
             'paymentType' => $this->payment ." - ". $request->flag,
             'value' => $data->shop->final,
             'installments' => $request->installments,
-            'cart' => Cart::content(),
-            'trackingNumber' => null
-        ]; 
+            'trackingNumber' => null,
+            'cart' => serialize($p),
+        ];
+
+        // dump($saveCart);
+        // dd();
         
         // Crie uma instância de Customer informando o nome do cliente
         $this->sale->customer($request->holder);
@@ -88,7 +96,7 @@ class CieloController extends CartController
                     ->setHolder($request->holder);
 
         $merchantOrderId = $this->sale->getMerchantOrderId();
-        $saveCart["merchantOrderId"] = $merchantOrderId;
+        $saveCart['merchantOrderId'] = $merchantOrderId;
         
         // Crie o pagamento na Cielo
         try {
@@ -104,10 +112,10 @@ class CieloController extends CartController
             $sale = ($this->cielo)->captureSale($paymentId, $shop->final, 0);
 
             // Salvar no banco os dados da compra
-            $saveCart["paymentId"] = $paymentId;
-            $saveCart["tid"] = $tId;
+            $saveCart['paymentId'] = $paymentId;
+            $saveCart['tid'] = $tId;
             $saveCart['status'] = 'waiting';
-            $saveCart["success"] = true;
+            $saveCart['success'] = true;
             Sold::create($saveCart);
             
             // Enviar email de sucesso
@@ -129,8 +137,8 @@ class CieloController extends CartController
 
             // Salvar no banco os dados da compra
             $saveCart['status'] = 'fail';
-            $saveCart["success"] = false;
-            $saveCart["errorCod"] = $error->getCode();
+            $saveCart['success'] = false;
+            $saveCart['errorCod'] = $error->getCode();
             Sold::create($saveCart);
 
             return view('error', compact('error'));

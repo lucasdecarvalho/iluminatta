@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Cart;
 use App\User;
 use App\Sold;
 use FlyingLuscas\Correios\Client;
@@ -29,13 +30,21 @@ class HomeController extends Controller
     public function index()
     {
         $correios = new Client;
+        $done = [];
+        
         $sale = Sold::all()->where('userId', auth()->user()->id)
                         ->where('success', true);
+        
+        foreach ($sale as $key => $shop)
+        {
+            $done[$key] = $shop;
+            $done[$key]['cart'] = unserialize($shop->cart);
+        }
 
         $end = $correios->zipcode()
                         ->find(auth()->user()->zipcode);
 
-        return view('auth.index', compact('end'));
+        return view('auth.index', compact('done','end'));
     }
 
     public function update(Request $request)
