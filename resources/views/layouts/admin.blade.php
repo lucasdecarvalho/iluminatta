@@ -69,7 +69,7 @@
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Escolha uma Ação:</h6>
-            <a class="collapse-item" href="">Relatório de Vendas</a>
+            <a class="collapse-item" href="sales">Relatório de Vendas</a>
             <a class="collapse-item" href="">Cadastro de Usuários</a>
             <a class="collapse-item" href="">Newsletter</a>
           </div>
@@ -100,8 +100,8 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Escolha uma Ação:</h6>
-            <a class="collapse-item" href="">Lista de Produtos</a>
-            <a class="collapse-item" href="">Adicionar Produto</a>
+            <a class="collapse-item" href="{{ route('admin.index') }}">Lista de Produtos</a>
+            <a class="collapse-item" href="{{ route('admin.create') }}">Adicionar Produto</a>
           </div>
         </div>
       </li>

@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
         $products = Product::latest()->paginate(5);
   
-        return view('admin.index',compact('products'))
+        return view('admin.products-list',compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -98,7 +98,7 @@ class ProductController extends Controller
 
         Product::create($data);
    
-        return redirect()->route('admin.index')
+        return redirect()->route('admin.products-list')
                         ->with('success','Product created successfully.');
 
     }
@@ -142,7 +142,7 @@ class ProductController extends Controller
   
         $admin->update($request->all());
   
-        return redirect()->route('admin.index')
+        return redirect()->route('admin.products-list')
                         ->with('success','Product updated successfully');
     }
 
@@ -156,7 +156,7 @@ class ProductController extends Controller
     {
         $admin->delete();
   
-        return redirect()->route('admin.index')
+        return redirect()->route('admin.products-list')
                         ->with('success','Product deleted successfully');
     }
 }

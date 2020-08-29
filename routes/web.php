@@ -44,10 +44,13 @@ Route::get('send-mail', function () {
 // Authentications
 Auth::routes();
 
-// Admin
-Route::resource('/admin', 'ProductController')->middleware('is_admin');
-Route::get('/client', 'HomeController@index')->name('client.index');
+Route::group(['prefix' => 'admin','middleware' => 'is_admin'], function() {
 
+    Route::resource('admin', 'ProductController');
+    Route::resource('sales', 'SoldController');
+});
+
+Route::get('/client', 'HomeController@index')->name('client.index');
 Route::put('/client', 'HomeController@update')->name('client.update');
 
 Route::get('/home', 'HomeController@index')->name('client.index');
