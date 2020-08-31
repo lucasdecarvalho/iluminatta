@@ -69,7 +69,7 @@
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Escolha uma Ação:</h6>
-            <a class="collapse-item" href="sales">Relatório de Vendas</a>
+            <a class="collapse-item" href="/admin/sales">Relatório de Vendas</a>
             <a class="collapse-item" href="">Cadastro de Usuários</a>
             <a class="collapse-item" href="">Cupons de Desconto</a>
             <a class="collapse-item" href="">Cadastro de Newsletter</a>

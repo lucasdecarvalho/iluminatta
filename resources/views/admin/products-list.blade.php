@@ -20,7 +20,7 @@
             <th>Nome</th>
             <th>Preço</th>
             <th>Status</th>
-            <th width="280px">Action</th>
+            <th width="280px">Ação</th>
         </tr>
         @foreach ($products as $admin)
         <tr>
