@@ -46,7 +46,8 @@
             <div class="form-row">
                 <div class="form-group col-12 col-xl-6">
                     <label for="category">Categoria:</label>
-                    <select class="form-control" name="category" id="category">
+                    <select class="form-control" name="category" id="category" required>
+                        <option value="">Selecione...</option>
                         <option value="1">01</option>
                         <option value="2">02</option>
                         <option value="3">03</option>
@@ -63,7 +64,7 @@
                 </div>
                 <div class="form-group col-12 col-xl-6">
                     <label for="name">Nome:</label>
-                    <input type="text" name="name" class="form-control" id="name">
+                    <input type="text" name="name" class="form-control" id="name" required>
                 </div>
             </div>
             
@@ -77,7 +78,7 @@
             <div class="form-row">
                 <div class="form-group col-12 col-xl-6">
                     <label for="price">Preço (R$):</label>
-                    <input type="text" name="price" class="form-control" id="price">
+                    <input type="text" name="price" class="form-control" id="price" required>
                 </div>
                 <div class="form-group col-12 col-xl-6">
                     <label for="storage">Estoque (opcional):</label>
@@ -94,7 +95,11 @@
                 </div>
                 <div class="form-group col-12 col-xl-6">
                     <label for="status">Status:</label>
-                    <input type="number" name="status" min="1" class="form-control" id="status">
+                    <select class="form-control" name="status" id="status" required>
+                        <option value="">Selecione...</option>
+                        <option value="true">Publicar</option>
+                        <option value="false">Esconder</option>
+                    </select>
                 </div>
             </div>
 
