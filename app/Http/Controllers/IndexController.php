@@ -17,7 +17,7 @@ class IndexController extends Controller
     public function index()
     {
 
-        $pr = Product::offset(0)->limit(8)->orderBy('id','DESC')->get();
+        $pr = Product::offset(0)->limit(8)->orderBy('id','DESC')->where('status',true)->get();
         
         foreach ($pr as $p) {
 

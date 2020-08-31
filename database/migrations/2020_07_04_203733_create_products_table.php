@@ -18,10 +18,10 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('category');
             $table->string('caption')->nullable();
-            $table->string('price');
+            $table->decimal('price');
             $table->string('storage')->nullable();
             $table->string('promo')->nullable();
-            $table->string('status')->nullable();
+            $table->boolean('status');
             $table->text('details')->nullable();
             $table->string('image1')->nullable();
             $table->string('image2')->nullable();

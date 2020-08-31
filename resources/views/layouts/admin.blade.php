@@ -122,7 +122,7 @@
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="https://www.cielo.com.br/" target="_blank">
-          <i class="fas fa-dollar-sign"></i>
+          <i class="fas fa-crown"></i>
           <span>Destaques</span></a>
       </li>
 

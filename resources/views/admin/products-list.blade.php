@@ -27,7 +27,7 @@
             <td>{{ $admin->id }}</td>
             <td>{{ $admin->name }}</td>
             <td>R$ <span class="money">{{ $admin->price }}</span></td>
-            <td>@if($admin->status == 'true') Publicado @else Escondido @endif</td>
+            <td>@if($admin->status == true) Publicado @else Escondido @endif</td>
             <td>
                 <form action="{{ route('admin.destroy',$admin->id) }}" method="POST">
    
