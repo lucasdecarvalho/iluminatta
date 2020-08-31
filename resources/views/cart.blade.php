@@ -42,7 +42,7 @@
 
                     <!-- Foto do produto -->
                     <div class="col-3 col-xl-1">
-                        <img style="width:auto;height:36px;" class="m-1" src="{{ asset($item->model->image1 ?? null) }}" />
+                        <img style="width:auto;height:36px;" class="m-1" src="{{ asset($item->model->image1 ?? 'images/no-image.png') }}" />
                     </div>
 
                     <!-- Nome do produto -->

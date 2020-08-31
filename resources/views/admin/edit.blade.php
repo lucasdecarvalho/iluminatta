@@ -25,59 +25,97 @@
     <form action="{{ route('admin.update',$admin->id) }}" method="POST">
         @csrf
         @method('PUT')
-   
-         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Nome:</strong>
-                    <input type="text" name="name" value="{{ $admin->name }}" class="form-control" placeholder="Name">
+
+        <div class="col-12">
+            
+            <!-- <div class="form-row">
+                <div class="form-group col-12 col-xl-4">
+                    <label for="">Imagem 1:</label>
+                    <input id="file-upload" type="file" name="fileUpload1" accept="image/*" onchange="readURL(this);">
+                </div>
+                <div class="form-group col-12 col-xl-4">
+                    <label for="">Imagem 2:</label>
+                    <input id="file-upload" type="file" name="fileUpload2" accept="image/*" onchange="readURL(this);">
+                </div>
+                <div class="form-group col-12 col-xl-4">
+                    <label for="">Imagem 3:</label>
+                    <input id="file-upload" type="file" name="fileUpload3" accept="image/*" onchange="readURL(this);">
+                </div>
+            </div> -->
+
+            <div class="form-row">
+                <div class="form-group col-12 col-xl-6">
+                    <label for="category">Categoria:</label>
+                    <select class="form-control" name="category" id="category" required>
+                        <option value="{{ $admin->category }}">{{ $admin->category }}</option>
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+                        <option value="9">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                <div class="form-group col-12 col-xl-6">
+                    <label for="name">Nome:</label>
+                    <input type="text" name="name" value="{{ $admin->name }}" class="form-control" id="name" maxlength="45" required>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Categoria:</strong>
-                    <input type="text" name="name" value="{{ $admin->category }}" class="form-control" placeholder="Categoria">
+            
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label for="caption">Descrição curta:</label>
+                    <input type="text" name="caption" value="{{ $admin->caption }}" class="form-control" maxlength="255" id="caption">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Descrição curta:</strong>
-                    <input type="text" name="name" value="{{ $admin->caption }}" class="form-control" placeholder="Descrição curta">
+
+            <div class="form-row">
+                <div class="form-group col-12 col-xl-6">
+                    <label for="price">Preço (R$):</label>
+                    <input type="text" name="price" value="{{ $admin->price }}" class="form-control money" id="price" required>
+                </div>
+                <div class="form-group col-12 col-xl-6">
+                    <label for="storage">Estoque:</label>
+                    <input type="number" name="storage" value="{{ $admin->storage }}" class="form-control" id="storage" required>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Preço:</strong>
-                    <input type="text" name="price" value="{{ $admin->price }}" class="form-control" placeholder="Name">
+
+            <div class="form-row">
+                <div class="form-group col-12 col-xl-6">
+                    <label for="promo">Promoção:</label>
+                    <select class="form-control" name="promo" id="promo">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="form-group col-12 col-xl-6">
+                    <label for="status">Status:</label>
+                    <select class="form-control" name="status" id="status" required>
+                        <option value="{{ $admin->status }}">{{ $admin->status }}</option>
+                        <option value="true">Publicar</option>
+                        <option value="false">Esconder</option>
+                    </select>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Storage:</strong>
-                    <input type="text" name="price" value="{{ $admin->storage }}" class="form-control" placeholder="Storage">
+
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label for="details">Detalhes:</label>
+                    <textarea class="form-control" style="height:150px" name="details" id="details">{{ $admin->details }}</textarea>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Promoção:</strong>
-                    <input type="text" name="price" value="{{ $admin->storage }}" class="form-control" placeholder="Promoção">
+        
+            <div class="form-row">
+                <div class="form-group col-12 text-right">
+                    <button type="submit" class="btn btn-primary">Alterar</button>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Status:</strong>
-                    <input type="text" name="price" value="{{ $admin->status }}" class="form-control" placeholder="Status">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Detalhes:</strong>
-                    <textarea class="form-control" style="height:150px" name="details" placeholder="Detail">{{ $admin->details }}</textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-              <button type="submit" class="btn btn-primary">Alterar</button>
-            </div>
+        
         </div>
    
     </form>

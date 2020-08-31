@@ -79,6 +79,9 @@ class ProductController extends Controller
         else {
             $image3 = null;
         }
+
+        $request->price = str_replace('.','',$request->price);
+        $request->price = str_replace(',','.',$request->price);
         
         $data = [
             'name'  => $request->name,
@@ -99,7 +102,7 @@ class ProductController extends Controller
         Product::create($data);
    
         return redirect()->route('admin.index')
-                        ->with('success','Product created successfully.');
+                        ->with('success','Produto registrado com sucesso!');
 
     }
 
@@ -134,16 +137,31 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $admin)
     {
-        // dd($request);
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required',
-        ]);
-  
-        $admin->update($request->all());
+
+        $request->price = str_replace('.','',$request->price);
+        $request->price = str_replace(',','.',$request->price);
+
+        $data = [
+            'name'  => $request->name,
+            'category' => $request->category,
+            'caption' => $request->caption,
+            'price' => $request->price,
+            'storage' => $request->storage,
+            'promo' => $request->promo,
+            'status' => $request->status,
+            'details' => $request->details,
+        ];
+
+        // $request->validate([
+        //     'name' => 'required',
+        //     'price' => 'required',
+        //     ]);
+            
+
+        $admin->update($data);
   
         return redirect()->route('admin.index')
-                        ->with('success','Product updated successfully');
+                        ->with('success','Produto alterado com sucesso!');
     }
 
     /**
@@ -157,6 +175,6 @@ class ProductController extends Controller
         $admin->delete();
   
         return redirect()->route('admin.index')
-                        ->with('success','Product deleted successfully');
+                        ->with('success','Produto deletado com sucesso!');
     }
 }
