@@ -46,13 +46,19 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nome do Produto:</strong>
+                <strong>Nome:</strong>
                 <input type="text" name="name" class="form-control" placeholder="Nome do produto">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Caption:</strong>
+                <strong>Categoria:</strong>
+                <input type="text" name="categoria" class="form-control" placeholder="Categoria">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Descrição curta:</strong>
                 <input type="text" name="caption" class="form-control" placeholder="Descrição curta">
             </div>
         </div>
@@ -60,6 +66,18 @@
             <div class="form-group">
                 <strong>Preço:</strong>
                 <input type="text" name="price" class="form-control" placeholder="Preço (ex: 120) para 120,00 reais)">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Storage:</strong>
+                <input type="text" name="storage" class="form-control" placeholder="Storage">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Promoção:</strong>
+                <input type="text" name="promo" class="form-control" placeholder="promo">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

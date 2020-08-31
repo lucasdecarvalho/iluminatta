@@ -29,24 +29,54 @@
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Name:</strong>
+                    <strong>Nome:</strong>
                     <input type="text" name="name" value="{{ $admin->name }}" class="form-control" placeholder="Name">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Name:</strong>
+                    <strong>Categoria:</strong>
+                    <input type="text" name="name" value="{{ $admin->category }}" class="form-control" placeholder="Categoria">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Descrição curta:</strong>
+                    <input type="text" name="name" value="{{ $admin->caption }}" class="form-control" placeholder="Descrição curta">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Preço:</strong>
                     <input type="text" name="price" value="{{ $admin->price }}" class="form-control" placeholder="Name">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Details:</strong>
+                    <strong>Storage:</strong>
+                    <input type="text" name="price" value="{{ $admin->storage }}" class="form-control" placeholder="Storage">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Promoção:</strong>
+                    <input type="text" name="price" value="{{ $admin->storage }}" class="form-control" placeholder="Promoção">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Status:</strong>
+                    <input type="text" name="price" value="{{ $admin->status }}" class="form-control" placeholder="Status">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Detalhes:</strong>
                     <textarea class="form-control" style="height:150px" name="details" placeholder="Detail">{{ $admin->details }}</textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Alterar</button>
             </div>
         </div>
    

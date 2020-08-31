@@ -35,9 +35,9 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/admin">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+          <!-- <i class="fas fa-laugh-wink"></i> -->
         </div>
         <div class="sidebar-brand-text mx-3">Iluminatta <sup>2.0</sup></div>
       </a>
@@ -47,7 +47,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="">
+        <a class="nav-link" >
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -57,21 +57,22 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Interface
+        Adminstração
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Administração</span>
+          <i class="fas fa-chart-bar"></i>
+          <span>Relatórios</span>
         </a>
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Escolha uma Ação:</h6>
             <a class="collapse-item" href="sales">Relatório de Vendas</a>
             <a class="collapse-item" href="">Cadastro de Usuários</a>
-            <a class="collapse-item" href="">Newsletter</a>
+            <a class="collapse-item" href="">Cupons de Desconto</a>
+            <a class="collapse-item" href="">Cadastro de Newsletter</a>
           </div>
         </div>
       </li>
@@ -80,13 +81,15 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Categorias</span>
+          <span>Marketing</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Escolha uma Ação:</h6>
-            <a class="collapse-item" href="">Lista de Categorias</a>
-            <a class="collapse-item" href="">Adicionar Categoria</a>
+            <a class="collapse-item" href="">Listar Banners</a>
+            <a class="collapse-item" href="">Adicionar Banner</a>
+            <a class="collapse-item" href="">Listar Avisos</a>
+            <a class="collapse-item" href="">Adicionar Aviso</a>
           </div>
         </div>
       </li>
@@ -100,8 +103,60 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Escolha uma Ação:</h6>
-            <a class="collapse-item" href="{{ route('admin.index') }}">Lista de Produtos</a>
+            <a class="collapse-item" href="">Listar Categorias</a>
+            <a class="collapse-item" href="">Adicionar Categorias</a>
+            <a class="collapse-item" href="{{ route('admin.index') }}">Listar Produtos</a>
             <a class="collapse-item" href="{{ route('admin.create') }}">Adicionar Produto</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interface
+      </div>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.cielo.com.br/" target="_blank">
+          <i class="fas fa-dollar-sign"></i>
+          <span>Destaques</span></a>
+      </li>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Páginas</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            
+            <h6 class="collapse-header">Estrutura:</h6>
+            <a class="collapse-item" href="/" target="_blank">Home</a>
+            <a class="collapse-item" href="/shop" target="_blank">Produtos</a>
+            <a class="collapse-item" href="/cart" target="_blank">Carrinho</a>
+            <a class="collapse-item" href="/checkout" target="_blank">Checkout</a>
+            
+            <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Telas de Login:</h6>
+            <a class="collapse-item" href="/login" target="_blank">Registro</a>
+            <a class="collapse-item" href="/login" target="_blank">Login</a>
+            <a class="collapse-item" href="/password/reset" target="_blank">Esqueci minha senha</a>
+            <a class="collapse-item" href="/client" target="_blank">Meus Pedidos</a>
+            
+            <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Outras Páginas:</h6>
+            <a class="collapse-item" href="">Contatos</a>
+            <a class="collapse-item" href="">FAQ</a>
+            <a class="collapse-item" href="">Informações de Compra</a>
+            <a class="collapse-item" href="">Permissão de Uso</a>
+            <a class="collapse-item" href="">Política de Devolução</a>
+            <a class="collapse-item" href="">Privacidade</a>
+            <a class="collapse-item" href="">Termos de Uso</a>
           </div>
         </div>
       </li>
@@ -114,38 +169,18 @@
         Addons
       </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-            <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
-          </div>
-        </div>
-      </li>
-
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+        <a class="nav-link" href="https://www.cielo.com.br/" target="_blank">
+          <i class="fas fa-dollar-sign"></i>
+          <span>Cielo ®</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+        <a class="nav-link" href="http://www2.correios.com.br/sistemas/precosPrazos/" target="_blank">
+          <i class="fas fa-truck"></i>
+          <span>Correios ®</span></a>
       </li>
 
       <!-- Divider -->
@@ -423,7 +458,7 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>

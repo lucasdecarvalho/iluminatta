@@ -5,9 +5,6 @@
             <div class="pull-left">
                 <h2>Lista de Produtos</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-success float-right mb-4" href=""> + Adicionar Produto</a>
-            </div>
         </div>
     </div>
    
@@ -19,16 +16,18 @@
    
     <table class="table table-bordered">
         <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Details</th>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Status</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($products as $admin)
         <tr>
-            <td>{{ ++$i }}</td>
+            <td>{{ $admin->id }}</td>
             <td>{{ $admin->name }}</td>
-            <td>{{ $admin->details }}</td>
+            <td>{{ $admin->price }}</td>
+            <td>{{ $admin->status }}</td>
             <td>
                 <form action="{{ route('admin.destroy',$admin->id) }}" method="POST">
    

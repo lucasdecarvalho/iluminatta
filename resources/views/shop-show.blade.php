@@ -22,7 +22,7 @@
                </div>
                <div class="details col-md-6 text-center text-xl-left">
                   <h3 class="product-title">{{ $product->name ?? null }}</h3>
-                  <p class="product-description">{{ $product->caption ?? null }} {{ $product->details ?? null }}</p>
+                  <p class="product-description" style="text-align:justify !important;">{{ $product->caption ?? null }} {{ $product->details ?? null }}</p>
                   <h4 class="price">R$ {{ number_format($product->price,2,",",".") }}</h4>
                   <div class="col-12 col-xl-6 p-0">
                      <form action="{{ route('cart.store') }}" method="POST">
@@ -46,10 +46,10 @@
          <h2 class="w-100 m-0 text-center">Produtos Relacionados</h2>
 
          @foreach ($related as $prod)
-         <div class="col-sm-3">
+         <div class="col-12 col-xl-3">
             <div class="card text-center">
                <a href="{{ route('shop.show',[$prod->category,$prod->id]) }}">
-               <img class="card-img-top" style="width:auto !important;height:120px;" src="{{ asset($prod->image1) }}" alt="{{ $prod->name ?? null }}">
+               <img class="card-img-top" style="" src="{{ asset($prod->image1) }}" alt="{{ $prod->name ?? null }}">
                </a>
                <div class="card-body" style="height:140px;">
                   <h5 class="card-title">{{ $prod->name ?? null }}</h5>
