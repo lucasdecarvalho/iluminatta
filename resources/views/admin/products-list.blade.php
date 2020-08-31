@@ -26,8 +26,8 @@
         <tr>
             <td>{{ $admin->id }}</td>
             <td>{{ $admin->name }}</td>
-            <td>{{ $admin->price }}</td>
-            <td>{{ $admin->status }}</td>
+            <td>R$ <span class="money">{{ $admin->price }}</span></td>
+            <td>@if(!!$admin->status) Publicado @else Escondido @endif</td>
             <td>
                 <form action="{{ route('admin.destroy',$admin->id) }}" method="POST">
    
