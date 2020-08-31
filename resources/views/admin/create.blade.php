@@ -26,91 +26,91 @@
     @csrf
   
      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Imagem 1:</strong>
-                <input id="file-upload" type="file" name="fileUpload1" accept="image/*" onchange="readURL(this);">
+        <div class="col-12">
+            
+            <div class="form-row">
+                <div class="form-group col-12 col-xl-4">
+                    <label for="">Imagem 1:</label>
+                    <input id="file-upload" type="file" name="fileUpload1" accept="image/*" onchange="readURL(this);">
+                </div>
+                <div class="form-group col-12 col-xl-4">
+                    <label for="">Imagem 2:</label>
+                    <input id="file-upload" type="file" name="fileUpload2" accept="image/*" onchange="readURL(this);">
+                </div>
+                <div class="form-group col-12 col-xl-4">
+                    <label for="">Imagem 3:</label>
+                    <input id="file-upload" type="file" name="fileUpload3" accept="image/*" onchange="readURL(this);">
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Imagem 2:</strong>
-                <input id="file-upload" type="file" name="fileUpload2" accept="image/*" onchange="readURL(this);">
+
+            <div class="form-row">
+                <div class="form-group col-12 col-xl-6">
+                    <label for="category">Categoria:</label>
+                    <select class="form-control" name="category" id="category">
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+                        <option value="9">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                <div class="form-group col-12 col-xl-6">
+                    <label for="name">Nome:</label>
+                    <input type="text" name="name" class="form-control" id="name">
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Imagem 3:</strong>
-                <input id="file-upload" type="file" name="fileUpload3" accept="image/*" onchange="readURL(this);">
+            
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label for="caption">Descrição curta:</label>
+                    <input type="text" name="caption" class="form-control" id="caption">
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Nome:</strong>
-                <input type="text" name="name" class="form-control" placeholder="Nome do produto">
+
+            <div class="form-row">
+                <div class="form-group col-12 col-xl-6">
+                    <label for="price">Preço (R$):</label>
+                    <input type="text" name="price" class="form-control" id="price">
+                </div>
+                <div class="form-group col-12 col-xl-6">
+                    <label for="storage">Estoque (opcional):</label>
+                    <input type="number" name="storage" class="form-control" id="storage">
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Categoria:</strong>
-                <input type="text" name="categoria" class="form-control" placeholder="Categoria">
+
+            <div class="form-row">
+                <div class="form-group col-12 col-xl-6">
+                    <label for="promo">Promoção:</label>
+                    <select class="form-control" name="promo" id="promo">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="form-group col-12 col-xl-6">
+                    <label for="status">Status:</label>
+                    <input type="number" name="status" min="1" class="form-control" id="status">
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Descrição curta:</strong>
-                <input type="text" name="caption" class="form-control" placeholder="Descrição curta">
+
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label for="details">Detalhes:</label>
+                    <textarea class="form-control" style="height:150px" name="details" id="details"></textarea>
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Preço:</strong>
-                <input type="text" name="price" class="form-control" placeholder="Preço (ex: 120) para 120,00 reais)">
+        
+            <div class="form-row">
+                <div class="form-group col-12 text-right">
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Storage:</strong>
-                <input type="text" name="storage" class="form-control" placeholder="Storage">
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Promoção:</strong>
-                <input type="text" name="promo" class="form-control" placeholder="promo">
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Status:</strong>
-                <input type="number" name="status" min="1" class="form-control" placeholder="Status">
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Detalhes:</strong>
-                <textarea class="form-control" style="height:150px" name="details" placeholder="Detalhes"></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">Categoria</label>
-            <select class="form-control" id="exampleFormControlSelect1" name="category">
-                <option value="1">01</option>
-                <option value="2">02</option>
-                <option value="3">03</option>
-                <option value="4">04</option>
-                <option value="5">05</option>
-                <option value="6">06</option>
-                <option value="7">07</option>
-                <option value="8">08</option>
-                <option value="9">09</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-            </select>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Enviar</button>
+        
         </div>
     </div>
    
