@@ -445,8 +445,8 @@
             $('.exp').mask('00/0000');
             $('.cvv').mask('000');
             $('.ccnumber').mask('0000 0000 0000 0000');
+            $('.money').mask('000.000.000.000.000,00', {reverse: true});
             // $('.mixed').mask('AAA 000-S0S');
-            // $('.money').mask('000.000.000.000.000,00', {reverse: true});
         });
     </script>
     <!-- ANTERIOR ABAIXO -->

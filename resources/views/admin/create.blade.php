@@ -64,25 +64,25 @@
                 </div>
                 <div class="form-group col-12 col-xl-6">
                     <label for="name">Nome:</label>
-                    <input type="text" name="name" class="form-control" id="name" required>
+                    <input type="text" name="name" class="form-control" id="name" maxlength="45" required>
                 </div>
             </div>
             
             <div class="form-row">
                 <div class="form-group col-12">
                     <label for="caption">Descrição curta:</label>
-                    <input type="text" name="caption" class="form-control" id="caption">
+                    <input type="text" name="caption" class="form-control" maxlength="255" id="caption">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-12 col-xl-6">
                     <label for="price">Preço (R$):</label>
-                    <input type="text" name="price" class="form-control" id="price" required>
+                    <input type="text" name="price" class="form-control money" id="price" required>
                 </div>
                 <div class="form-group col-12 col-xl-6">
-                    <label for="storage">Estoque (opcional):</label>
-                    <input type="number" name="storage" class="form-control" id="storage">
+                    <label for="storage">Estoque:</label>
+                    <input type="number" name="storage" class="form-control" id="storage" required>
                 </div>
             </div>
 
