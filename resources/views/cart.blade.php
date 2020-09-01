@@ -100,7 +100,7 @@
                         <form action="{{ route('cart.index') }}" method="POST">
                             {{ csrf_field() }}
                             <label class="pr-2" for="zipcode">Calcule o frete <i class="fas fa-truck"></i></label>
-                            <input class="w-50 p-2 border rounded"  type="text" name="zipcode" id="zipcode" placeholder="Digite seu CEP">
+                            <input class="w-50 p-2 border rounded cep"  type="text" name="zipcode" id="zipcode" placeholder="Digite seu CEP">
                         </form>
                         </p>
                         @endif
