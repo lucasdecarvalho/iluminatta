@@ -80,9 +80,10 @@ class SoldController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Sold $sale)
     {
-        //
+
+        return view('admin.sales.edit',compact('sale'));
     }
 
     /**
@@ -92,9 +93,17 @@ class SoldController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Sold $sale)
     {
-        //
+        $data = [
+            'status'  => $request->status,
+            'trackingNumber' => $request->trackingNumber,
+        ];
+
+        $sale->update($data);
+  
+        return redirect()->route('sales.index')
+                        ->with('success','Dados alterados com sucesso!');
     }
 
     /**

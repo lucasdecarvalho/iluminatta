@@ -63,7 +63,7 @@
                     {{ $sale->paymentId }}
                 </div>
                 <div class="col-12 col-xl-6 pt-2 pb-2">
-                    <strong>Erro de Código:</strong>
+                    <strong>Código de Erro:</strong>
                     {{ $sale->errorCod ?? 'N/A' }}
                 </div>
 

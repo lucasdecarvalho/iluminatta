@@ -21,6 +21,7 @@
                 <th>Id</th>
                 <th>Status</th>
                 <th>Tid</th>
+                <th>Entrega</th>
                 <th>Cliente</th>
                 <th>Ação</th>
             </tr>
@@ -31,6 +32,7 @@
                 @if($item->success == true) Aprovada
                 @else Reprovada @endif</td>
                 <td>{{ $item->tid }}</td>
+                <td>@if($item->status == 'waiting') Aguardando envio @elseif($item->status == 'delivered') Postado @elseif($item->status == 'done') Entregue @else Error edit.sales 34 @endif</td>
                 <td>{{ $user->name }} {{ $user->lastname }} (cpf: {{ $user->doc }})</td>
                 <td>
                     <a class="btn btn-info" href="{{ route('sales.show',$item->id) }}">Detalhes</a>
