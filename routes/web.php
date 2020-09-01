@@ -37,23 +37,24 @@ Route::get('send-mail', function () {
         'body' => 'Caso precise de alguma ajuda com o seu pedido, fale conosco através do WhatsApp® (19) 91234-5678.'
     ];
    
-    \Mail::to('contato@lucasdecarvalho.com.br')->send(new \App\Mail\SoldMail($details));
+    \Mail::to('lucasuix@gmail.com')->send(new \App\Mail\SoldMail($details));
    
 });
 
 // Authentications
 Auth::routes();
 
+// Admin
 Route::group(['prefix' => 'admin','middleware' => 'is_admin'], function() {
 
     Route::resource('admin', 'ProductController');
     Route::resource('sales', 'SoldController');
+    Route::resource('categories', 'CategoryController');
 });
 
+// Client
 Route::get('/client', 'HomeController@index')->name('client.index');
 Route::put('/client', 'HomeController@update')->name('client.update');
-
 Route::get('/home', 'HomeController@index')->name('client.index');
-
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

@@ -103,8 +103,8 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Escolha uma Ação:</h6>
-            <a class="collapse-item" href="">Listar Categorias</a>
-            <a class="collapse-item" href="">Adicionar Categorias</a>
+            <a class="collapse-item" href="/admin/categories">Listar Categorias</a>
+            <a class="collapse-item" href="/admin/categories/create">Adicionar Categorias</a>
             <a class="collapse-item" href="{{ route('admin.index') }}">Listar Produtos</a>
             <a class="collapse-item" href="{{ route('admin.create') }}">Adicionar Produto</a>
           </div>
