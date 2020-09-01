@@ -24,8 +24,10 @@ class SoldController extends Controller
             $done[$key] = $shop;
             $done[$key]['cart'] = unserialize($shop->cart);
         }
+
+        $user = User::all()->where('id',$shop->userId)->first();
         
-        return view('admin.sales.sales-list', compact('done'));
+        return view('admin.sales.sales-list', compact('done','user'));
     }
 
     /**

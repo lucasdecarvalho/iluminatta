@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
 use Validator,Redirect,Response,File;
 
 class ProductController extends Controller
@@ -28,7 +29,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        $category = Category::all();
+
+        return view('admin.products.create',compact('category'));
     }
 
     /**
@@ -121,7 +124,11 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin.products.edit',compact('product'));
+        
+        $categorySelected = Category::all()->where('id',$product->category)->first();
+        $category = Category::all();
+
+        return view('admin.products.edit',compact('product','categorySelected','category'));
     }
 
     /**

@@ -9,7 +9,7 @@
     </div>
    
     <div class="row p-4 bg-white border rounded">
-
+    
         <div class="col-12">
             <div class="row">
 
@@ -29,8 +29,8 @@
                 </div>
                 <div class="col-12 col-xl-6 pt-2 pb-2">
                     <strong>Status da Compra:</strong>
-                    @if($sale->success == true) efetuada com sucesso
-                    @else Compra não efetuada. @endif
+                    @if($sale->success == true) aprovada
+                    @else reprovada @endif
                 </div>
                 <div class="col-12 col-xl-6 pt-2 pb-2">
                     <strong>Status da Entrega:</strong>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="col-12 col-xl-6 pt-2 pb-2">
                     <strong>Usuário:</strong>
-                    {{ $user->name }} {{ $user->lastname }}
+                    {{ $user->name }} {{ $user->lastname }} (cpf: {{ $user->doc }})
                 </div>
                 <div class="col-12 col-xl-6 pt-2 pb-2">
                     <strong>Id do Pagamento:</strong>

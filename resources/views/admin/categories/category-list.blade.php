@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="row mt-2">
-        <div class="col-lg-12 margin-tb">
+    <div class="row">
+        <div class="col-12 margin-tb">
             <div class="pull-left">
                 <h2>Lista de Categorias</h2>
             </div>
@@ -13,14 +13,16 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-   
+
+<div class="row p-4 bg-white border rounded">
+
     <table class="table table-bordered">
         <tr>
             <th>Id</th>
             <th>Título</th>
             <th>Caminho</th>
             <th>Tag</th>
-            <th width="280px">Ação</th>
+            <th>Ação</th>
         </tr>
         @foreach ($categories as $catg)
         <tr>
@@ -41,5 +43,7 @@
     </table>
 
     {!! $categories->links() !!}
+</div>
+
       
 @endsection
