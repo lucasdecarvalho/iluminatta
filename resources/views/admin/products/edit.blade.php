@@ -97,8 +97,8 @@
                     <label for="status">Status:</label>
                     <select class="form-control" name="status" id="status" required>
                         <option value="{{ $admin->status }}">{{ $admin->status }}</option>
-                        <option value="true">Publicar</option>
-                        <option value="false">Esconder</option>
+                        <option value="1">Publicar</option>
+                        <option value="0">Esconder</option>
                     </select>
                 </div>
             </div>
