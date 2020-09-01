@@ -30,8 +30,8 @@ class AppServiceProvider extends ServiceProvider
         //     return base_path().'/../public_html';
         // });
         
-        $category = Category::take(12)->orderBy('id', 'ASC')->get();
+        // $category = Category::take(12)->orderBy('id', 'ASC')->get();
 
-        View::share('categories', $category);
+        // View::share('categories', $category);
     }
 }

@@ -43,14 +43,14 @@ class CategoryController extends Controller
             'title' => 'required',
             'path' => 'required',
             'tag' => 'required',
-        ]);
-
-       $data = [
-        'title'  => $request->title,
-        'path' => $request->path,
-        'tag' => $request->tag,
-    ];
-
+       ]);
+        
+        $data = [
+            'title'  => $request->title,
+            'path' => $request->path,
+            'tag' => $request->tag,
+        ];
+        
         Category::create($data);
    
         return redirect()->route('categories.index')
@@ -60,47 +60,42 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $catg)
+    public function show(Category $category)
     {
-        return view('admin.categories.category-show',compact('catg'));
+        return view('categories.show',compact('admin'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $catg)
+    public function edit(Category $category)
     {
-        return view('admin.categories.category-edit',compact('catg'));
+        return view('admin.categories.category-edit',compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $catg)
+    public function update(Request $request, Category $category)
     {
 
         $data = [
-            'title'  => $request->name,
-            'path' => $request->category,
-            'tag' => $request->caption,
-        ];
+            'title'  => $request->title,
+            'path' => $request->path,
+            'tag' => $request->tag,
+        ];     
 
-        // $request->validate([
-        //     'name' => 'required',
-        //     'price' => 'required',
-        //     ]);
-
-        $catg->update($data);
+        $category->update($data);
   
         return redirect()->route('categories.index')
                         ->with('success','Categoria alterada com sucesso!');
@@ -109,14 +104,13 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $catg)
+    public function destroy(Category $category)
     {
-        dd($catg);
-        $catg->delete();
-
+        $category->delete();
+  
         return redirect()->route('categories.index')
                         ->with('success','Categoria deletada com sucesso!');
     }
