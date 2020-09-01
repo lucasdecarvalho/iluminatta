@@ -42,7 +42,6 @@
         
             <div class="form-row">
                 <div class="form-group col-12 text-right">
-                    <!-- <a class="btn btn-primary" href="{{ route('admin.index') }}"> Voltar</a> -->
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </div>
             </div>

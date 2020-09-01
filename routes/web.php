@@ -47,7 +47,7 @@ Auth::routes();
 // Admin
 Route::group(['prefix' => 'admin','middleware' => 'is_admin'], function() {
 
-    Route::resource('admin', 'ProductController');
+    Route::resource('products', 'ProductController');
     Route::resource('sales', 'SoldController');
     Route::resource('categories', 'CategoryController');
 });

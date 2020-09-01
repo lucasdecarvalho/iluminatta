@@ -33,11 +33,11 @@
             @endforeach
             </td>
             <td>
-                <form action="{{ route('admin.destroy',$item->id) }}" method="POST">
+                <form action="{{ route('sales.destroy',$item->id) }}" method="POST">
    
-                    <a class="btn btn-info" href="{{ route('admin.show',$item->id) }}">Detalhes</a>
+                    <a class="btn btn-info" href="{{ route('sales.show',$item->id) }}">Detalhes</a>
     
-                    <a class="btn btn-primary" href="{{ route('admin.edit',$item->id) }}">Editar</a>
+                    <a class="btn btn-primary" href="{{ route('sales.edit',$item->id) }}">Editar</a>
                     <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#DeleteModal">Deletar</a>
    
                     @csrf
@@ -61,7 +61,7 @@
                 <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
 
-                <form action="{{ route('admin.destroy',$item->id) }}" method="POST">
+                <form action="{{ route('sales.destroy',$item->id) }}" method="POST">
         
                     @csrf
                     @method('DELETE')

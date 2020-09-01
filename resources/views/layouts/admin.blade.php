@@ -70,9 +70,9 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Escolha uma Ação:</h6>
             <a class="collapse-item" href="/admin/sales">Relatório de Vendas</a>
-            <a class="collapse-item" href="">Cadastro de Usuários</a>
-            <a class="collapse-item" href="">Cupons de Desconto</a>
-            <a class="collapse-item" href="">Cadastro de Newsletter</a>
+            <a class="collapse-item" href="/admin/users">Cadastro de Usuários</a>
+            <a class="collapse-item" href="/admin/cupom">Cupons de Desconto</a>
+            <a class="collapse-item" href="/admin/newsletter">Cadastro de Newsletter</a>
           </div>
         </div>
       </li>
@@ -105,8 +105,8 @@
             <h6 class="collapse-header">Escolha uma Ação:</h6>
             <a class="collapse-item" href="/admin/categories">Listar Categorias</a>
             <a class="collapse-item" href="/admin/categories/create">Adicionar Categorias</a>
-            <a class="collapse-item" href="{{ route('admin.index') }}">Listar Produtos</a>
-            <a class="collapse-item" href="{{ route('admin.create') }}">Adicionar Produto</a>
+            <a class="collapse-item" href="/admin/products">Listar Produtos</a>
+            <a class="collapse-item" href="/admin/products/create">Adicionar Produto</a>
           </div>
         </div>
       </li>

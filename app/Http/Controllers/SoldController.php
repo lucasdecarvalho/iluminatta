@@ -25,7 +25,7 @@ class SoldController extends Controller
             $done[$key]['cart'] = unserialize($shop->cart);
         }
         
-        return view('admin.sales-list', compact('done'));
+        return view('admin.sales.sales-list', compact('done'));
     }
 
     /**
@@ -55,9 +55,19 @@ class SoldController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Sold $sale)
     {
-        //
+
+        $done = [];        
+        $saleN = Sold::all();
+
+        foreach ($saleN as $key => $shop)
+        {
+            $done[$key] = $shop;
+            $done[$key]['cart'] = unserialize($shop->cart);
+        }
+
+        return view('admin.sales.show',compact('sale','done'));
     }
 
     /**

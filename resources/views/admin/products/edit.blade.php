@@ -6,7 +6,7 @@
                 <h2>Editar Produto</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary float-right mb-4" href="{{ route('admin.index') }}"> Voltar</a>
+                <a class="btn btn-primary float-right mb-4" href="{{ route('products.index') }}"> Voltar</a>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
         </div>
     @endif
   
-    <form action="{{ route('admin.update',$admin->id) }}" method="POST">
+    <form action="{{ route('products.update',$product->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -47,7 +47,7 @@
                 <div class="form-group col-12 col-xl-6">
                     <label for="category">Categoria:</label>
                     <select class="form-control" name="category" id="category" required>
-                        <option value="{{ $admin->category }}">{{ $admin->category }}</option>
+                        <option value="{{ $product->category }}">{{ $product->category }}</option>
                         <option value="1">01</option>
                         <option value="2">02</option>
                         <option value="3">03</option>
@@ -64,25 +64,25 @@
                 </div>
                 <div class="form-group col-12 col-xl-6">
                     <label for="name">Nome:</label>
-                    <input type="text" name="name" value="{{ $admin->name }}" class="form-control" id="name" maxlength="45" required>
+                    <input type="text" name="name" value="{{ $product->name }}" class="form-control" id="name" maxlength="45" required>
                 </div>
             </div>
             
             <div class="form-row">
                 <div class="form-group col-12">
                     <label for="caption">Descrição curta:</label>
-                    <input type="text" name="caption" value="{{ $admin->caption }}" class="form-control" maxlength="255" id="caption">
+                    <input type="text" name="caption" value="{{ $product->caption }}" class="form-control" maxlength="255" id="caption">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-12 col-xl-6">
                     <label for="price">Preço (R$):</label>
-                    <input type="text" name="price" value="{{ $admin->price }}" class="form-control money" id="price" required>
+                    <input type="text" name="price" value="{{ $product->price }}" class="form-control money" id="price" required>
                 </div>
                 <div class="form-group col-12 col-xl-6">
                     <label for="storage">Estoque:</label>
-                    <input type="number" name="storage" value="{{ $admin->storage }}" class="form-control" id="storage" required>
+                    <input type="number" name="storage" value="{{ $product->storage }}" class="form-control" id="storage" required>
                 </div>
             </div>
 
@@ -96,7 +96,7 @@
                 <div class="form-group col-12 col-xl-6">
                     <label for="status">Status:</label>
                     <select class="form-control" name="status" id="status" required>
-                        <option value="{{ $admin->status }}">{{ $admin->status }}</option>
+                        <option value="{{ $product->status }}">{{ $product->status }}</option>
                         <option value="1">Publicar</option>
                         <option value="0">Esconder</option>
                     </select>
@@ -106,7 +106,7 @@
             <div class="form-row">
                 <div class="form-group col-12">
                     <label for="details">Detalhes:</label>
-                    <textarea class="form-control" style="height:150px" name="details" id="details">{{ $admin->details }}</textarea>
+                    <textarea class="form-control" style="height:150px" name="details" id="details">{{ $product->details }}</textarea>
                 </div>
             </div>
         

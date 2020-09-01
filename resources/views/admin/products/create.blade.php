@@ -5,9 +5,6 @@
         <div class="pull-left">
             <h2>Adicionar Produto</h2>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary float-right mb-4" href="{{ route('admin.index') }}"> Voltar</a>
-        </div>
     </div>
 </div>
    
@@ -22,7 +19,7 @@
     </div>
 @endif
    
-<form action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
   
      <div class="row">

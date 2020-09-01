@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Product;
 use Validator,Redirect,Response,File;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -40,8 +40,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         
-        // começo
-
         $request->validate([
             'name' => 'required',
             'price' => 'required',
@@ -96,8 +94,6 @@ class ProductController extends Controller
             'image2' => $image2,
             'image3' => $image3,
         ];
-        
-        // fim
 
         Product::create($data);
    
@@ -112,9 +108,9 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $admin)
+    public function show(Product $product)
     {
-        return view('admin.products.show',compact('admin'));
+        return view('admin.products.show',compact('product'));
     }
 
     /**
@@ -123,9 +119,9 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $admin)
+    public function edit(Product $product)
     {
-        return view('admin.products.edit',compact('admin'));
+        return view('admin.products.edit',compact('product'));
     }
 
     /**
@@ -135,7 +131,7 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $admin)
+    public function update(Request $request, Product $product)
     {
 
         $request->price = str_replace('.','',$request->price);
@@ -158,9 +154,9 @@ class ProductController extends Controller
         //     ]);
             
 
-        $admin->update($data);
+        $product->update($data);
   
-        return redirect()->route('admin.index')
+        return redirect()->route('products.index')
                         ->with('success','Produto alterado com sucesso!');
     }
 
@@ -170,11 +166,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $admin)
+    public function destroy(Product $product)
     {
-        $admin->delete();
+        $product->delete();
   
-        return redirect()->route('admin.index')
+        return redirect()->route('products.index')
                         ->with('success','Produto deletado com sucesso!');
     }
 }
