@@ -28,19 +28,22 @@
                     {{ $sale->merchantOrderId }}
                 </div>
                 <div class="col-12 col-xl-6 pt-2 pb-2">
-                    <strong>Sucesso:</strong>
-                    {{ $sale->success }}
+                    <strong>Status da Compra:</strong>
+                    @if($sale->success == true) efetuada com sucesso
+                    @else Compra não efetuada. @endif
                 </div>
                 <div class="col-12 col-xl-6 pt-2 pb-2">
-                    <strong>Status:</strong>
-                    {{ $sale->status }}
+                    <strong>Status da Entrega:</strong>
+                    @if($sale->status == 'waiting') aguardando envio
+                    @elseif($sale->status == 'delivered') postado
+                    @elseif($sale->status == 'done') entregue @endif
                 </div>
                 <div class="col-12 col-xl-6 pt-2 pb-2">
                     <strong>Tid:</strong>
                     {{ $sale->tid }}
                 </div>
                 <div class="col-12 col-xl-6 pt-2 pb-2">
-                    <strong>Valor:</strong>
+                    <strong>Valor Total:</strong>
                     R$ <span class="money">{{ $sale->value }}</span>
                 </div>
                 <div class="col-12 col-xl-6 pt-2 pb-2">
@@ -49,11 +52,11 @@
                 </div>
                 <div class="col-12 col-xl-6 pt-2 pb-2">
                     <strong>Parcelamento:</strong>
-                    {{ $sale->installments }}
+                    {{ $sale->installments }}x
                 </div>
                 <div class="col-12 col-xl-6 pt-2 pb-2">
                     <strong>Usuário:</strong>
-                    {{ $sale->userId }}
+                    {{ $user->name }} {{ $user->lastname }}
                 </div>
                 <div class="col-12 col-xl-6 pt-2 pb-2">
                     <strong>Id do Pagamento:</strong>
@@ -61,7 +64,7 @@
                 </div>
                 <div class="col-12 col-xl-6 pt-2 pb-2">
                     <strong>Erro de Código:</strong>
-                    {{ $sale->errorCod }}
+                    {{ $sale->errorCod ?? 'N/A' }}
                 </div>
 
 
@@ -102,7 +105,7 @@
 
 
                 <div class="col-12 pt-2 pb-2">
-                    <strong>Produtos:</strong>
+                    <strong>Quantidade | Produto(s) | (ID):</strong>
                     @foreach ($done as $item)
                         @foreach ($item->cart as $prods)
                             <p class="w-100 p-0 m-0 mt-2">{{ $prods }}</p>
@@ -118,7 +121,7 @@
 
                 <div class="col-12 col-xl-6 pt-2 pb-2">
                     <strong>Código de Entrega:</strong>
-                    {{ $sale->trackingNumber }}
+                    {{ $sale->trackingNumber ?? 'N/A' }}
                 </div>
 
                 <div class="col-12 mt-4 mb-4 p-2 border-bottom"></div>

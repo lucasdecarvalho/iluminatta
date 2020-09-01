@@ -67,7 +67,9 @@ class SoldController extends Controller
             $done[$key]['cart'] = unserialize($shop->cart);
         }
 
-        return view('admin.sales.show',compact('sale','done'));
+        $user = auth()->user()->where('id',$sale->userId)->first();
+
+        return view('admin.sales.show',compact('sale','done','user'));
     }
 
     /**
