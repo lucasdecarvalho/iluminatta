@@ -198,7 +198,10 @@ class CieloController extends CartController
         }
         elseif($request->fpag == 'debito')
         {
-            echo "manutenção";
+            echo '<div style="width:100%;float:left;text-align:center;border: solid 1px #ddd;border-radius:5px;padding:2em 0;margin: 2em auto 0 auto;">';
+            echo '<p style="font-family:arial;font-size:13px;color:#111;">Forma de pagamento (débito) em manutenção. Por favor, escolha outra forma de pagamento.</p>';
+            echo '<button style="border:none;padding:10px;font-family:arial;font-size:13px;background:#999;color:#fff;border-radius:5px;" onclick="history.back(-1)">Voltar ao checkout</button>';
+            echo '</div>';
         }
     }
 }
