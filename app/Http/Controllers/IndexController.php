@@ -33,40 +33,4 @@ class IndexController extends Controller
         return view('index',compact('pr'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        //
-    }
-
-    public function cart(Product $product)
-    {
-        $cart = [
-            "client"  => [
-                "id" => auth()->user()->id ?? null,
-                "name" => auth()->user()->name ?? null,
-                "email" => auth()->user()->email ?? null,
-            ],
-            "address" => [
-                "logradouro" => "Rua Bela Cintra", 
-                "numero" => 238, 
-                "bairro" => "Jardins", 
-                "uf" => "SP", 
-                "cep" => "01234-567",
-            ],
-            "shop" => [
-                "product" => $product->cvv ?? null,
-            ],
-        ];
-
-        // return $cart;
-
-        return view('cart',compact('product'));
-    }
-
 }

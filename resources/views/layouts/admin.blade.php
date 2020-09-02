@@ -113,7 +113,7 @@
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
           <i class="fas fa-exclamation-triangle"></i>
           <span>Avisos</span>
@@ -125,7 +125,7 @@
             <a class="collapse-item" href="">Adicionar Aviso</a>
           </div>
         </div>
-      </li>
+      </li> -->
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -166,11 +166,11 @@
       </li>
 
       <!-- Nav Item - Charts -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="" target="_blank">
           <i class="far fa-gem"></i>
           <span>Destaques</span></a>
-      </li>
+      </li> -->
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
@@ -290,13 +290,13 @@
             <!-- </li> -->
 
             <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
+            <!-- <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <!-- <span class="badge badge-danger badge-counter">3+</span> -->
+                Counter - Alerts
+                <span class="badge badge-danger badge-counter">3+</span>
               </a>
-              <!-- Dropdown - Alerts -->
+              Dropdown - Alerts
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
                   Central de Alertas
@@ -336,16 +336,16 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Mostrar todos</a>
               </div>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
+            <!-- <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
-                <!-- <span class="badge badge-danger badge-counter">7</span> -->
+                Counter - Messages
+                <span class="badge badge-danger badge-counter">7</span>
               </a>
-              <!-- Dropdown - Messages -->
+              Dropdown - Messages
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
                   Central de Mensagens
@@ -392,7 +392,7 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Mostrar todas</a>
               </div>
-            </li>
+            </li> -->
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -412,11 +412,11 @@
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Configurações
                 </a> -->
-                <a class="dropdown-item" href="#">
-                  <!-- <i class="fas fa-headset fa-sm fa-fw mr-2 text-gray-400"></i> -->
+                <!-- <a class="dropdown-item" href="#">
+                  <i class="fas fa-headset fa-sm fa-fw mr-2 text-gray-400"></i>
                   <i class="fas fa-life-ring fa-sm fa-fw mr-2 text-gray-400"></i>
                   Suporte técnico
-                </a>
+                </a> -->
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

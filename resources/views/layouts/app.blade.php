@@ -137,8 +137,9 @@
         
         <!-- Footer -->
         <footer class="text-light" style="background:#2c1b47;">
-            <div class="footer-head" style="background:#2c1b47;border-bottom: solid 1px rgba(157, 111, 174, .3);">
-                <div class="container p-4">
+            <div class="footer-head bg-dark">
+            <!-- <div class="footer-head bg-secondary" style="background:#222;border-bottom: solid 1px rgba(157, 111, 174, .3);"> -->
+                <div class="container pt-4">
                     <div class="row">
                         <div class="col-sm">
                         <div class="row">
@@ -147,7 +148,7 @@
                                 <div class="form-row">
                                     <input class="form-control mr-2" type="text" name="name" placeholder="Digite seu Nome" required>
                                     <input class="form-control mr-2" type="text" name="email" placeholder="Digite seu E-mail" required>
-                                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Assinar</button>
+                                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Assinar</button>
                                 </div>
                             </form>
                         </div>
@@ -176,7 +177,7 @@
                         <p>Somos uma loja de produtos importados, com ótimo estoque e custo benefício. Navegue por nossas páginas e encontre os produtos que mais tem a ver com o seu estilo. Temos diversas formas de pagamento e facilidades.</p>
                         </div>
                         <div class="row">
-                        <p>Selos</p>
+
                         </div>
                     </div>
                     <div class="col-sm">
@@ -198,11 +199,11 @@
                             </ul>
                         </div>
                         </div>
-                        <div class="row">
-                        <div class="col-sm">
-                            <p>© 2020 Iluminatta. Todos os direitos reservados.</p>
-                        </div>
-                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm pt-4 text-center" style="border-top: solid 1px rgba(157, 111, 174, .3);">
+                        <p>© 2020 Iluminatta. Todos os direitos reservados.</p>
                     </div>
                 </div>
             </div>
