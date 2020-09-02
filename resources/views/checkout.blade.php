@@ -88,11 +88,13 @@
                   <h4>Forma de Pagamento</h4>
                      <div class="col-12">
                         <div class="row">
-                           <form action="" method="">
-                              <button class="btn btn-light active">Crédito</button>
+                           <button class="btn btn-light active">Crédito</button>
+                           <form action="{{ route('checkout.payer') }}" method="POST">
+                              @csrf
+                              <input type="hidden" name="fpag" value="debito">
                               <button class="btn btn-light">Débito</button>
-                              <button class="btn btn-light">Boleto</button>
                            </form>
+                           <button class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Boleto</button>
                         </div>
                      </div>
                   </div>
@@ -100,6 +102,7 @@
                      <!-- form credit -->
                      <form class="needs-validation" action="{{ route('checkout.payer') }}" method="POST">
                         @csrf
+                        <input type="hidden" name="fpag" value="credit">
                         <div class="row">
                            <div class="col-12 col-xl-6 mb-2 pr-0">
                               <select class="form-control" name="flag" id="flag" required>
@@ -174,5 +177,30 @@
 
    @endif
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="w-100 modal-title text-center" id="exampleModalLongTitle">Pagamento via Boleto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Clique no botão abaixo para gerar sua fatura no valor de  <b>R$ {{ $shop->fmt_final }}</b>:</p>
+        <form action="{{ route('checkout.payer') }}" target="_blank" method="POST">
+            @csrf
+            <input type="hidden" name="fpag" value="boleto">
+            <button type="submit" class="btn btn-primary">Gerar Boleto</button>
+         </form>
+      </div>
+      <div class="modal-footer text-center">
+         <small class="w-100 text-center"><i class="fas fa-info-circle text-secondary"></i> Obs: o boleto abrirá em uma nova aba do seu navegador.</small>
+      </div>
+    </div>
+  </div>
+</div>
 
 @endsection

@@ -61,87 +61,144 @@ class CieloController extends CartController
             $p[] = $item->qty." - ".$item->model->name." (".$item->model->id.")";
         }
 
-        $saveCart = [
-            'userId' => auth()->user()->id,
-            'street' => auth()->user()->street,
-            'number' => auth()->user()->number,
-            'comp' => auth()->user()->comp,
-            'city' => auth()->user()->city,
-            'state' => auth()->user()->state,
-            'zipcode' => auth()->user()->zipcode,
-            'paymentType' => $this->payment ." - ". $request->flag,
-            'value' => $data->shop->final,
-            'installments' => $request->installments,
-            'trackingNumber' => null,
-            'cart' => serialize($p),
-        ];
+        if($request->fpag == 'credit')
+        {
+            $saveCart = [
+                'userId' => auth()->user()->id,
+                'street' => auth()->user()->street,
+                'number' => auth()->user()->number,
+                'comp' => auth()->user()->comp,
+                'city' => auth()->user()->city,
+                'state' => auth()->user()->state,
+                'zipcode' => auth()->user()->zipcode,
+                'paymentType' => $this->payment ." - ". $request->flag,
+                'value' => $data->shop->final,
+                'installments' => $request->installments,
+                'trackingNumber' => null,
+                'cart' => serialize($p),
+            ];
 
-        // dump($saveCart);
-        // dd();
-        
-        // Crie uma instância de Customer informando o nome do cliente
-        $this->sale->customer($request->holder);
-        
-        // Crie uma instância de Payment informando o valor do pagamento
-        $payment = $this->sale->payment($shop->final, $request->installments);
-        
-        // Crie uma instância de Credit Card utilizando os dados de teste
-        // esses dados estão disponíveis no manual de integração
-        // dd($request->installments);
-        // $this->cardData($shop->final,$request->cvv,$request->date,$request->installments,$request->numberCard,$request->holder);
-        $payment->setType($this->payment)
-                    ->creditCard($request->cvv, CreditCard::MASTERCARD)
-                    ->setExpirationDate($request->date)
-                    ->setCardNumber($request->numberCard)
-                    ->setHolder($request->holder);
+            // dump($saveCart);
+            // dd();
+            
+            // Crie uma instância de Customer informando o nome do cliente
+            $this->sale->customer($request->holder);
+            
+            // Crie uma instância de Payment informando o valor do pagamento
+            $payment = $this->sale->payment($shop->final, $request->installments);
+            
+            // Crie uma instância de Credit Card utilizando os dados de teste
+            // esses dados estão disponíveis no manual de integração
+            // dd($request->installments);
+            // $this->cardData($shop->final,$request->cvv,$request->date,$request->installments,$request->numberCard,$request->holder);
+            $payment->setType($this->payment)
+                        ->creditCard($request->cvv, CreditCard::MASTERCARD)
+                        ->setExpirationDate($request->date)
+                        ->setCardNumber($request->numberCard)
+                        ->setHolder($request->holder);
 
-        $merchantOrderId = $this->sale->getMerchantOrderId();
-        $saveCart['merchantOrderId'] = $merchantOrderId;
-        
-        // Crie o pagamento na Cielo
-        try {
+            $merchantOrderId = $this->sale->getMerchantOrderId();
+            $saveCart['merchantOrderId'] = $merchantOrderId;
+            
+            // Crie o pagamento na Cielo
+            try {
+                // Configure o SDK com seu merchant e o ambiente apropriado para criar a venda
+                $sale = ($this->cielo)->createSale($this->sale);
+                
+                // Com a venda criada na Cielo, já temos o ID do pagamento, TID e demais
+                // dados retornados pela Cielo
+                $paymentId = $sale->getPayment()->getPaymentId();
+                $tId = $sale->getPayment()->getTid();
+                
+                // Com o ID do pagamento, podemos fazer sua captura, se ela não tiver sido capturada ainda
+                $sale = ($this->cielo)->captureSale($paymentId, $shop->final, 0);
+
+                // Salvar no banco os dados da compra
+                $saveCart['paymentId'] = $paymentId;
+                $saveCart['tid'] = $tId;
+                $saveCart['status'] = 'waiting';
+                $saveCart['success'] = true;
+                Sold::create($saveCart);
+                
+                // Enviar email de sucesso
+                $details = [
+                    'idPed' => $tId,
+                    'title' => 'Agradecemos por sua compra em nossa loja.',
+                    'body' => 'Caso precise de alguma ajuda com o seu pedido, fale conosco através do WhatsApp® (19) 91234-5678.'
+                ];
+            
+                \Mail::to($shop->email)->send(new \App\Mail\SoldMail($details));        
+
+                return view('success', compact('shop'));
+
+            } catch (CieloRequestException $e) {
+                // Em caso de erros de integração, podemos tratar o erro aqui.
+                // os códigos de erro estão todos disponíveis no manual de integração.
+                // dd($e);
+                $error = $e->getCieloError();
+
+                // Salvar no banco os dados da compra
+                $saveCart['status'] = 'fail';
+                $saveCart['success'] = false;
+                $saveCart['errorCod'] = $error->getCode();
+                Sold::create($saveCart);
+
+                return view('error', compact('error'));
+            }
+        }
+        elseif($request->fpag == 'boleto')
+        {
+            // Crie uma instância de Customer informando o nome do cliente,
+            // documento e seu endereço
+            $customer = $this->sale->customer(auth()->user()->name." ".auth()->user()->lastname)
+            ->setIdentity(auth()->user()->doc)
+            ->setIdentityType('CPF')
+            ->address()->setZipCode(auth()->user()->zipcode)
+                    ->setCountry('BRA')
+                    ->setState(auth()->user()->state)
+                    ->setCity(auth()->user()->city)
+                    ->setDistrict(auth()->user()->neigh)
+                    ->setStreet(auth()->user()->street)
+                    ->setNumber(auth()->user()->number);
+
+            // Crie uma instância de Payment informando o valor do pagamento
+            $payment = $this->sale->payment($data->shop->final)
+            ->setType(Payment::PAYMENTTYPE_BOLETO)
+            ->setAddress('Rua de Teste')
+            ->setBoletoNumber('1234')
+            ->setAssignor('Iluminatta')
+            ->setDemonstrative('Obtenha mais informações sobre essa compra no site www.iluminatta.com.br')
+            ->setExpirationDate(date('d/m/Y', strtotime('+2 days')))
+            ->setIdentification('11884926754')
+            ->setInstructions("<br>Obrigado por sua compra em nossa loja on-line.<br><br>Atenciosamente,<br>Equipe Iluminatta");
+
+            // Crie o pagamento na Cielo
+            try {
             // Configure o SDK com seu merchant e o ambiente apropriado para criar a venda
             $sale = ($this->cielo)->createSale($this->sale);
-            
+
             // Com a venda criada na Cielo, já temos o ID do pagamento, TID e demais
             // dados retornados pela Cielo
             $paymentId = $sale->getPayment()->getPaymentId();
-            $tId = $sale->getPayment()->getTid();
+            $boletoURL = $sale->getPayment()->getUrl();
+
             
-            // Com o ID do pagamento, podemos fazer sua captura, se ela não tiver sido capturada ainda
-            $sale = ($this->cielo)->captureSale($paymentId, $shop->final, 0);
-
-            // Salvar no banco os dados da compra
-            $saveCart['paymentId'] = $paymentId;
-            $saveCart['tid'] = $tId;
-            $saveCart['status'] = 'waiting';
-            $saveCart['success'] = true;
-            Sold::create($saveCart);
+            echo'<iframe src="'.$boletoURL.'" name="boleto" style="width:100%;height:1200px;border:none;" title="Iframe Boleto"></iframe>';
             
-            // Enviar email de sucesso
-            $details = [
-                'idPed' => $tId,
-                'title' => 'Agradecemos por sua compra em nossa loja.',
-                'body' => 'Caso precise de alguma ajuda com o seu pedido, fale conosco através do WhatsApp® (19) 91234-5678.'
-            ];
-           
-            \Mail::to($shop->email)->send(new \App\Mail\SoldMail($details));        
-
-            return view('success', compact('shop'));
-
-        } catch (CieloRequestException $e) {
+            } catch (CieloRequestException $e) {
             // Em caso de erros de integração, podemos tratar o erro aqui.
             // os códigos de erro estão todos disponíveis no manual de integração.
-            // dd($e);
-            $error = $e->getCieloError();
-
-            // Salvar no banco os dados da compra
-            $saveCart['status'] = 'fail';
-            $saveCart['success'] = false;
-            $saveCart['errorCod'] = $error->getCode();
-            Sold::create($saveCart);
-
-            return view('error', compact('error'));
+            // $error = $e->getCieloError();
+            echo '<div style="width:100%;float:left;text-align:center;border: solid 1px #ddd;border-radius:5px;padding:2em 0;margin: 2em auto 0 auto;">';
+            echo '<p style="font-family:arial;font-size:13px;color:#111;">Aconteceu algum erro ao gerar o seu boleto. Por favor, tente outra forma de pagamento ou entre em contato conosco.</p>';
+            echo '<button style="border:none;padding:10px;font-family:arial;font-size:13px;background:#999;color:#fff;border-radius:5px;" onclick="window.close()">Fechar janela</button>';
+            echo '</div>';
+            
+            }
+        }
+        elseif($request->fpag == 'debito')
+        {
+            echo "manutenção";
         }
     }
 }
