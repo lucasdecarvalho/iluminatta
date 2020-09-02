@@ -57,7 +57,7 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Adminstração
+        Administração
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
@@ -71,42 +71,58 @@
             <h6 class="collapse-header">Escolha uma Ação:</h6>
             <a class="collapse-item" href="/admin/sales">Relatório de Vendas</a>
             <a class="collapse-item" href="/admin/users">Cadastro de Usuários</a>
-            <a class="collapse-item" href="/admin/cupom">Cupons de Desconto</a>
-            <a class="collapse-item" href="/admin/newsletter">Cadastro de Newsletter</a>
           </div>
         </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Marketing
+      </div>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/cupom">
+          <i class="fas fa-ticket-alt"></i>
+          <span>Cupons de Desconto</span></a>
+      </li>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/newsletter">
+          <i class="far fa-envelope"></i>
+          <span>Cadastro de Newsletter</span></a>
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Marketing</span>
+          <i class="far fa-image"></i>
+          <span>Banners</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Escolha uma Ação:</h6>
             <a class="collapse-item" href="">Listar Banners</a>
             <a class="collapse-item" href="">Adicionar Banner</a>
-            <a class="collapse-item" href="">Listar Avisos</a>
-            <a class="collapse-item" href="">Adicionar Aviso</a>
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Produtos</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+          <i class="fas fa-exclamation-triangle"></i>
+          <span>Avisos</span>
         </a>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Escolha uma Ação:</h6>
-            <a class="collapse-item" href="/admin/categories">Listar Categorias</a>
-            <a class="collapse-item" href="/admin/categories/create">Adicionar Categorias</a>
-            <a class="collapse-item" href="/admin/products">Listar Produtos</a>
-            <a class="collapse-item" href="/admin/products/create">Adicionar Produto</a>
+            <a class="collapse-item" href="">Listar Avisos</a>
+            <a class="collapse-item" href="">Adicionar Aviso</a>
           </div>
         </div>
       </li>
@@ -119,10 +135,40 @@
         Interface
       </div>
 
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+          <i class="fas fa-list"></i>
+          <span>Categorias</span>
+        </a>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Escolha uma Ação:</h6>
+            <a class="collapse-item" href="/admin/categories">Listar Categorias</a>
+            <a class="collapse-item" href="/admin/categories/create">Adicionar Categorias</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+          <i class="fas fa-gift"></i>
+          <span>Produtos</span>
+        </a>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Escolha uma Ação:</h6>
+            <a class="collapse-item" href="/admin/products">Listar Produtos</a>
+            <a class="collapse-item" href="/admin/products/create">Adicionar Produto</a>
+          </div>
+        </div>
+      </li>
+
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="https://www.cielo.com.br/" target="_blank">
-          <i class="fas fa-crown"></i>
+        <a class="nav-link" href="" target="_blank">
+          <i class="far fa-gem"></i>
           <span>Destaques</span></a>
       </li>
 
@@ -166,7 +212,7 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        Parceiros
       </div>
 
       <!-- Nav Item - Charts -->
@@ -209,7 +255,7 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
@@ -218,18 +264,18 @@
                 </button>
               </div>
             </div>
-          </form>
+          </form> -->
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
+            <!-- <li class="nav-item dropdown no-arrow d-sm-none">
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
-              </a>
+              </a> -->
               <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+              <!-- <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -240,20 +286,20 @@
                     </div>
                   </div>
                 </form>
-              </div>
-            </li>
+              </div> -->
+            <!-- </li> -->
 
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
+                <!-- <span class="badge badge-danger badge-counter">3+</span> -->
               </a>
               <!-- Dropdown - Alerts -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
-                  Alerts Center
+                  Central de Alertas
                 </h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="mr-3">
@@ -288,7 +334,7 @@
                     Spending Alert: We've noticed unusually high spending for your account.
                   </div>
                 </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Mostrar todos</a>
               </div>
             </li>
 
@@ -297,12 +343,12 @@
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
+                <!-- <span class="badge badge-danger badge-counter">7</span> -->
               </a>
               <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
-                  Message Center
+                  Central de Mensagens
                 </h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
@@ -344,7 +390,7 @@
                     <div class="small text-gray-500">Chicken the Dog · 2w</div>
                   </div>
                 </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Mostrar todas</a>
               </div>
             </li>
 
@@ -353,22 +399,23 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }}</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }} {{ auth()->user()->lastname }}</span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <!-- <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Perfil
                 </a>
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Configurações
-                </a>
+                </a> -->
                 <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Atividade Log
+                  <!-- <i class="fas fa-headset fa-sm fa-fw mr-2 text-gray-400"></i> -->
+                  <i class="fas fa-life-ring fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Suporte técnico
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">

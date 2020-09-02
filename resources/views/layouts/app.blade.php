@@ -69,13 +69,13 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">(19) 1234-5678 <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">WhatsApp: (19) 1234-5678 <span class="sr-only">(current)</span></a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#">Localidade da Loja</a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="../client">Inscreva-se em nossa Newsletter</a>
+                        <!-- <a class="nav-link" href="../client">Inscreva-se em nossa Newsletter</a> -->
                     </li>
                 </ul>
                 <span class="navbar-text p-0">
