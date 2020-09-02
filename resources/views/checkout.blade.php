@@ -88,13 +88,13 @@
                   <h4>Forma de Pagamento</h4>
                      <div class="col-12">
                         <div class="row">
-                           <button class="btn btn-light active">Crédito</button>
-                           <form action="{{ route('checkout.payer') }}" method="POST">
+                           <button class="btn btn-light active mr-1">Cartão de Crédito</button>
+                           <!-- <form action="{{ route('checkout.payer') }}" method="POST">
                               @csrf
                               <input type="hidden" name="fpag" value="debito">
                               <button class="btn btn-light">Débito</button>
-                           </form>
-                           <button class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Boleto</button>
+                           </form> -->
+                           <button class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Boleto Bancário</button>
                         </div>
                      </div>
                   </div>

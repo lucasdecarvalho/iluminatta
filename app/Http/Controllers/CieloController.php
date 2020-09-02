@@ -196,12 +196,51 @@ class CieloController extends CartController
             
             }
         }
-        elseif($request->fpag == 'debito')
+        elseif($request->fpag == 'debitoxx')
         {
-            echo '<div style="width:100%;float:left;text-align:center;border: solid 1px #ddd;border-radius:5px;padding:2em 0;margin: 2em auto 0 auto;">';
-            echo '<p style="font-family:arial;font-size:13px;color:#111;">Forma de pagamento (débito) em manutenção. Por favor, escolha outra forma de pagamento.</p>';
-            echo '<button style="border:none;padding:10px;font-family:arial;font-size:13px;background:#999;color:#fff;border-radius:5px;" onclick="history.back(-1)">Voltar ao checkout</button>';
-            echo '</div>';
+            // echo '<div style="width:100%;float:left;text-align:center;border: solid 1px #ddd;border-radius:5px;padding:2em 0;margin: 2em auto 0 auto;">';
+            // echo '<p style="font-family:arial;font-size:13px;color:#111;">Forma de pagamento (débito) em manutenção. Por favor, escolha outra forma de pagamento.</p>';
+            // echo '<button style="border:none;padding:10px;font-family:arial;font-size:13px;background:#999;color:#fff;border-radius:5px;" onclick="history.back(-1)">Voltar ao checkout</button>';
+            // echo '</div>';
+
+            // Crie uma instância de Customer informando o nome do cliente
+            $customer = $this->sale->customer('Fulano de Tal');
+
+            // Crie uma instância de Payment informando o valor do pagamento
+            $payment = $this->sale->payment(15700);
+
+            // Defina a URL de retorno para que o cliente possa voltar para a loja
+            // após a autenticação do cartão
+            $payment->setReturnUrl('http://localhost:8000/checkout');
+            $payment->setCapture(true);
+            $payment->setAuthenticate(true);
+
+            // Crie uma instância de Debit Card utilizando os dados de teste
+            // esses dados estão disponíveis no manual de integração
+            $payment->debitCard("123", CreditCard::VISA)
+                    ->setExpirationDate("12/2018")
+                    ->setCardNumber("0000000000000001")
+                    ->setHolder("Fulano de Tal");
+
+            // Crie o pagamento na Cielo
+            try {
+                // Configure o SDK com seu merchant e o ambiente apropriado para criar a venda
+                $sale = ($this->cielo)->createSale($this->sale);
+
+                // Com a venda criada na Cielo, já temos o ID do pagamento, TID e demais
+                // dados retornados pela Cielo
+                $paymentId = $sale->getPayment()->getPaymentId();
+                
+
+                // Utilize a URL de autenticação para redirecionar o cliente ao ambiente
+                // de autenticação do emissor do cartão
+                $authenticationUrl = $sale->getPayment()->getAuthenticationUrl();
+                echo $authenticationUrl;
+            } catch (CieloRequestException $e) {
+                // Em caso de erros de integração, podemos tratar o erro aqui.
+                // os códigos de erro estão todos disponíveis no manual de integração.
+                echo $error = $e->getCieloError();
+            }
         }
     }
 }
