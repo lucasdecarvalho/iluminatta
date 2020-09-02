@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-12 margin-tb">
             <div class="pull-left">
-                <h2>Lista de E-mails Newsletter</h2>
+                <h2>Lista de Newsletter</h2>
             </div>
         </div>
     </div>
