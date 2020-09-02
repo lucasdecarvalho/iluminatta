@@ -81,7 +81,7 @@
                 <span class="navbar-text p-0">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="../client">@if (Auth::check()) {{ "Olá, ". Auth::user()->name }} @else Login / Registro @endif</a>
+                            <a class="nav-link" href="/client">@if (Auth::check()) {{ "Olá, ". Auth::user()->name }} @else Login / Registro @endif</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('cart.index') }}">Carrinho</a>
