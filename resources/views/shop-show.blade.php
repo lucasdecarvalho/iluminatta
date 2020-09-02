@@ -49,7 +49,7 @@
          <div class="col-12 col-xl-3">
             <div class="card text-center">
                <a href="{{ route('shop.show',[$prod->category,$prod->id]) }}">
-               <img class="card-img-top" style="" src="{{ asset($prod->image1 ?? 'images/no-image.png') }}" alt="{{ $prod->name ?? null }}">
+               <img class="card-img-top" style="width:auto;height:140px;margin: 0 auto;" src="{{ asset($prod->image1 ?? 'images/no-image.png') }}" alt="{{ $prod->name ?? null }}">
                </a>
                <div class="card-body" style="height:140px;">
                   <h5 class="card-title">{{ $prod->name ?? null }}</h5>
