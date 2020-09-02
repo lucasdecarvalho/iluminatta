@@ -16,6 +16,7 @@ use Cart;
 use App\Sold;
 use App\Product;
 use App\Shop;
+use App\Coupon;
 use FlyingLuscas\Correios\Client;
 use FlyingLuscas\Correios\Service;
 
@@ -39,13 +40,49 @@ class CieloController extends CartController
     {
         $data = CartController::index();
         $shop = new Shop;
+        $shopc = new Coupon;
 
         $shop->final = $data->shop->final;
         $shop->fmt_final = $data->shop->fmt_final;
 
-        return view('checkout', compact('shop'));
+        return view('checkout', compact('shop','shopc'));
     }
     
+    public function coupon(Request $request)
+    {
+
+        $data = CartController::index();
+        $shopc = new Coupon;
+
+        if($coupon = Coupon::all()->where('cod',$request->cod)->first())
+        {
+    
+            $shopc->value = str_replace('.','',$data->shop->fmt_final);
+            $shopc->value = str_replace(',','.',$shopc->value);
+    
+            $shopc->discount = ($coupon->discount / 100) * $shopc->value;
+            
+            $shopc->final = $shopc->value - $shopc->discount;
+            $shopc->fmt_final = number_format($shopc->final,2,',','.');
+            $shopc->message = "Desconto aplicado com sucesso!";
+
+            return view('checkout',compact('coupon','shopc'));
+        }
+        else
+        {
+
+            $shop = new Shop;
+            $shop->final = $data->shop->final;
+            $shop->fmt_final = $data->shop->fmt_final;
+            
+            $shopc->message = "Cupom não encontrado";
+            
+            return view('checkout',compact('shop','shopc'));
+        }
+        
+        // dd($shopc);
+    }
+
     public function payer(Request $request)
     {
 

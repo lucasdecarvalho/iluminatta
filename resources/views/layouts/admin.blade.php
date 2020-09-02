@@ -85,7 +85,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="/admin/cupom">
+        <a class="nav-link" href="/admin/coupons">
           <i class="fas fa-ticket-alt"></i>
           <span>Cupons de Desconto</span></a>
       </li>

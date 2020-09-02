@@ -43,11 +43,15 @@
          <div class="row border rounded-top bg-light">
             <!-- cupom de desconto -->
             <div class="col-12 col-xl-6 mt-2 mb-2">
-               <input class="w-100 p-2 border rounded" type="text" name="cupom" placeholder="Cupom de desconto">
+               <form class="w-100 float-left" action="{{ route('checkout.coupon') }}" method="POST">
+                  @csrf
+                  <input class="w-100 p-2 border rounded" type="text" name="cod" placeholder="Cupom de desconto" value="@if(!!$shopc->fmt_final) {{ $coupon->cod ?? null }} @endif">
+               </form>
             </div>
             <!-- valor do total -->
             <div class="col-12 col-xl-6 text-center text-xl-right">
-               <h4 class="w-100 pt-3"><span style="font-size:.7em;">Total:</span> R$ {{ $shop->fmt_final }}</h4>
+               <h4 class="w-100 pt-3"><span style="font-size:.7em;">Total:</span> R$ {{ $shopc->fmt_final ?? $shop->fmt_final }}</h4>
+               <p class="w-100 text-primary">@if(!!$shopc->message) {{ $shopc->message }} @endif</p>
             </div>
          </div>
 
@@ -189,7 +193,7 @@
         </button>
       </div>
       <div class="modal-body text-center">
-        <p>Clique no botão abaixo para gerar sua fatura no valor de  <b>R$ {{ $shop->fmt_final }}</b>:</p>
+        <p>Clique no botão abaixo para gerar sua fatura no valor de  <b>R$ {{ $shopc->fmt_final ?? $shop->fmt_final }}</b>:</p>
         <form action="{{ route('checkout.payer') }}" target="_blank" method="POST">
             @csrf
             <input type="hidden" name="fpag" value="boleto">
