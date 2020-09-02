@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-12 margin-tb">
             <div class="pull-left">
-                <h2>Detalhes do Produto</h2>
+                <h2>Detalhes da Venda</h2>
             </div>
         </div>
     </div>
