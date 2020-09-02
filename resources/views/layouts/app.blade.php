@@ -142,9 +142,13 @@
                     <div class="row">
                         <div class="col-sm">
                         <div class="row">
-                            <form class="form-inline mb-3 w-100 w-xl-75">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Digite seu e-mail" aria-label="Search">
-                                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Assinar</button> -->
+                            <form action="{{ route('newsletter.store') }}" method="POST" class="form-inline mb-3 w-100 w-xl-75">
+                                @csrf
+                                <div class="form-row">
+                                    <input class="form-control mr-2" type="text" name="name" placeholder="Digite seu Nome" required>
+                                    <input class="form-control mr-2" type="text" name="email" placeholder="Digite seu E-mail" required>
+                                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Assinar</button>
+                                </div>
                             </form>
                         </div>
                         <div class="row">

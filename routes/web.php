@@ -52,6 +52,7 @@ Route::group(['prefix' => 'admin','middleware' => 'is_admin'], function() {
     Route::resource('sales', 'SoldController');
     Route::resource('categories', 'CategoryController');
     Route::resource('users', 'UserController');
+    Route::resource('newsletter', 'NewsletterController');
 });
 
 // Client
