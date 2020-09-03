@@ -108,7 +108,7 @@
                         @csrf
                         <input type="hidden" name="fpag" value="credit">
                         <div class="row">
-                           <div class="col-12 col-xl-6 mb-2 pr-0">
+                           <div class="col-12 col-xl-6 mb-2">
                               <select class="form-control" name="flag" id="flag" required>
                                     <option value="">Bandeira:</option>
                                     <option value="elo">Elo</option>
