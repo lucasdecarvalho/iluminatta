@@ -98,7 +98,7 @@
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="far fa-image"></i>
           <span>Banners</span>
@@ -110,7 +110,7 @@
             <a class="collapse-item" href="">Adicionar Banner</a>
           </div>
         </div>
-      </li>
+      </li> -->
 
       <!-- Nav Item - Pages Collapse Menu -->
       <!-- <li class="nav-item">
