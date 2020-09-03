@@ -111,9 +111,9 @@
                 </div>
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                     <ul class="navbar-nav">
-                        <div class="col-12 p-2 mt-3 mb-2 rounded d-xl-none border-bottom bg-dark">
+                        <div class="col-12 p-2 mt-3 mb-2 rounded d-xl-none bg-dark">
 
-                            <li class="nav-item p-2">
+                            <li class="nav-item  border-bottom p-2">
                                 <a class="nav-link text-light" href="/client"><i class="fas fa-user"></i> @if (Auth::check()) {{ "Olá, ". Auth::user()->name }} @else Login / Registro @endif</a>
                             </li>
                             <li class="nav-item p-2">
@@ -141,12 +141,12 @@
                     <div class="row">
                         <div class="col-12 col-xl-6">
                             <div class="row">
-                                <form action="{{ route('newsletter.store') }}" method="POST" class="form-inline mb-3 w-100 w-xl-75">
+                                <form class="form-inline mb-3 w-100 w-xl-75" action="{{ route('newsletter.store') }}" method="POST">
                                     @csrf
-                                    <div class="form-group">
-                                        <input class="form-control" type="text" name="name" placeholder="Digite seu Nome" required>
-                                        <input class="form-control" type="text" name="email" placeholder="Digite seu E-mail" required>
-                                        <button class="btn btn-outline-light" type="submit">Assinar</button>
+                                    <div class="form-row">
+                                        <input class="form-control mr-0 mr-xl-1 mt-0" type="text" name="name" placeholder="Digite seu Nome" required>
+                                        <input class="form-control mr-0 mr-xl-1 mt-2 mt-xl-0" type="text" name="email" placeholder="Digite seu E-mail" required>
+                                        <button class="btn btn-outline-light mt-2 mt-xl-0" type="submit">Assinar</button>
                                     </div>
                                 </form>
                             </div>
@@ -158,8 +158,8 @@
                             <div class="row">
                                 <ul class="mt-3" style="font-size:2rem;">
                                     <li class="float-left m-2"><a class="text-light" href="https://www.facebook.com/Iluminatta-654918827851954/" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
-                                    <!-- <li class="float-left m-2"><a class="text-light" href="http://" target="_blank"><i class="fab fa-twitter-square"></i></a></li> -->
                                     <li class="float-left m-2"><a class="text-light" href="https://www.instagram.com/iluminattastore/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                    <!-- <li class="float-left m-2"><a class="text-light" href="http://" target="_blank"><i class="fab fa-twitter-square"></i></a></li> -->
                                     <!-- <li class="float-left m-2"><a class="text-light" href="http://" target="_blank"><i class="fab fa-youtube"></i></a></li> -->
                                 </ul>
                             </div>
