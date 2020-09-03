@@ -38,6 +38,16 @@ class IndexController extends Controller
         
         $result = Product::where('name','like','%'.$keyword.'%')->get();
 
+        foreach($result as $p)
+        {
+            $slug = Category::where('id',$p->category)->get();
+            
+            foreach($slug as $ca)
+            {
+                $p->category = $ca->path;
+            }
+        }
+
         return view('search', compact('keyword','result'));
     }
 
