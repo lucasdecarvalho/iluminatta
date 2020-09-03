@@ -62,7 +62,7 @@
 <body>
     <div class="flex-center position-ref full-height">
         <!-- header -->
-        <div class="navbar p-1 d-none d-xl-block text-center" style="background:#b08bbe;">
+        <div class="navbar p-1 d-none text-center" style="background:#b08bbe;">
             <span class="w-100 text-light">Indique-nos a uma amiga ou amigo e ganhe 25% de desconto em sua próxima compra. Código: FRIENDS25</span>
             </div>
             <nav class="navbar sticky-top navbar-expand-md navbar-dark d-none d-md-block pt-0 pb-0" style="background:#2c1b47;border-bottom: solid 1px rgba(157, 111, 174, .3);">
