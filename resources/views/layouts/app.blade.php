@@ -99,9 +99,10 @@
                     <a href="/"><h1>Iluminatta</h1><i class="fas fa-seedling" style="position:absolute;margin-left:-0em;margin-top:-2em;font-size:1.2em;color:#ff7700;"></i></a>
                 </div>
                 <div class="col-4">
-                    <form class="form-inline mt-3 float-right w-75">
-                        <input class="form-control mr-sm-2 w-100" type="search" placeholder="Buscar" aria-label="Search">
-                        <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+                    <form action="{{ route('search.word') }}" method="GET" class="form-inline mt-3 float-right w-75">
+                        
+                        <input type="search" name="keyword" class="form-control mr-sm-2 w-75" placeholder="Buscar por produtos na loja" value="@if(isset($keyword)) {{$keyword}} @endif" aria-label="Search">
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -148,7 +149,7 @@
                                 <div class="form-row">
                                     <input class="form-control mr-2" type="text" name="name" placeholder="Digite seu Nome" required>
                                     <input class="form-control mr-2" type="text" name="email" placeholder="Digite seu E-mail" required>
-                                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Assinar</button>
+                                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Assinar</button>
                                 </div>
                             </form>
                         </div>

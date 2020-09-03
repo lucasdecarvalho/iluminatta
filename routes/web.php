@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // Main
 Route::get('/', 'IndexController@index')->name('index');
+Route::get('/search', 'IndexController@word')->name('search.word');
 
 Route::get('/shop', 'IndexController@index')->name('index');
 Route::get('/shop/{slug}', 'ShopController@index')->name('shop.index');

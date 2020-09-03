@@ -15,8 +15,7 @@ class IndexController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-
+    {        
         $pr = Product::offset(0)->limit(8)->orderBy('id','DESC')->where('status',true)->get();
         
         foreach ($pr as $p) {
@@ -31,6 +30,15 @@ class IndexController extends Controller
         }
         
         return view('index',compact('pr'));
+    }
+
+    public function word(Request $request)
+    {
+        $keyword = $request->keyword;
+        
+        $result = Product::where('name','like','%'.$keyword.'%')->get();
+
+        return view('search', compact('keyword','result'));
     }
 
 }
