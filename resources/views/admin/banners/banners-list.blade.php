@@ -5,6 +5,9 @@
             <div class="pull-left">
                 <h2>Lista de Banners</h2>
             </div>
+            <div class="col-6 col-xl-12 mb-4 text-center text-xl-right">
+                <a href="/admin/banners/create" class="btn btn-success">Adicionar Novo Banner</a>
+            </div>
         </div>
     </div>
    
@@ -21,7 +24,6 @@
             <th>Id</th>
             <th>Título</th>
             <th>Banner</th>
-            <th>Status</th>
             <th>Ação</th>
         </tr>
         @foreach ($banners as $bnr)
@@ -29,7 +31,6 @@
             <td>{{ $bnr->id }}</td>
             <td>{{ $bnr->title }}</td>
             <td class="text-center"><img style="width:auto;height:70px;" src="{{ asset($bnr->path ?? 'images/no-image.png') }}"></td>
-            <td>@if(!!$bnr->status) Publicado @else Escondido @endif</td>
             <td>
                 <form method="POST" action="{{ route('banners.destroy',$bnr->id) }}" >
                     @csrf

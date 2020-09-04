@@ -1,14 +1,23 @@
 @extends('layouts.app')
 @section('content')
    <!-- Slider -->
+   @if(!!$fbt)
    <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
          <div class="carousel-item active">
-            <img class="d-block w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dw15c39db0/images/homepage/hero-slider/25PercentOFF_ANSS_ONS_M1.jpg?sw=1680&sh=750&sm=fit&q=70" alt="First slide">
-            </div>
-            <div class="carousel-item">
-               <img class="d-block w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dwb3a6b667/images/homepage/M5/CodeFriends_25_GWP_ONS_M1_CHOICE.jpg?sw=1680&sh=750&sm=fit&q=70" alt="First slide">
+            @if(!empty($fbt->target)) <a href="{{ $fbt->target }}"> @endif
+               <img class="d-block w-100" src="{{ asset($fbt->path) }}" alt="{{ $fbt->title }}">
+            @if(!empty($fbt->target)) </a> @endif
          </div>
+         @foreach ($banners as $banner)
+            @if ($banner->place == 1 && $banner->path !== $fbt->path)
+               <div class="carousel-item">
+                  @if(!empty($banner->target)) <a href="{{ $banner->target }}"> @endif
+                     <img class="d-block w-100" src="{{ asset($banner->path) }}" alt="{{ $banner->title }}">
+                  @if(!empty($banner->target)) </a> @endif
+               </div>
+            @endif
+         @endforeach
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -19,6 +28,7 @@
       <span class="sr-only">Next</span>
       </a>
    </div>
+   @endif
    <!-- Slide end -->
    <!-- Content -->
    <div class="container">
@@ -44,14 +54,23 @@
    </div>
    <!-- Content end -->
    <!-- Slider -->
+   @if(!!$fbb)
    <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
          <div class="carousel-item active">
-            <img class="d-block w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dwb3a6b667/images/homepage/M5/CodeFriends_25_GWP_ONS_M1_CHOICE.jpg?sw=1680&sh=750&sm=fit&q=70" alt="Second slide">
+            @if(!empty($fbb->target)) <a href="{{ $fbb->target }}"> @endif
+               <img class="d-block w-100" src="{{ asset($fbb->path) }}" alt="{{ $fbb->title }}">
+               @if(!empty($fbb->target)) </a> @endif
          </div>
-         <div class="carousel-item">
-            <img class="d-block w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dw15c39db0/images/homepage/hero-slider/25PercentOFF_ANSS_ONS_M1.jpg?sw=1680&sh=750&sm=fit&q=70" alt="First slide">
-         </div>
+         @foreach ($banners as $banner)
+            @if ($banner->place == 2 && $banner->path !== $fbb->path)
+               <div class="carousel-item">
+                     @if(!empty($banner->target)) <a href="{{ $banner->target }}"> @endif
+                     <img class="d-block w-100" src="{{ asset($banner->path) }}" alt="{{ $banner->title }}">
+                     @if(!empty($banner->target)) </a> @endif
+               </div>
+            @endif
+         @endforeach
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -62,6 +81,7 @@
       <span class="sr-only">Next</span>
       </a>
    </div>
+   @endif
    <!-- Slide end -->
    <!-- Content -->
    <div class="container">

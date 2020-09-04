@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Index;
 use App\Product;
 use App\Category;
+use App\Banner;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -15,7 +16,11 @@ class IndexController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {        
+    {       
+        $fbt = Banner::where('place',1)->latest()->first() ?? null;
+        $fbb = Banner::where('place',2)->latest()->first() ?? null;
+        $banners = Banner::all();
+
         $pr = Product::offset(0)->limit(8)->orderBy('id','DESC')->where('status',true)->get();
         
         foreach ($pr as $p) {
@@ -29,7 +34,7 @@ class IndexController extends Controller
 
         }
         
-        return view('index',compact('pr'));
+        return view('index',compact('fbt','fbb','banners','pr'));
     }
 
     public function word(Request $request)

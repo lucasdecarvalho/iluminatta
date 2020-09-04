@@ -5,6 +5,9 @@
             <div class="pull-left">
                 <h2>Lista de Produtos</h2>
             </div>
+            <div class="col-6 col-xl-12 mb-4 text-center text-xl-right">
+                <a href="/admin/products/create" class="btn btn-success">Adicionar Novo Produto</a>
+            </div>
         </div>
     </div>
    
