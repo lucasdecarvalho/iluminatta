@@ -14,7 +14,9 @@ class BannerController extends Controller
      */
     public function index()
     {
-        //
+        $banners = Banner::all();
+
+        return view('admin.banners.banners-list',compact('banners'));
     }
 
     /**
@@ -24,7 +26,9 @@ class BannerController extends Controller
      */
     public function create()
     {
-        //
+        $banners = Banner::all();
+
+        return view('admin.banners.create',compact('banners'));
     }
 
     /**
@@ -35,7 +39,34 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fileUpload1' => 'image|mimes:jpeg,png,jpg,gif,svg',
+       ]);
+
+       if ($files = $request->file('fileUpload1')) {
+           $destinationPath = 'images/banners/'; // upload path
+           $profileImage1 = date('YmdHis') . "1." . $files->getClientOriginalExtension();
+           $files->move($destinationPath, $profileImage1);
+           $image1 = $destinationPath.$profileImage1;
+        }
+        else {
+            $image1 = null;
+        }
+        
+        $data = [
+            'place' => $request->place,
+            'title'  => $request->title,
+            'caption' => $request->caption,
+            'path' => $image1,
+            'code' => $request->code,
+            'target' => $request->target,
+            'status' => $request->status,
+        ];
+
+        Banner::create($data);
+   
+        return redirect()->route('banners.index')
+                        ->with('success','Banner registrado com sucesso!');
     }
 
     /**
@@ -80,6 +111,9 @@ class BannerController extends Controller
      */
     public function destroy(Banner $banner)
     {
-        //
+        $banner->delete();
+  
+        return redirect()->route('banners.index')
+                        ->with('success','Banner deletado com sucesso!');
     }
 }
