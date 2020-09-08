@@ -7,23 +7,20 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <!-- CSRF Token -->
-  <meta name="csrf-token" content="{{ csrf_token() }}">
-
   <title>Iluminatta - Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <!-- Styles -->
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+  <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css"> -->
   <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
-  <link href="{{ asset('css/details.css') }}" rel="stylesheet" type="text/css">
+  <!-- <link href="{{ asset('css/details.css') }}" rel="stylesheet" type="text/css"> -->
+
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,600&Libre+Baskerville:wght@700&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Amita:wght@400&display=swap" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,600&Libre+Baskerville:wght@700&display=swap" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Amita:wght@400&display=swap" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
@@ -400,7 +397,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }} {{ auth()->user()->lastname }}</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTTOEXks58IgkO6NsBY0CWCN-JSisPJhFA9Ow&usqp=CAU">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -422,7 +419,7 @@
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Sair
                 </a>
-              </div>
+                </div>
             </li>
 
           </ul>
@@ -483,19 +480,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function(){
-            $('.cpf').mask('000.000.000-00');
-            $('.cep').mask('00000-000');
-            $('.cel').mask('(00) 00000-0000');
-            $('.phone').mask('(00) 0000-0000');
-            $('.exp').mask('00/0000');
-            $('.cvv').mask('000');
-            $('.ccnumber').mask('0000 0000 0000 0000');
-            $('.money').mask('000.000.000.000.000,00', {reverse: true});
-            // $('.mixed').mask('AAA 000-S0S');
-        });
-    </script>
+    
     <!-- ANTERIOR ABAIXO -->
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -513,7 +498,25 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+    
+    <script>
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
 
+      $(document).ready(function(){
+            $('.cpf').mask('000.000.000-00');
+            $('.cep').mask('00000-000');
+            $('.cel').mask('(00) 00000-0000');
+            $('.phone').mask('(00) 0000-0000');
+            $('.exp').mask('00/0000');
+            $('.cvv').mask('000');
+            $('.ccnumber').mask('0000 0000 0000 0000');
+            $('.money').mask('000.000.000.000.000,00', {reverse: true});
+            // $('.mixed').mask('AAA 000-S0S');
+        });
+    </script>
+    
     </body>
 
     </html>

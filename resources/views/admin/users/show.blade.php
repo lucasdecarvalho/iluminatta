@@ -1,23 +1,20 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="row">
-        <div class="col-12 margin-tb">
-            <div class="pull-left">
-                <h2>Detalhes do Usuário</h2>
+
+    <div class="col-12 border bg-light rounded-top">
+        <div class="row">
+            <div class="col-12 col-xl-6 p-2 p-xl-4">
+                <h6 class="text-uppercase text-center text-xl-left font-weight-bold pt-2">Usuários</h6>
             </div>
         </div>
     </div>
    
-    <div class="row p-4 bg-white border rounded">
+    <div class="col-12 p-4 bg-white border border-top-0 rounded-bottom">
     
         <div class="col-12">
             <div class="row">
 
-    
-
                 <div class="col-12 mt-4 mb-4 p-2 border">Dados Pessoais:</div>
-
-
 
                 <div class="col-12 col-xl-6 pt-2 pb-2">
                     <strong>Nome Completo:</strong>
@@ -81,14 +78,15 @@
 
 
                 <div class="col-12 mt-4 mb-4 p-2 border-bottom"></div>
+        
+                <div class="col-12">
+                    <div class="row float-right">
+                        <a class="btn btn-primary mb-4" href="{{ route('users.index') }}"> Voltar</a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="col-12">
-            <div class="row float-right mt-4 mb-4">
-                <a class="btn btn-primary mb-4" href="{{ route('users.index') }}"> Voltar</a>
-            </div>
-        </div>
 
     </div>
 @endsection
