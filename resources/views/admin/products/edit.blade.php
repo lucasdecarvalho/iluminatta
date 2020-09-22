@@ -19,26 +19,29 @@
 
         <div class="table-responsive">
 
-            <form class="col-12" action="{{ route('products.update',$product->id) }}" method="POST">
+            <form class="col-12" action="{{ route('products.update',$product->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
                 <div class="col-12">
                     
-                    <!-- <div class="form-row">
+                    <div class="form-row">
                         <div class="form-group col-12 col-xl-4">
-                            <label for="">Imagem 1:</label>
-                            <input id="file-upload" type="file" name="fileUpload1" accept="image/*" onchange="readURL(this);">
+                            <label for="file-upload1">Selecione para alterar Imagem 1:</label>
+                            <input id="file-upload1" type="file" name="fileUpload1" accept="image/*" onchange="readURL(this);">
+                            <img class="w-50 mt-4 rounded bg-light" src="{{ asset($product->image1 ?? 'images/no-image.png') }}" alt="">
                         </div>
                         <div class="form-group col-12 col-xl-4">
-                            <label for="">Imagem 2:</label>
-                            <input id="file-upload" type="file" name="fileUpload2" accept="image/*" onchange="readURL(this);">
+                            <label for="file-upload2">Selecione para alterar Imagem 2:</label>
+                            <input id="file-upload2" type="file" name="fileUpload2" accept="image/*" onchange="readURL(this);">
+                            <img class="w-50 mt-4 rounded bg-light" src="{{ asset($product->image2 ?? 'images/no-image.png') }}" alt="">
                         </div>
                         <div class="form-group col-12 col-xl-4">
-                            <label for="">Imagem 3:</label>
-                            <input id="file-upload" type="file" name="fileUpload3" accept="image/*" onchange="readURL(this);">
+                            <label for="file-upload3">Selecione para alterar Imagem 3:</label>
+                            <input id="file-upload3" type="file" name="fileUpload3" accept="image/*" onchange="readURL(this);">
+                            <img class="w-50 mt-4 rounded bg-light" src="{{ asset($product->image3 ?? 'images/no-image.png') }}" alt="">
                         </div>
-                    </div> -->
+                    </div>
 
                     <div class="form-row">
                         <div class="form-group col-12 col-xl-6">

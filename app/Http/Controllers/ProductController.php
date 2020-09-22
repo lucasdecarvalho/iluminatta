@@ -140,9 +140,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-
-        $request->price = str_replace('.','',$request->price);
-        $request->price = str_replace(',','.',$request->price);
+        
+    //     $request->validate([
+    //         'fileUpload1' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+    //         'fileUpload2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+    //         'fileUpload3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+    //    ]);
 
         $data = [
             'name'  => $request->name,
@@ -155,11 +158,53 @@ class ProductController extends Controller
             'details' => $request->details,
         ];
 
-        // $request->validate([
-        //     'name' => 'required',
-        //     'price' => 'required',
-        //     ]);
-            
+       if ($files = $request->file('fileUpload1')) {
+           $destinationPath = 'images/'; // upload path
+           $profileImage1 = date('YmdHis') . "1." . $files->getClientOriginalExtension();
+           $files->move($destinationPath, $profileImage1);
+           $image1 = $destinationPath.$profileImage1;
+
+           if (isset($image1) && !empty($product->image1))
+           {
+                unlink($product->image1);
+            }
+            $data = [
+                'image1' => $image1,
+            ];
+        }
+
+       if ($files = $request->file('fileUpload2')) {
+           $destinationPath = 'images/'; // upload path
+           $profileImage2 = date('YmdHis') . "2." . $files->getClientOriginalExtension();
+           $files->move($destinationPath, $profileImage2);
+           $image2 = $destinationPath.$profileImage2;
+
+           if (isset($image2) && !empty($product->image2))
+           {
+                unlink($product->image2);
+            }
+            $data = [
+                'image2' => $image2,
+            ];
+        }
+
+       if ($files = $request->file('fileUpload3')) {
+           $destinationPath = 'images/'; // upload path
+           $profileImage3 = date('YmdHis') . "3." . $files->getClientOriginalExtension();
+           $files->move($destinationPath, $profileImage3);
+           $image3 = $destinationPath.$profileImage3;
+
+           if (isset($image3) && !empty($product->image3))
+           {
+                unlink($product->image3);
+            }
+            $data = [
+                'image3' => $image3,
+            ];
+        }
+
+        $request->price = str_replace('.','',$request->price);
+        $request->price = str_replace(',','.',$request->price);
 
         $product->update($data);
   
