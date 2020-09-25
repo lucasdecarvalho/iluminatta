@@ -30,16 +30,25 @@
                             <label for="file-upload1">Selecione para alterar Imagem 1:</label>
                             <input id="file-upload1" type="file" name="fileUpload1" accept="image/*" onchange="readURL(this);">
                             <img class="w-50 mt-4 rounded bg-light" src="{{ asset($product->image1 ?? 'images/no-image.png') }}" alt="">
+                            <div class="w-100 pt-2">
+                                <button type="submit" name="deleteImg1" class="btn btn-light text-danger" value="1">Excluir</button>
+                            </div>
                         </div>
                         <div class="form-group col-12 col-xl-4">
                             <label for="file-upload2">Selecione para alterar Imagem 2:</label>
                             <input id="file-upload2" type="file" name="fileUpload2" accept="image/*" onchange="readURL(this);">
                             <img class="w-50 mt-4 rounded bg-light" src="{{ asset($product->image2 ?? 'images/no-image.png') }}" alt="">
+                            <div class="w-100 pt-2">
+                                <button type="submit" name="deleteImg2" class="btn btn-light text-danger" value="1">Excluir</button>
+                            </div>
                         </div>
                         <div class="form-group col-12 col-xl-4">
                             <label for="file-upload3">Selecione para alterar Imagem 3:</label>
                             <input id="file-upload3" type="file" name="fileUpload3" accept="image/*" onchange="readURL(this);">
                             <img class="w-50 mt-4 rounded bg-light" src="{{ asset($product->image3 ?? 'images/no-image.png') }}" alt="">
+                            <div class="w-100 pt-2">
+                                <button type="submit" name="deleteImg3" class="btn btn-light text-danger" value="1">Excluir</button>
+                            </div>
                         </div>
                     </div>
 

@@ -140,18 +140,14 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        
-    //     $request->validate([
-    //         'fileUpload1' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
-    //         'fileUpload2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
-    //         'fileUpload3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
-    //    ]);
+
+        $data = [];
 
         $request->price = str_replace('.','',$request->price);
         $request->price = str_replace(',','.',$request->price);
 
         $data = [
-            'name'  => $request->name,
+            'name' => $request->name,
             'category' => $request->category,
             'caption' => $request->caption,
             'price' => $request->price,
@@ -160,6 +156,28 @@ class ProductController extends Controller
             'status' => $request->status,
             'details' => $request->details,
         ];
+
+        if($request->deleteImg1 == true)
+        {
+            unlink($product->image1);
+            $data = [
+               'image1' => null,
+            ];
+        }
+        if($request->deleteImg2 == true)
+        {
+            unlink($product->image2);
+            $data = [
+               'image2' => null,
+            ];
+        }
+        if($request->deleteImg3 == true)
+        {
+            unlink($product->image3);
+            $data = [
+               'image3' => null,
+            ];
+        }
 
        if ($files = $request->file('fileUpload1')) {
            $destinationPath = 'images/'; // upload path
@@ -225,4 +243,5 @@ class ProductController extends Controller
         return redirect()->route('products.index')
                         ->with('success','Produto deletado com sucesso!');
     }
+
 }
