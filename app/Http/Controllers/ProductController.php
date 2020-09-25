@@ -147,6 +147,9 @@ class ProductController extends Controller
     //         'fileUpload3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
     //    ]);
 
+        $request->price = str_replace('.','',$request->price);
+        $request->price = str_replace(',','.',$request->price);
+
         $data = [
             'name'  => $request->name,
             'category' => $request->category,
@@ -202,9 +205,6 @@ class ProductController extends Controller
                 'image3' => $image3,
             ];
         }
-
-        $request->price = str_replace('.','',$request->price);
-        $request->price = str_replace(',','.',$request->price);
 
         $product->update($data);
   
