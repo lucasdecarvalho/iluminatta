@@ -92,19 +92,48 @@
                   <h4>Forma de Pagamento</h4>
                      <div class="col-12">
                         <div class="row">
-                           <button class="btn btn-light active mr-1">Cartão de Crédito</button>
+                           <!-- <button class="btn btn-light active mr-1">Cartão de Crédito</button> -->
                            <!-- <form action="{{ route('checkout.payer') }}" method="POST">
                               @csrf
                               <input type="hidden" name="fpag" value="debito">
                               <button class="btn btn-light">Débito</button>
                            </form> -->
-                           <button class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Boleto Bancário</button>
+                           <!-- <button class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">Boleto Bancário</button> -->
                         </div>
                      </div>
                   </div>
                   <div class="col-12 pb-2">
+                     
+                     <form action="https://www.moip.com.br/PagamentoMoIP.do" target="_blank" method="post">
+                        <input type="hidden" name="id_carteira" value="contato@lucasdecarvalho.com.br">
+                        <input type="hidden" name="nome" value="Compra em Iluminatta">
+                        <input type="hidden" name="valor" value="{{ $shop->final }}">
+                        <input type="hidden" name="id_transacao" value="">
+                        <input type="hidden" name="descricao" value="Adicione aqui mais informações sobre o pagamento">
+                        <input type="hidden" name="frete" value="1">
+                        <input type="hidden" name="peso_compra" value="1000">
+
+                        <input type="hidden" name="pagador_nome" value="{{ auth()->user()->name ?? null }} {{ auth()->user()->lastname ?? null }}">
+                        <input type="hidden" name="pagador_cpf" value="{{ auth()->user()->doc ?? null }}">
+                        <input type="hidden" name="pagador_email" value="{{ auth()->user()->email ?? null }}">    
+                        <input type="hidden" name="pagador_telefone" value="{{ auth()->user()->phone1 ?? null }}">  
+                        
+                        <input type="hidden" name="pagador_logradouro" value="{{ auth()->user()->street ?? null }}"> 
+                        <input type="hidden" name="pagador_numero" value="{{ auth()->user()->number ?? null }}"> 
+                        <input type="hidden" name="pagador_complemento" value="{{ auth()->user()->comp ?? null }}">
+                        <input type="hidden" name="pagador_bairro" value="{{ auth()->user()->neigh ?? null }}">
+                        <input type="hidden" name="pagador_cep" value="{{ auth()->user()->zipcode ?? null }}">  
+                        <input type="hidden" name="pagador_cidade" value="{{ auth()->user()->city ?? null }}">
+                        <input type="hidden" name="pagador_estado" value="{{ auth()->user()->state ?? null }}">
+                        <input type="hidden" name="pagador_pais" value="Brasil">
+                        
+                        <!-- <input type="text" name="url_retorno" value="https://sualoja.com.br/notificacao/"> -->
+                        <!-- <input type='image' name='submit' src='https://desenvolvedor.moip.com.br/sandbox/imgs/buttons/bt_pagar_c02_e04.png' alt='Pagar via Moip' border='0' /> -->
+                        <button class="btn btn-primary btn-block" type="submit"><i class="far fa-credit-card"></i> Efetuar Pagamento</button>
+                     </form>
+
                      <!-- form credit -->
-                     <form class="needs-validation" action="{{ route('checkout.payer') }}" method="POST">
+                     <!-- <form class="needs-validation" action="{{ route('checkout.payer') }}" method="POST">
                         @csrf
                         <input type="hidden" name="fpag" value="credit">
                         <div class="row">
@@ -151,18 +180,14 @@
                         <div class="row">
                            <div class="col-12 mb-2">
                               <input type="text" name="holder" class="form-control" id="cc-name" placeholder="Nome completo (como impresso no cartão):" required>
-                              <!-- <small class="text-muted"></small> -->
                            </div>
-                           <!-- <div class="col-12 mb-2">
-                              <input type="number" name="doc" class="form-control" id="cc-number" placeholder="CPF:" required>
-                           </div> -->
                         </div>
                         <div class="row">
                            <div class="col-12">
                               <button class="btn btn-primary btn-block" type="submit"><i class="far fa-credit-card"></i> Efetuar Pagamento</button>
                            </div>
                         </div>
-                     </form>
+                     </form> -->
                   </div> <!-- fim form credit -->
                </div>
             </div>
