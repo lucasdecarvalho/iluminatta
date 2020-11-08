@@ -4,7 +4,7 @@
     <div class="col-12 border bg-light rounded-top">
         <div class="row">
             <div class="col-12 col-xl-6 p-2 p-xl-4">
-                <h6 class="text-uppercase text-center text-xl-left font-weight-bold pt-2">Banners</h6>
+                <h6 class="text-uppercase text-center text-xl-left font-weight-bold pt-2">Slides</h6>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
         </div>
         @endif
 
-        <form class="col-12" action="{{ route('banners.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="col-12" action="{{ route('slides.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
         
             <div class="row">
@@ -45,9 +45,8 @@
                             <label for="place">Localização:</label>
                             <select class="form-control" name="place" id="place" required>
                                 <option value="">Selecione...</option>
-                                    <option value="3">Primeiro Banner</option>
-                                    <option value="4">Segundo Banner</option>
-                                    <option value="5">Terceiro Banner</option>
+                                    <option value="1">Topo Home</option>
+                                    <option value="2">Meio Home</option>
                             </select>
                         </div>
                         <div class="form-group col-12 col-xl-6">
@@ -62,7 +61,7 @@
                 
                     <div class="form-row">
                         <div class="form-group col-12 text-right">
-                            <a class="btn btn-secondary" href="{{ route('banners.index') }}"> Voltar</a>
+                            <a class="btn btn-secondary" href="{{ route('slides.index') }}"> Voltar</a>
                             <button type="submit" class="btn btn-primary">Cadastrar</button>
                         </div>
                     </div>

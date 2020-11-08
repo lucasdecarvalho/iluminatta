@@ -4,10 +4,10 @@
     <div class="col-12 border bg-light rounded-top">
         <div class="row">
             <div class="col-12 col-xl-6 p-2 p-xl-4">
-                <h6 class="text-uppercase text-center text-xl-left font-weight-bold pt-2">Banners</h6>
+                <h6 class="text-uppercase text-center text-xl-left font-weight-bold pt-2">Slides</h6>
             </div>
             <div class="col-12 col-xl-6 p-2 pt-xl-4 pr-xl-4 text-center text-xl-right">
-                <a href="/admin/banners/create" class="btn btn-success">Adicionar <i class="fas fa-plus-circle"></i></a>
+                <a href="/admin/slides/create" class="btn btn-success">Adicionar <i class="fas fa-plus-circle"></i></a>
             </div>
         </div>
     </div>
@@ -28,15 +28,13 @@
                     <th>Banner</th>
                     <th><i class="fas fa-cogs"></i></th>
                 </tr>
-                @foreach ($banners as $bnr)
+                @foreach ($slides as $bnr)
                 <tr>
                     <td>{{ $bnr->id }}</td>
                     <td>{{ $bnr->title }}</td>
                     <td class="text-center"><img style="width:auto;height:70px;" src="{{ asset($bnr->path ?? 'images/no-image.png') }}"></td>
                     <td>
-                        <form action="{{ route('banners.destroy',$bnr->id) }}" method="POST">
-                            <!-- <a class="btn btn-info" href="{{ route('banners.show',$bnr->id) }}">Detalhes</a> -->
-                            <!-- <a class="btn btn-primary" href="{{ route('banners.edit',$bnr->id) }}" data-toggle="tooltip" data-placement="top" title="Editar"><i class="far fa-edit"></i></a> -->
+                        <form method="POST" action="{{ route('slides.destroy',$bnr->id) }}" >
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Deletar"><i class="fas fa-trash-alt"></i></button>

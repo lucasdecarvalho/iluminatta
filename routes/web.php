@@ -57,6 +57,7 @@ Route::group(['prefix' => 'admin','middleware' => 'is_admin'], function() {
     Route::resource('newsletter', 'NewsletterController');
     Route::resource('coupons', 'CouponController');
     Route::resource('banners', 'BannerController');
+    Route::resource('slides', 'SlideController');
 });
 
 // Client

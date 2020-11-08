@@ -9,12 +9,12 @@
                <img class="d-block w-100" src="{{ asset($fbt->path) }}" alt="{{ $fbt->title }}">
             @if(!empty($fbt->target)) </a> @endif
          </div>
-         @foreach ($banners as $banner)
-            @if ($banner->place == 1 && $banner->path !== $fbt->path)
+         @foreach ($slides as $slide)
+            @if ($slide->place == 1 && $slide->path !== $fbt->path)
                <div class="carousel-item">
-                  @if(!empty($banner->target)) <a href="{{ $banner->target }}"> @endif
-                     <img class="d-block w-100" src="{{ asset($banner->path) }}" alt="{{ $banner->title }}">
-                  @if(!empty($banner->target)) </a> @endif
+                  @if(!empty($slide->target)) <a href="{{ $slide->target }}"> @endif
+                     <img class="d-block w-100" src="{{ asset($slide->path) }}" alt="{{ $slide->title }}">
+                  @if(!empty($slide->target)) </a> @endif
                </div>
             @endif
          @endforeach
@@ -62,12 +62,12 @@
                <img class="d-block w-100" src="{{ asset($fbb->path) }}" alt="{{ $fbb->title }}">
                @if(!empty($fbb->target)) </a> @endif
          </div>
-         @foreach ($banners as $banner)
-            @if ($banner->place == 2 && $banner->path !== $fbb->path)
+         @foreach ($slides as $slide)
+            @if ($slide->place == 2 && $slide->path !== $fbb->path)
                <div class="carousel-item">
-                     @if(!empty($banner->target)) <a href="{{ $banner->target }}"> @endif
-                     <img class="d-block w-100" src="{{ asset($banner->path) }}" alt="{{ $banner->title }}">
-                     @if(!empty($banner->target)) </a> @endif
+                     @if(!empty($slide->target)) <a href="{{ $slide->target }}"> @endif
+                     <img class="d-block w-100" src="{{ asset($slide->path) }}" alt="{{ $slide->title }}">
+                     @if(!empty($slide->target)) </a> @endif
                </div>
             @endif
          @endforeach
@@ -86,36 +86,57 @@
    <!-- Content -->
    <div class="container">
       <div class="card-deck mt-4 mb-4">
+      @foreach ($banners as $banner)
+         @if ($banner->place == 3)
+                  
+         <div class="col-12 col-md-4">
          <div class="card border-0">
-            <a href="details">
-            <img class="rounded-circle w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dwc92530df/loyalty/loyalty-homepage-slot.jpg?sw=340&sh=340&sm=fit&q=70" alt="Card image cap">
-            </a>
+            <img class="rounded w-100" src="{{ asset($banner->path) }}" alt="{{ asset($banner->title) }}">
             <div class="card-body">
-               <!-- <h5 class="card-title">Card title</h5> -->
-               <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
-               <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">TORNE-SE UM MEMBRO</button> -->
+               <h5 class="card-title">{{ $banner->title ?? null }}</h5>
+               <p class="card-text">{{ $banner->caption ?? null }}</p>
+               @if(!empty($banner->target))<a href="{{ asset($banner->target ?? null) }}" class="btn btn-outline-success my-2 my-sm-0" target="_blank">Saiba Mais</a> @endif
             </div>
          </div>
+         </div>
+
+         @endif
+         @endforeach
+
+         @foreach ($banners as $banner)
+         @if ($banner->place == 4)
+                  
+         <div class="col-12 col-md-4">
          <div class="card border-0">
-            <a href="details">
-            <img class="rounded-circle w-100" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dwc96c0716/images/homepage/G2/UDAllAccess_G123_110515.jpg?sw=340&sh=340&sm=fit&q=70" alt="Card image cap">
-            </a>
+            <img class="rounded w-100" src="{{ asset($banner->path) }}" alt="{{ asset($banner->title) }}">
             <div class="card-body">
-               <!-- <h5 class="card-title">Card title</h5> -->
-               <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
-               <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">CONFIRA</button> -->
+               <h5 class="card-title">{{ $banner->title ?? null }}</h5>
+               <p class="card-text">{{ $banner->caption ?? null }}</p>
+               @if(!empty($banner->target))<a href="{{ asset($banner->target ?? null) }}" class="btn btn-outline-success my-2 my-sm-0" target="_blank">Saiba Mais</a> @endif
             </div>
          </div>
+         </div>
+
+         @endif
+         @endforeach
+
+         @foreach ($banners as $banner)
+         @if ($banner->place == 5)
+                  
+         <div class="col-12 col-md-4">
          <div class="card border-0">
-            <a href="details">
-            <img class="card-img-top" src="https://www.urbandecay.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-urbandecay-us-Library/default/dw55235f2f/images/homepage/G3/UVEdge_G3_030815.jpg?sw=340&sh=340&sm=fit&q=70" alt="Card image cap">
-            </a>
+            <img class="rounded w-100" src="{{ asset($banner->path) }}" alt="{{ asset($banner->title) }}">
             <div class="card-body">
-               <!-- <h5 class="card-title">Card title</h5> -->
-               <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
-               <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">SAIBA MAIS</button> -->
+               <h5 class="card-title">{{ $banner->title ?? null }}</h5>
+               <p class="card-text">{{ $banner->caption ?? null }}</p>
+               @if(!empty($banner->target))<a href="{{ asset($banner->target ?? null) }}" class="btn btn-outline-success my-2 my-sm-0" target="_blank">Saiba Mais</a> @endif
             </div>
          </div>
+         </div>
+
+         @endif
+         @endforeach
+
       </div>
    </div>
    <!-- Content end -->

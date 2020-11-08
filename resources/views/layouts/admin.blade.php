@@ -98,31 +98,31 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="far fa-image"></i>
-          <span>Banners</span>
+          <span>Sliders</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Escolha uma Ação:</h6>
-            <a class="collapse-item" href="/admin/banners">Listar Banners</a>
-            <a class="collapse-item" href="/admin/banners/create">Adicionar Banner</a>
+            <a class="collapse-item" href="/admin/slides">Listar Banners</a>
+            <a class="collapse-item" href="/admin/slides/create">Adicionar Banner</a>
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <!-- <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-          <i class="fas fa-exclamation-triangle"></i>
-          <span>Avisos</span>
+          <i class="far fa-image"></i>
+          <span>Banners</span>
         </a>
         <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Escolha uma Ação:</h6>
-            <a class="collapse-item" href="">Listar Avisos</a>
-            <a class="collapse-item" href="">Adicionar Aviso</a>
+            <a class="collapse-item" href="/admin/banners">Listar Banners</a>
+            <a class="collapse-item" href="/admin/banners/create">Alterar Banner</a>
           </div>
         </div>
-      </li> -->
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
