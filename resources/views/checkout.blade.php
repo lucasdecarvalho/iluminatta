@@ -89,7 +89,7 @@
             <div class="col-12 col-xl-6">
                <div class="row">
                   <div class="col-12 p-3">
-                  <h4>Forma de Pagamento</h4>
+                  <h4>Pagamento via Moip (Wirecard):</h4>
                      <div class="col-12">
                         <div class="row">
                            <!-- <button class="btn btn-light active mr-1">Cartão de Crédito</button> -->
@@ -105,7 +105,7 @@
                   <div class="col-12 pb-2">
                      
                      <form action="https://www.moip.com.br/PagamentoMoIP.do" target="_blank" method="post">
-                        <input type="hidden" name="id_carteira" value="contato@lucasdecarvalho.com.br">
+                        <input type="hidden" name="id_carteira" value="iluminatta@iluminatta.com.br">
                         <input type="hidden" name="nome" value="Compra em Iluminatta">
                         <input type="hidden" name="valor" value="{{ $shop->final }}">
                         <input type="hidden" name="id_transacao" value="">
