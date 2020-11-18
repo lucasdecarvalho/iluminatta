@@ -214,9 +214,9 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="https://www.cielo.com.br/" target="_blank">
+        <a class="nav-link" href="https://www.moip.com.br/" target="_blank">
           <i class="fas fa-dollar-sign"></i>
-          <span>Cielo ®</span></a>
+          <span>Moip (Wirecard) ®</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
